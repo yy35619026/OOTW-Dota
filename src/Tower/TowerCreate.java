@@ -50,13 +50,31 @@ public class TowerCreate {
 
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
+        frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
-        BackgroundPanel backgroundPanel = new BackgroundPanel("ArcherTower.png"); // 替换成你的图像文件路径
+        BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
 
+        ImageIcon icon = new ImageIcon("未命名1.png");
+        int newWidth = 90;
+        int newHeight = 160;
+
+        Image originalImage = icon.getImage();
+        Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
+
+        ImageIcon scaledIcon = new ImageIcon(scaledImage);
+        JLabel imageLabel = new JLabel(scaledIcon);
+
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 100;
+        constraints.gridy = 100;
+
+        constraints.gridwidth = newWidth;
+        constraints.gridheight = newHeight;
+
+        backgroundPanel.add(imageLabel, constraints);
         frame.setVisible(true);
     }
 }

@@ -4,6 +4,7 @@ import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 import javax.imageio.ImageIO;
+import Tower.TowerCreate;
 
 public class DotaJFrame extends JFrame {
     JButton new_game, end_game;
@@ -39,5 +40,10 @@ public class DotaJFrame extends JFrame {
         backgroundPanel.add(end_game, constraints);
 
         frame.setVisible(true);
+
+        new_game.addActionListener(e -> {
+            new TowerCreate().TowerCreates();
+            SwingUtilities.getWindowAncestor(new_game).dispose();
+        });
     }
 }

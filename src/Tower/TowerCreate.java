@@ -57,7 +57,7 @@ public class TowerCreate {
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
 
-        ImageIcon icon = new ImageIcon("未命名1.png");
+        ImageIcon icon = new ImageIcon("ArcherTower.png");
         int newWidth = 90;
         int newHeight = 160;
 

@@ -1,12 +1,19 @@
 package Tower;
 
 import javax.swing.*;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
 import java.awt.*;
 
 public class TowerCreate {
+    private JFrame frame;
+    private BackgroundPanel backgroundPanel;
+    private JLabel imageLabel;
+    private int newWidth = 90;
+    private int newHeight = 160;
     public void TowerCreates(){
         // 創建火焰塔
-        TowerFactory flameTowerFactory = new FlameTowerFactory();
+        /*TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
         Tower flameTower2 = flameTowerFactory.createTower();
 
@@ -46,35 +53,45 @@ public class TowerCreate {
         System.out.println("Tower 3 - Cost: " + archerTower3.getCost() + ", Damage: " + archerTower3.getDamage()
                 + ", Level: " + archerTower3.getLevel());
         System.out.println("Tower 4 - Cost: " + archerTower4.getCost() + ", Damage: " + archerTower4.getDamage()
-                + ", Level: " + archerTower4.getLevel());
+                + ", Level: " + archerTower4.getLevel());*/
 
-        JFrame frame = new JFrame("關卡一");
+        frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
-        BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
-        backgroundPanel.setLayout(new GridBagLayout());
+        backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
+        backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 
         ImageIcon icon = new ImageIcon("ArcherTower.png");
-        int newWidth = 90;
-        int newHeight = 160;
-
         Image originalImage = icon.getImage();
         Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-
         ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        JLabel imageLabel = new JLabel(scaledIcon);
+        imageLabel = new JLabel(scaledIcon);
+        imageLabel.setBounds(200, 200, newWidth, newHeight);
+        backgroundPanel.add(imageLabel);
+        frame.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mousePressed(MouseEvent e) {
+                int mouseX = e.getX();
+                int mouseY = e.getY();
 
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 100;
-        constraints.gridy = 100;
+                updateImageLabelPosition(mouseX, mouseY);
+            }
+        });
+        frame.addMouseMotionListener(new MouseAdapter() {
+            @Override
+            public void mouseDragged(MouseEvent e) {
+                int mouseX = e.getX();
+                int mouseY = e.getY();
 
-        constraints.gridwidth = newWidth;
-        constraints.gridheight = newHeight;
-
-        backgroundPanel.add(imageLabel, constraints);
+                updateImageLabelPosition(mouseX, mouseY);
+            }
+        });
         frame.setVisible(true);
+    }
+    private void updateImageLabelPosition(int x, int y) {
+        imageLabel.setBounds(x - newWidth / 2, y - newHeight / 2, newWidth, newHeight);
     }
 }

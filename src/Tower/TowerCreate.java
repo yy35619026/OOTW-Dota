@@ -9,6 +9,7 @@ public class TowerCreate {
     private JLabel imageLabel;
     private final int newWidth = 90;
     private final int newHeight = 160;
+    private int offsetX, offsetY;
     public void TowerCreates(){
         // 創建火焰塔
         /*TowerFactory flameTowerFactory = new FlameTowerFactory();
@@ -69,27 +70,23 @@ public class TowerCreate {
         imageLabel = new JLabel(scaledIcon);
         imageLabel.setBounds(200, 200, newWidth, newHeight);
         backgroundPanel.add(imageLabel);
-        frame.addMouseListener(new MouseAdapter() {
+        imageLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
-                int mouseX = e.getX();
-                int mouseY = e.getY();
-
-                updateImageLabelPosition(mouseX, mouseY);
+                offsetX = e.getX();
+                offsetY = e.getY();
             }
         });
-        frame.addMouseMotionListener(new MouseAdapter() {
+
+        imageLabel.addMouseMotionListener(new MouseAdapter() {
             @Override
             public void mouseDragged(MouseEvent e) {
-                int mouseX = e.getX();
-                int mouseY = e.getY();
+                int mouseX = e.getXOnScreen();
+                int mouseY = e.getYOnScreen();
 
-                updateImageLabelPosition(mouseX, mouseY);
+                imageLabel.setLocation(mouseX - offsetX, mouseY - offsetY);
             }
         });
         frame.setVisible(true);
-    }
-    private void updateImageLabelPosition(int x, int y) {
-        imageLabel.setBounds(x - newWidth / 2, y - newHeight / 2, newWidth, newHeight);
     }
 }

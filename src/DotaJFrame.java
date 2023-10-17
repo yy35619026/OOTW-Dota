@@ -1,9 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
+import Tower.TowerCreate;
 
 public class DotaJFrame extends JFrame {
     JButton new_game, end_game;
@@ -11,7 +8,7 @@ public class DotaJFrame extends JFrame {
         //視窗
         JFrame frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
+        frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
         BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
@@ -39,5 +36,10 @@ public class DotaJFrame extends JFrame {
         backgroundPanel.add(end_game, constraints);
 
         frame.setVisible(true);
+
+        new_game.addActionListener(e -> {
+            new TowerCreate().TowerCreates();
+            SwingUtilities.getWindowAncestor(new_game).dispose();
+        });
     }
 }

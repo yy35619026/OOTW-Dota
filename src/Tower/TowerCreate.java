@@ -10,7 +10,7 @@ public class TowerCreate {
     private int offsetX, offsetY;
     public void TowerCreates(){
         // 創建火焰塔
-        /*TowerFactory flameTowerFactory = new FlameTowerFactory();
+        TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
         Tower flameTower2 = flameTowerFactory.createTower();
 
@@ -50,7 +50,7 @@ public class TowerCreate {
         System.out.println("Tower 3 - Cost: " + archerTower3.getCost() + ", Damage: " + archerTower3.getDamage()
                 + ", Level: " + archerTower3.getLevel());
         System.out.println("Tower 4 - Cost: " + archerTower4.getCost() + ", Damage: " + archerTower4.getDamage()
-                + ", Level: " + archerTower4.getLevel());*/
+                + ", Level: " + archerTower4.getLevel());
 
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

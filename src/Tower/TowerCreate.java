@@ -6,11 +6,9 @@ import java.awt.event.MouseEvent;
 import java.awt.*;
 
 public class TowerCreate {
-    private JFrame frame;
-    private BackgroundPanel backgroundPanel;
     private JLabel imageLabel;
-    private int newWidth = 90;
-    private int newHeight = 160;
+    private final int newWidth = 90;
+    private final int newHeight = 160;
     public void TowerCreates(){
         // 創建火焰塔
         /*TowerFactory flameTowerFactory = new FlameTowerFactory();
@@ -55,12 +53,12 @@ public class TowerCreate {
         System.out.println("Tower 4 - Cost: " + archerTower4.getCost() + ", Damage: " + archerTower4.getDamage()
                 + ", Level: " + archerTower4.getLevel());*/
 
-        frame = new JFrame("關卡一");
+        JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
-        backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
+        BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 

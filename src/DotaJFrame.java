@@ -1,3 +1,5 @@
+import Tower.TowerCreate;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -39,5 +41,10 @@ public class DotaJFrame extends JFrame {
         backgroundPanel.add(end_game, constraints);
 
         frame.setVisible(true);
+
+        new_game.addActionListener(e -> {
+            new TowerCreate().TowerCreates();
+            SwingUtilities.getWindowAncestor(new_game).dispose();
+        });
     }
 }

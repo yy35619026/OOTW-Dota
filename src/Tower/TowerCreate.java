@@ -9,10 +9,11 @@ public class TowerCreate {
     private JLabel imageLabel;
     private int offsetX, offsetY;
     public void TowerCreates(){
-        // 創建火焰塔0.0
         TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
         Tower flameTower2 = flameTowerFactory.createTower();
+        Tower flameTower3 = flameTowerFactory.createTower();
+        Tower flameTower4 = flameTowerFactory.createTower();
 
         // 創建雷電塔
         TowerFactory lightningTowerFactory = new LightningTowerFactory();

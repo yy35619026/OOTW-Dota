@@ -7,8 +7,6 @@ import java.awt.*;
 
 public class TowerCreate {
     private JLabel imageLabel;
-    private final int newWidth = 90;
-    private final int newHeight = 160;
     private int offsetX, offsetY;
     public void TowerCreates(){
         // 創建火焰塔
@@ -64,6 +62,8 @@ public class TowerCreate {
         frame.setContentPane(backgroundPanel);
 
         ImageIcon icon = new ImageIcon("ArcherTower.png");
+        final int newWidth = 90;
+        final int newHeight = 160;
         Image originalImage = icon.getImage();
         Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
         ImageIcon scaledIcon = new ImageIcon(scaledImage);

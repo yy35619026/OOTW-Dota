@@ -2,14 +2,11 @@ import Tower.TowerCreate;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import javax.imageio.ImageIO;
 
 public class DotaJFrame extends JFrame {
     JButton new_game, end_game;
-    public void init(){
+
+    public void init() {
         //視窗
         JFrame frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -27,7 +24,7 @@ public class DotaJFrame extends JFrame {
         constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
         //按鈕一些屬性設置
         Dimension buttonsize = new Dimension(150, 50);
-        Font buttonfont = new Font("Arial",Font.BOLD, 16);
+        Font buttonfont = new Font("Arial", Font.BOLD, 16);
         new_game = new JButton("New Game");
         end_game = new JButton("Exit");
         new_game.setFont(buttonfont);

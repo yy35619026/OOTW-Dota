@@ -10,8 +10,6 @@ public class TowerCreate {
         TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
         Tower flameTower2 = flameTowerFactory.createTower();
-        Tower flameTower3 = flameTowerFactory.createTower();
-        Tower flameTower4 = flameTowerFactory.createTower();
 
         // 創建雷電塔
         TowerFactory lightningTowerFactory = new LightningTowerFactory();
@@ -58,17 +56,6 @@ public class TowerCreate {
         BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
-/*
-        ImageIcon iconTower = new ImageIcon("ArcherTower.png");
-        final int TowerWidth = 90;
-        final int TowerHeight = 160;
-        Image originalTowerImage = iconTower.getImage();
-        Image scaledTowerImage = originalTowerImage.getScaledInstance(TowerWidth, TowerHeight, Image.SCALE_SMOOTH);
-        ImageIcon scaledTowerIcon = new ImageIcon(scaledTowerImage);
-        imageLabel = new JLabel(scaledTowerIcon);
-        imageLabel.setBounds(200, 200, TowerWidth, TowerHeight);
-        backgroundPanel.add(imageLabel);
-*/
         JButton imagechangeButton = getjButton("ChangeTower.png");
         JButton imagecloseButton = getjButton("CloseChange.png");
         backgroundPanel.add(imagechangeButton);
@@ -82,27 +69,8 @@ public class TowerCreate {
             backgroundPanel.remove(imagecloseButton);
             backgroundPanel.add(imagechangeButton);
         });
-/*
-        imageLabel.addMouseListener(new MouseAdapter() {
-            @Override
-            public void mousePressed(MouseEvent e) {
-                offsetX = e.getX();
-                offsetY = e.getY();
-            }
-        });
-
-        imageLabel.addMouseMotionListener(new MouseAdapter() {
-            @Override
-            public void mouseDragged(MouseEvent e) {
-                int mouseX = e.getXOnScreen();
-                int mouseY = e.getYOnScreen();
-
-                imageLabel.setLocation(mouseX - offsetX, mouseY - offsetY);
-            }
-        });*/
         frame.setVisible(true);
     }
-
     private static JButton getjButton(String image) {
         ImageIcon closeTower = new ImageIcon(image);
         final int closeW = 50;

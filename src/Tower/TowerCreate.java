@@ -57,20 +57,30 @@ public class TowerCreate {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
 
-        // 自定義面板的基礎構建
         BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
-
-        ImageIcon icon = new ImageIcon("ArcherTower.png");
-        final int newWidth = 90;
-        final int newHeight = 160;
-        Image originalImage = icon.getImage();
-        Image scaledImage = originalImage.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH);
-        ImageIcon scaledIcon = new ImageIcon(scaledImage);
-        imageLabel = new JLabel(scaledIcon);
-        imageLabel.setBounds(200, 200, newWidth, newHeight);
+/*
+        ImageIcon iconTower = new ImageIcon("ArcherTower.png");
+        final int TowerWidth = 90;
+        final int TowerHeight = 160;
+        Image originalTowerImage = iconTower.getImage();
+        Image scaledTowerImage = originalTowerImage.getScaledInstance(TowerWidth, TowerHeight, Image.SCALE_SMOOTH);
+        ImageIcon scaledTowerIcon = new ImageIcon(scaledTowerImage);
+        imageLabel = new JLabel(scaledTowerIcon);
+        imageLabel.setBounds(200, 200, TowerWidth, TowerHeight);
         backgroundPanel.add(imageLabel);
+*/
+        ImageIcon addTower = new ImageIcon("addTower.png");
+        final int addW = 50;
+        final int addH = 50;
+        Image originaladdImage = addTower.getImage();
+        Image scaledaddImage = originaladdImage.getScaledInstance(addW, addH, Image.SCALE_SMOOTH);
+        ImageIcon scaledaddIcon = new ImageIcon(scaledaddImage);
+        imageLabel = new JLabel(scaledaddIcon);
+        imageLabel.setBounds(300, 150, addW, addH);
+        backgroundPanel.add(imageLabel);
+/*
         imageLabel.addMouseListener(new MouseAdapter() {
             @Override
             public void mousePressed(MouseEvent e) {
@@ -87,7 +97,7 @@ public class TowerCreate {
 
                 imageLabel.setLocation(mouseX - offsetX, mouseY - offsetY);
             }
-        });
+        });*/
         frame.setVisible(true);
     }
 }

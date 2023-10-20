@@ -59,7 +59,7 @@ public class TowerCreate {
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         JButton imagechangeButton = getjButton("ChangeTower.png");
-        JButton imagecloseButton = getjButton("CloseChange.png");;
+        JButton imagecloseButton = getjButton("CloseChange.png");
         JButton imagearcherButton = getTowerjButton("ArcherTower.png", 0);
         JButton imagelightningButton = getTowerjButton("LightningTower.png", 1);
         backgroundPanel.add(imagechangeButton);

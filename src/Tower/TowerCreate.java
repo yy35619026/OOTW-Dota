@@ -6,6 +6,8 @@ import java.awt.event.MouseEvent;
 import java.awt.*;
 
 public class TowerCreate {
+    final int closeW = 50;
+    final int closeH = 50;
     public void TowerCreates(){
         TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
@@ -57,29 +59,52 @@ public class TowerCreate {
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         JButton imagechangeButton = getjButton("ChangeTower.png");
-        JButton imagecloseButton = getjButton("CloseChange.png");
+        JButton imagecloseButton = getjButton("CloseChange.png");;
+        JButton imagearcherButton = getTowerjButton("ArcherTower.png", 0);
+        JButton imagelightningButton = getTowerjButton("LightningTower.png", 1);
         backgroundPanel.add(imagechangeButton);
 
         imagechangeButton.addActionListener(e -> {
-            backgroundPanel.remove(imagechangeButton);
+            backgroundPanel.add(imagearcherButton);
+            backgroundPanel.add(imagelightningButton);
             backgroundPanel.add(imagecloseButton);
+            backgroundPanel.remove(imagechangeButton);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
         });
 
         imagecloseButton.addActionListener(e -> {
-            backgroundPanel.remove(imagecloseButton);
+            backgroundPanel.remove(imagearcherButton);
+            backgroundPanel.remove(imagelightningButton);
             backgroundPanel.add(imagechangeButton);
+            backgroundPanel.remove(imagecloseButton);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
+        imagearcherButton.addActionListener(e -> {
+        });
+
+        imagelightningButton.addActionListener(e -> {
         });
         frame.setVisible(true);
     }
-    private static JButton getjButton(String image) {
+    private JButton getjButton(String image) {
         ImageIcon closeTower = new ImageIcon(image);
-        final int closeW = 50;
-        final int closeH = 50;
         Image originalcloseImage = closeTower.getImage();
         Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW, closeH, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
         imagecloseButton.setBounds(300, 150, closeW, closeH);
+        return imagecloseButton;
+    }
+    private JButton getTowerjButton(String image, int d) {
+        ImageIcon closeTower = new ImageIcon(image);
+        Image originalcloseImage = closeTower.getImage();
+        Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW, closeH, Image.SCALE_SMOOTH);
+        ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
+        JButton imagecloseButton = new JButton(scaledcloseIcon);
+        imagecloseButton.setBounds(240 + d*60, 90, closeW, closeH);
         return imagecloseButton;
     }
 }

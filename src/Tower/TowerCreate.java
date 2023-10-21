@@ -1,9 +1,11 @@
 package Tower;
 
 import javax.swing.*;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.awt.*;
+import java.awt.image.BufferedImage;
+import javax.imageio.ImageIO;
+import java.io.File;
+import java.io.IOException;
 
 public class TowerCreate {
     final int closeW = 50;
@@ -39,11 +41,17 @@ public class TowerCreate {
         frame.setContentPane(backgroundPanel);
         JButton imagechangeButton = getjButton("ChangeTower.png");
         JButton imagecloseButton = getjButton("CloseChange.png");
-        JButton imagearcherchooseButton = getTowerChoosejButton("ArcherTower.png", 0);
+        JButton imagearcherchooseButton = getTowerChoosejButton("ArcherTowerPreview.png", 0);
         JButton imagelightningchooseButton = getTowerChoosejButton("LightningTower.png", 1);
         JButton imagearcherButton = getTowerjButton("ArcherTower.png");
         JButton imagelightningButton = getTowerjButton("LightningTower.png");
         backgroundPanel.add(imagechangeButton);
+
+        ImageIcon gifIcon = new ImageIcon("4cbe8d_f1ed2800a49649848102c68fc5a66e53mv2.gif"); // 替换为你的GIF图像文件路径
+        JLabel gifLabel = new JLabel(gifIcon);
+        gifLabel.setBounds(100, 100, gifIcon.getIconWidth(), gifIcon.getIconHeight());
+        frame.getContentPane().add(gifLabel);
+
 
         imagechangeButton.addActionListener(e -> {
             backgroundPanel.add(imagearcherchooseButton);
@@ -113,10 +121,10 @@ public class TowerCreate {
     private JButton getTowerChoosejButton(String image, int d) {
         ImageIcon closeTower = new ImageIcon(image);
         Image originalcloseImage = closeTower.getImage();
-        Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW, closeH, Image.SCALE_SMOOTH);
+        Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW + 20, closeH + 60, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
-        imagecloseButton.setBounds(addx1 - 60 + d*60, addy1 - 60, closeW, closeH);
+        imagecloseButton.setBounds(addx1 - 90 + d * 80, addy1 - 120, closeW + 20, closeH + 60);
         return imagecloseButton;
     }
     private JButton getTowerjButton(String image) {

@@ -10,7 +10,7 @@ public class DotaJFrame extends JFrame {
         //視窗
         JFrame frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
+        frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
         BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径

@@ -1,18 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="new project">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/Enemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/EnemyFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/FastEnemy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/FastEnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DotaJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotaJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,37 +20,26 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="PUSH_TAGS">
-      <GitPushTagMode>
-        <option name="argument" value="--tags" />
-        <option name="title" value="All" />
-      </GitPushTagMode>
+
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2WRMD7RqHfPETIblGabwrtCCCYD" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">
-    <property name="ChangesTree.GroupingKeys" value="module&#10;directory" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="configurable.group.editor" />
-  </component>
-  <component name="RecentsManager">
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="Enemy" />
+  
     </key>
   </component>
   <component name="RunManager">
@@ -112,7 +93,111 @@
       <option name="project" value="LOCAL" />
       <updated>1696694819419</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697547870321</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1697547870321</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697549144937</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1697549144937</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697549241413</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1697549241413</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697700121231</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1697700121231</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697713405046</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1697713405046</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697713595577</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1697713595577</updated>
+    </task>
+    <task id="LOCAL-00011" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697824215438</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1697824215438</updated>
+    </task>
+    <task id="LOCAL-00012" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697824278221</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1697824278221</updated>
+    </task>
+    <task id="LOCAL-00013" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697876647511</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1697876647511</updated>
+    </task>
+    <task id="LOCAL-00014" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697876713450</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1697876713450</updated>
+    </task>
+    <task id="LOCAL-00015" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697876759231</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1697876759231</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697878005997</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1697878005997</updated>
+    </task>
+    <task id="LOCAL-00017" summary="Changes">
+      <option name="closed" value="true" />
+      <created>1697878067098</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1697878067098</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -127,8 +212,10 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
-    <option name="LAST_COMMIT_MESSAGE" value="new project" />
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

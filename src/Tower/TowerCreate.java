@@ -36,7 +36,6 @@ public class TowerCreate {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
 
-        BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         JButton imagechangeButton = getjButton("ChangeTower.png");

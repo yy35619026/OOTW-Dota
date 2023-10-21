@@ -8,6 +8,8 @@ import java.awt.*;
 public class TowerCreate {
     final int closeW = 50;
     final int closeH = 50;
+    final int addx1 = 300;
+    final int addy1 = 150;
     public void TowerCreates(){
         TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
@@ -48,8 +50,6 @@ public class TowerCreate {
             backgroundPanel.add(imagelightningchooseButton);
             backgroundPanel.add(imagecloseButton);
             backgroundPanel.remove(imagechangeButton);
-            backgroundPanel.remove(imagearcherButton);
-            backgroundPanel.remove(imagelightningButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
@@ -68,6 +68,7 @@ public class TowerCreate {
             backgroundPanel.remove(imagelightningchooseButton);
             backgroundPanel.add(imagearcherButton);
             backgroundPanel.add(imagechangeButton);
+            imagechangeButton.setEnabled(false);
             System.out.println("Tower 1 - Cost: " + archerTower.getCost() + ", Damage: " + archerTower.getDamage()
                     + ", Level: " + archerTower.getLevel());
             backgroundPanel.remove(imagecloseButton);
@@ -80,9 +81,20 @@ public class TowerCreate {
             backgroundPanel.remove(imagelightningchooseButton);
             backgroundPanel.add(imagelightningButton);
             backgroundPanel.add(imagechangeButton);
+            imagechangeButton.setEnabled(false);
             System.out.println("Tower 1 - Cost: " + lightningTower.getCost() + ", Damage: " + lightningTower.getDamage()
                     + ", Level: " + lightningTower.getLevel());
             backgroundPanel.remove(imagecloseButton);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
+        imagearcherButton.addActionListener(e -> {
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
+        imagelightningButton.addActionListener(e -> {
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
@@ -95,7 +107,7 @@ public class TowerCreate {
         Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW, closeH, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
-        imagecloseButton.setBounds(300, 150, closeW, closeH);
+        imagecloseButton.setBounds(addx1, addy1, closeW, closeH);
         return imagecloseButton;
     }
     private JButton getTowerChoosejButton(String image, int d) {
@@ -104,7 +116,7 @@ public class TowerCreate {
         Image scaledcloseImage = originalcloseImage.getScaledInstance(closeW, closeH, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
-        imagecloseButton.setBounds(240 + d*60, 90, closeW, closeH);
+        imagecloseButton.setBounds(addx1 - 60 + d*60, addy1 - 60, closeW, closeH);
         return imagecloseButton;
     }
     private JButton getTowerjButton(String image) {
@@ -114,9 +126,9 @@ public class TowerCreate {
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
         if(image.equals("ArcherTower.png")){
-            imagecloseButton.setBounds(280, -10, 90, 160);
+            imagecloseButton.setBounds(addx1-20, addy1-160, 90, 160);
         } else if (image.equals("LightningTower.png")) {
-            imagecloseButton.setBounds(280, 48, 90, 102);
+            imagecloseButton.setBounds(addx1-20, addy1-102, 90, 102);
         }
         return imagecloseButton;
     }

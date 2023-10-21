@@ -15,16 +15,11 @@ public class TowerCreate {
 
         // 創建雷電塔
         TowerFactory lightningTowerFactory = new LightningTowerFactory();
-        Tower lightningTower1 = lightningTowerFactory.createTower();
-        Tower lightningTower2 = lightningTowerFactory.createTower();
-        Tower lightningTower3 = lightningTowerFactory.createTower();
+        Tower lightningTower = lightningTowerFactory.createTower();
 
         // 創建箭塔
         TowerFactory archerTowerFactory = new ArcherTowerFactory();
-        Tower archerTower1 = archerTowerFactory.createTower();
-        Tower archerTower2 = archerTowerFactory.createTower();
-        Tower archerTower3 = archerTowerFactory.createTower();
-        Tower archerTower4 = archerTowerFactory.createTower();
+        Tower archerTower = archerTowerFactory.createTower();
 
         // 列印塔的屬性
         System.out.println("Flame Towers:");
@@ -73,8 +68,8 @@ public class TowerCreate {
             backgroundPanel.remove(imagelightningchooseButton);
             backgroundPanel.add(imagearcherButton);
             backgroundPanel.add(imagechangeButton);
-            System.out.println("Tower 1 - Cost: " + archerTower1.getCost() + ", Damage: " + archerTower1.getDamage()
-                    + ", Level: " + archerTower1.getLevel());
+            System.out.println("Tower 1 - Cost: " + archerTower.getCost() + ", Damage: " + archerTower.getDamage()
+                    + ", Level: " + archerTower.getLevel());
             backgroundPanel.remove(imagecloseButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
@@ -85,8 +80,8 @@ public class TowerCreate {
             backgroundPanel.remove(imagelightningchooseButton);
             backgroundPanel.add(imagelightningButton);
             backgroundPanel.add(imagechangeButton);
-            System.out.println("Tower 1 - Cost: " + lightningTower1.getCost() + ", Damage: " + lightningTower1.getDamage()
-                    + ", Level: " + lightningTower1.getLevel());
+            System.out.println("Tower 1 - Cost: " + lightningTower.getCost() + ", Damage: " + lightningTower.getDamage()
+                    + ", Level: " + lightningTower.getLevel());
             backgroundPanel.remove(imagecloseButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();

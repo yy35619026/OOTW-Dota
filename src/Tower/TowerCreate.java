@@ -113,9 +113,9 @@ public class TowerCreate {
         Image scaledcloseImage = originalcloseImage.getScaledInstance(90, 160, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imagecloseButton = new JButton(scaledcloseIcon);
-        if(image == "ArcherTower.png"){
+        if(image.equals("ArcherTower.png")){
             imagecloseButton.setBounds(280, -10, 90, 160);
-        } else if (image == "LightningTower.png") {
+        } else if (image.equals("LightningTower.png")) {
             imagecloseButton.setBounds(280, 48, 90, 102);
         }
         return imagecloseButton;

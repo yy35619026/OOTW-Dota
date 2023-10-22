@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="１０／２２">
+    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="１０／２3">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/TowerPlacementArea.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -49,7 +48,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "cola",
     "last_opened_file_path": "D:/OOTW-Dota",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.0",
@@ -116,6 +115,7 @@
     <MESSAGE value="new project" />
     <MESSAGE value="Changes" />
     <MESSAGE value="１０／２２" />
-    <option name="LAST_COMMIT_MESSAGE" value="１０／２２" />
+    <MESSAGE value="１０／２3" />
+    <option name="LAST_COMMIT_MESSAGE" value="１０／２3" />
   </component>
 </project>

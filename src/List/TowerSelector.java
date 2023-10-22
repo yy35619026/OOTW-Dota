@@ -8,7 +8,7 @@ import javax.swing.JButton;
 public class TowerSelector {
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
-    final int Originalx1 = 300, Originalx1Center = Originalx1+AddCancelButW/2;
+    final int Originalx1 = 300;
     final int Originaly1 = 280;
     public void Background(){
 
@@ -20,122 +20,126 @@ public class TowerSelector {
         frame.setContentPane(backgroundPanel);
 
         int x = Originalx1, y = Originaly1;
+
         //+號按鈕
-        JButton imageaddButton = addcanceljButton("./pic_src/button/Add.png",x,y);
+        JButton imageAddButton = addCanceljButton("./pic_src/button/Add.png",x,y);
         //-號按鈕
-        JButton imagecancelButton = addcanceljButton("./pic_src/button/Cancel.png",x,y);
+        JButton imageCancelButton = addCanceljButton("./pic_src/button/Cancel.png",x,y);
         //箭塔選項
-        JButton imagearcherchooseButton = getTowerChoosejButton("./pic_src/ArcherTower.png",x,y, 0);
+        JButton imageArcherChooseButton = getTowerChoosejButton("./pic_src/ArcherTower.png",x,y, 0);
         //雷電塔選項
-        JButton imagelightningchooseButton = getTowerChoosejButton("./pic_src/LightningTower.png",x,y,1);
+        JButton imageLightningChooseButton = getTowerChoosejButton("./pic_src/LightningTower.png",x,y,1);
         //可樂塔選項
-        JButton imagecolachooseButton = getTowerChoosejButton("./pic_src/ColaTower.png",x,y,2);
+        JButton imageColaChooseButton = getTowerChoosejButton("./pic_src/ColaTower.png",x,y,2);
         //箭塔生成
-        JButton imagearcherButton = getTowerjButton("./pic_src/ArcherTower.png",x,y);
+        JButton imageArcherButton = getTowerjButton("./pic_src/ArcherTower.png",x,y);
         //雷電塔生成
-        JButton imagelightningButton = getTowerjButton("./pic_src/LightningTower.png",x,y);
+        JButton imageLightningButton = getTowerjButton("./pic_src/LightningTower.png",x,y);
         //可樂塔生成
         JButton imageColaButton = getTowerjButton("./pic_src/ColaTower.png",x,y);
         //賣出按鈕
-        JButton SellButton = sellsecapejButton("./pic_src/button/Gold.png",x,y);
+        JButton imageSellButton = getSellEscapejButton("./pic_src/button/Gold.png",x,y);
         //取消按鈕
-        JButton EscapeButton = sellsecapejButton("./pic_src/button/Escape.png",x,y);
+        JButton imageEscapeButton = getSellEscapejButton("./pic_src/button/Escape.png",x,y);
 
-        backgroundPanel.add(imageaddButton);
+        backgroundPanel.add(imageAddButton);
 
 
-        imageaddButton.addActionListener(e -> {
-            backgroundPanel.remove(imageaddButton);
-            backgroundPanel.add(imagearcherchooseButton);
-            backgroundPanel.add(imagelightningchooseButton);
-            backgroundPanel.add(imagecolachooseButton);
-            backgroundPanel.add(imagecancelButton);
+        imageAddButton.addActionListener(e -> {
+            backgroundPanel.remove(imageAddButton);
+            backgroundPanel.add(imageArcherChooseButton);
+            backgroundPanel.add(imageLightningChooseButton);
+            backgroundPanel.add(imageColaChooseButton);
+            backgroundPanel.add(imageCancelButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagecancelButton.addActionListener(e -> {
-            backgroundPanel.remove(imagearcherchooseButton);
-            backgroundPanel.remove(imagelightningchooseButton);
-            backgroundPanel.remove(imagecolachooseButton);
-            backgroundPanel.add(imageaddButton);
-            backgroundPanel.remove(imagecancelButton);
+        imageCancelButton.addActionListener(e -> {
+            backgroundPanel.remove(imageArcherChooseButton);
+            backgroundPanel.remove(imageLightningChooseButton);
+            backgroundPanel.remove(imageColaChooseButton);
+            backgroundPanel.add(imageAddButton);
+            backgroundPanel.remove(imageCancelButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagearcherchooseButton.addActionListener(e -> {
-            backgroundPanel.remove(imagearcherchooseButton);
-            backgroundPanel.remove(imagelightningchooseButton);
-            backgroundPanel.remove(imagecolachooseButton);
-            backgroundPanel.add(imagearcherButton);
-            imageaddButton.setEnabled(false);
-
-            backgroundPanel.remove(imagecancelButton);
+        imageArcherChooseButton.addActionListener(e -> {
+            backgroundPanel.remove(imageArcherChooseButton);
+            backgroundPanel.remove(imageLightningChooseButton);
+            backgroundPanel.remove(imageColaChooseButton);
+            backgroundPanel.add(imageArcherButton);
+            backgroundPanel.remove(imageCancelButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagelightningchooseButton.addActionListener(e -> {
-            backgroundPanel.remove(imagearcherchooseButton);
-            backgroundPanel.remove(imagelightningchooseButton);
-            backgroundPanel.remove(imagecolachooseButton);
-            backgroundPanel.add(imagelightningButton);
-            imageaddButton.setEnabled(false);
-
-            backgroundPanel.remove(imagecancelButton);
+        imageLightningChooseButton.addActionListener(e -> {
+            backgroundPanel.remove(imageArcherChooseButton);
+            backgroundPanel.remove(imageLightningChooseButton);
+            backgroundPanel.remove(imageColaChooseButton);
+            backgroundPanel.add(imageLightningButton);
+            backgroundPanel.remove(imageCancelButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagecolachooseButton.addActionListener(e -> {
-            backgroundPanel.remove(imagearcherchooseButton);
-            backgroundPanel.remove(imagelightningchooseButton);
-            backgroundPanel.remove(imagecolachooseButton);
+        imageColaChooseButton.addActionListener(e -> {
+            backgroundPanel.remove(imageArcherChooseButton);
+            backgroundPanel.remove(imageLightningChooseButton);
+            backgroundPanel.remove(imageColaChooseButton);
             backgroundPanel.add(imageColaButton);
-            imageaddButton.setEnabled(false);
-            backgroundPanel.remove(imagecancelButton);
+            backgroundPanel.remove(imageCancelButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagearcherButton.addActionListener(e -> {
-            backgroundPanel.add(EscapeButton);
-            backgroundPanel.add(SellButton);
-            imageaddButton.setEnabled(false);
+        imageArcherButton.addActionListener(e -> {
+            backgroundPanel.add(imageEscapeButton);
+            backgroundPanel.add(imageSellButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        imagelightningButton.addActionListener(e -> {
-            backgroundPanel.add(EscapeButton);
-            backgroundPanel.add(SellButton);
-            imageaddButton.setEnabled(false);
+        imageLightningButton.addActionListener(e -> {
+            backgroundPanel.add(imageEscapeButton);
+            backgroundPanel.add(imageSellButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
         imageColaButton.addActionListener(e -> {
-            backgroundPanel.add(EscapeButton);
-            backgroundPanel.add(SellButton);
-            imageaddButton.setEnabled(false);
+            backgroundPanel.add(imageEscapeButton);
+            backgroundPanel.add(imageSellButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
 
-        EscapeButton.addActionListener(e -> {
-            backgroundPanel.remove(EscapeButton);
-            backgroundPanel.remove(SellButton);
-            imageaddButton.setEnabled(false);
+        imageEscapeButton.addActionListener(e -> {
+            backgroundPanel.remove(imageEscapeButton);
+            backgroundPanel.remove(imageSellButton);
             backgroundPanel.revalidate();
             backgroundPanel.repaint();
         });
+
+        imageSellButton.addActionListener(e -> {
+            backgroundPanel.remove(imageEscapeButton);
+            backgroundPanel.remove(imageSellButton);
+            backgroundPanel.remove(imageColaButton);
+            backgroundPanel.remove(imageArcherButton);
+            backgroundPanel.remove(imageLightningButton);
+            backgroundPanel.add(imageAddButton);
+            backgroundPanel.revalidate();
+            backgroundPanel.repaint();
+        });
+
 
 
         frame.setVisible(true);
     }
     //創建＋-符號
-    private JButton addcanceljButton(String image, int x, int y) {
+    private JButton addCanceljButton(String image, int x, int y) {
         ImageIcon imageoptionbut = new ImageIcon(image);
         Image originaloptionbut = imageoptionbut.getImage();
         Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_SMOOTH);
@@ -155,7 +159,7 @@ public class TowerSelector {
         Image scaledcloseImage = originalchooseImage.getScaledInstance(45, 80, Image.SCALE_SMOOTH);
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imageoptionButton = new JButton(scaledcloseIcon);
-        imageoptionButton.setBounds((Originalx1Center - 90 + (d * 67)), Originaly1-80, 45, 80);
+        imageoptionButton.setBounds(x + 25 - 90 + d * 67, y - 80, 45, 80);
         imageoptionButton.setFocusPainted(false);
         imageoptionButton.setOpaque(false);
         imageoptionButton.setContentAreaFilled(false);
@@ -170,11 +174,11 @@ public class TowerSelector {
         ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
         JButton imageoptionButton = new JButton(scaledcloseIcon);
         if(image.equals("./pic_src/ArcherTower.png")){
-            imageoptionButton.setBounds(Originalx1 - 42, Originaly1 - 160, 135, 240);
+            imageoptionButton.setBounds(x - 42, y - 160, 135, 240);
         } else if (image.equals("./pic_src/LightningTower.png")) {
-            imageoptionButton.setBounds(Originalx1 - 42, Originaly1 - 160, 135, 240);
+            imageoptionButton.setBounds(x - 42, y - 160, 135, 240);
         } else if (image.equals("./pic_src/ColaTower.png")) {
-            imageoptionButton.setBounds(Originalx1 - 42, Originaly1 - 160, 135, 240);
+            imageoptionButton.setBounds(x - 42, y - 160, 135, 240);
         }
         imageoptionButton.setFocusPainted(false);
         imageoptionButton.setOpaque(false);
@@ -182,16 +186,16 @@ public class TowerSelector {
         imageoptionButton.setBorderPainted(false);
         return imageoptionButton;
     }
-    private JButton sellsecapejButton(String image, int x, int y) {
+    private JButton getSellEscapejButton(String image, int x, int y) {
         ImageIcon imageoptionbut = new ImageIcon(image);
         Image originaloptionbut = imageoptionbut.getImage();
-        Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_SMOOTH);
+        Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_AREA_AVERAGING);
         ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
         JButton imageoptionButton = new JButton(scaledoptionIcon);
         if(image.equals("./pic_src/button/Gold.png")){
-            imageoptionButton.setBounds(Originalx1 - 35, Originaly1 + 80, 50, 50);
+            imageoptionButton.setBounds(x - 35, y + 80, 50, 50);
         } else if (image.equals("./pic_src/button/Escape.png")) {
-            imageoptionButton.setBounds(Originalx1 + 35, Originaly1 + 80, 50, 50);
+            imageoptionButton.setBounds(x + 35, y + 80, 50, 50);
         }
         imageoptionButton.setFocusPainted(false);
         imageoptionButton.setOpaque(false);

@@ -4,34 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/pic_src/ArcherTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Escape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/GG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Gold.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/ColaTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/LightningTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/TowerDefenceGame_Map.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/List/BackgroundPanel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/List/TowerPlacementArea.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
+    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="１０／２２">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArcherTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArcherTowerPreview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloseChange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LightningTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TowerDefenceGame_Map.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changeTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackgroundPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DotaJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotaJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/B.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/List/TowerPlacementArea.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -113,6 +89,15 @@
       <option name="presentableId" value="Default" />
       <updated>1697900088503</updated>
     </task>
+    <task id="LOCAL-00001" summary="１０／２２">
+      <option name="closed" value="true" />
+      <created>1697980756816</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1697980756816</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,6 +115,7 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
     <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+    <MESSAGE value="１０／２２" />
+    <option name="LAST_COMMIT_MESSAGE" value="１０／２２" />
   </component>
 </project>

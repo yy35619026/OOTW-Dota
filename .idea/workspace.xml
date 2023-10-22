@@ -4,7 +4,35 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-
+    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="Changes">
+      <change afterPath="$PROJECT_DIR$/pic_src/ArcherTower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Add.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Cancel.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Escape.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/GG.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Gold.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Heart.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/Button/Menu.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/ColaTower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/LightningTower.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/TowerDefenceGame_Map.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/pic_src/test.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/List/BackgroundPanel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/List/TowerPlacementArea.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArcherTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArcherTowerPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloseChange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LightningTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TowerDefenceGame_Map.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/changeTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/BackgroundPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/DotaJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotaJFrame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/List/B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,13 +41,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -27,9 +57,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;&quot;,
-
-}</component>
+    &quot;customColor&quot;: &quot;&quot;,
+    &quot;associatedIndex&quot;: 1
+    }</component>
   <component name="ProjectId" id="2WRMD7RqHfPETIblGabwrtCCCYD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
@@ -38,7 +68,28 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "master",
+    "last_opened_file_path": "D:/OOTW-Dota",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0"
+  },
+  "keyToStringList": {
+    "ChangesTree.GroupingKeys": [
+      "module"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\OOTW-Dota" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Main" />
@@ -56,41 +107,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="" />
-      <created>1696690818546</created>
+      <changelist id="ab992c51-912d-4a5b-a34b-38ae33f8f17b" name="Changes" comment="" />
+      <created>1697900088503</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1696690818546</updated>
+      <updated>1697900088503</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
-    </task>
-    <task id="LOCAL-00002" summary="new project">
-      <created>1696692572434</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1696692572434</updated>
-    </task>
-    <task id="LOCAL-00003" summary="new project">
-      <created>1696693982138</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1696693982138</updated>
-    </task>
-    <task id="LOCAL-00004" summary="new project">
-      <created>1696694819419</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1696694819419</updated>
-    </task>
-
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -107,6 +129,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
-
+    <MESSAGE value="Changes" />
+    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
   </component>
 </project>

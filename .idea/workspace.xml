@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="02a59395-68b1-49e7-8819-a9646e2c48e9" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Enemy/EnemyTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/EnemyTileManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/GameScreen.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Enemy/LoadTile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/Free Sprites 1x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/Free Sprites 2x.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/res/Free Sprites 4x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/DotaJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/DotaJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/BasicEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/BasicEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/Enemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/EnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/FastEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/FastEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/FastEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/FastEnemyFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/test.java" beforeDir="false" />
+    <list default="true" id="94c9793f-a31d-4d9e-8851-8cd32c1f1db3" name="Changes" comment="Created an enemy and made it move.&#10;I added a button on the menu screen to create a JFrame, purely for testing purposes.">
       <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -37,7 +21,13 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RESET_MODE" value="MIXED" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,9 +41,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="ChangesTree.GroupingKeys" value="directory" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -72,18 +60,18 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="02a59395-68b1-49e7-8819-a9646e2c48e9" name="Changes" comment="" />
+      <changelist id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="" />
       <created>1696690818546</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696690818546</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
+    <task id="LOCAL-00001" summary="Created an enemy and made it move.&#10;I added a button on the menu screen to create a JFrame, purely for testing purposes.">
+      <created>1698003436134</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
+      <updated>1698003436134</updated>
     </task>
     <task id="LOCAL-00002" summary="new project">
       <created>1696692572434</created>
@@ -106,6 +94,7 @@
       <option name="project" value="LOCAL" />
       <updated>1696694819419</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -113,7 +102,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="origin/snow77780" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>

@@ -17,9 +17,9 @@ public class TowerSelector {
         frame.setContentPane(backgroundPanel);
 
         //+號按鈕
-        JButton[] imageAddButton = getAddjButton("./pic_src/button/Add.png");
+        JButton[] imageAddButton = getAddCanceljButton("./pic_src/button/Add.png");
         //-號按鈕
-        JButton[] imageCancelButton = getCanceljButton("./pic_src/button/Cancel.png");
+        JButton[] imageCancelButton = getAddCanceljButton("./pic_src/button/Cancel.png");
         //箭塔選項
         JButton[] imageArcherChooseButton = getTowerChoosejButton("./pic_src/ArcherTower.png", 0);
         //雷電塔選項
@@ -201,26 +201,8 @@ public class TowerSelector {
         }
         frame.setVisible(true);
     }
-    //創建＋符號
-    private JButton[] getAddjButton(String image) {
-        JButton[] buttons = new JButton[Originalx.length];
-        for (int i = 0; i < Originalx.length; i++) {
-            ImageIcon imageOptionPath = new ImageIcon(image);
-            Image originaloptionbut = imageOptionPath.getImage();
-            Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_SMOOTH);
-            ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
-            JButton imageoptionButton = new JButton(scaledoptionIcon);
-            imageoptionButton.setFocusPainted(false);
-            imageoptionButton.setOpaque(false);
-            imageoptionButton.setContentAreaFilled(false);
-            imageoptionButton.setBorderPainted(false);
-            imageoptionButton.setBounds(Originalx[i], Originaly[i], AddCancelButW, AddCancelButH);
-            buttons[i] = imageoptionButton;
-        }
-        return buttons;
-    }
-    //創建-符號
-    private JButton[] getCanceljButton(String image) {
+    //創建+-符號
+    private JButton[] getAddCanceljButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
         for (int i = 0; i < Originalx.length; i++) {
             ImageIcon imageOptionPath = new ImageIcon(image);

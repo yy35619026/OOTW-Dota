@@ -1,3 +1,4 @@
+import Enemy.EnemyTest;
 import Tower.TowerCreate;
 
 import javax.swing.*;
@@ -5,6 +6,7 @@ import java.awt.*;
 
 public class DotaJFrame extends JFrame {
     JButton new_game, end_game;
+    JButton enemy;//enemy測試
 
     public void init() {
         //視窗
@@ -42,6 +44,17 @@ public class DotaJFrame extends JFrame {
         new_game.addActionListener(e -> {
             new TowerCreate().TowerCreates();
             SwingUtilities.getWindowAncestor(new_game).dispose();
+        });
+
+        //just test enemy , it can delete.
+        enemy = new JButton("Enemy Test");
+        enemy.setFont(buttonfont);
+        enemy.setPreferredSize(buttonsize);
+        constraints.gridy = 2; // Y軸位置為2
+        backgroundPanel.add(enemy, constraints);
+
+        enemy.addActionListener(e -> {
+            new EnemyTest();
         });
     }
 }

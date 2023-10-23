@@ -1,6 +1,6 @@
 import Enemy.EnemyTest;
 import Tower.TowerCreate;
-
+import List.*;
 import javax.swing.*;
 import java.awt.*;
 
@@ -42,7 +42,7 @@ public class GameScreen extends JFrame {
         frame.setVisible(true);
 
         new_game.addActionListener(e -> {
-            new TowerCreate().TowerCreates();
+            new TowerSelector().Background();
             SwingUtilities.getWindowAncestor(new_game).dispose();
         });
 

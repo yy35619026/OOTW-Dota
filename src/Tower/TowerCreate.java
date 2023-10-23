@@ -12,6 +12,8 @@ public class TowerCreate {
     final int closeH = 50;
     final int addx1 = 300;
     final int addy1 = 150;
+
+
     public void TowerCreates(){
         TowerFactory flameTowerFactory = new FlameTowerFactory();
         Tower flameTower1 = flameTowerFactory.createTower();
@@ -35,7 +37,7 @@ public class TowerCreate {
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
-        BackgroundPanel backgroundPanel = new BackgroundPanel("TowerDefenceGame_Map.jpg");
+
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         JButton imagechangeButton = getjButton("ChangeTower.png");

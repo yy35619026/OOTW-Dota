@@ -4,7 +4,7 @@ public class BasicEnemyFactory implements EnemyFactory{
 
 
     @Override
-    public Enemy CreatEnemy() {
-        return new BasicEnemy("light" ,100,5);
+    public Enemy CreatEnemy(float x,float y,int id, int enemyType) {
+        return new BasicEnemy(x, y, id, enemyType);
     }
 }

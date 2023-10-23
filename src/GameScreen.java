@@ -4,7 +4,7 @@ import Tower.TowerCreate;
 import javax.swing.*;
 import java.awt.*;
 
-public class DotaJFrame extends JFrame {
+public class GameScreen extends JFrame {
     JButton new_game, end_game;
     JButton enemy;//enemy測試
 

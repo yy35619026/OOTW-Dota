@@ -2,7 +2,7 @@ package Enemy;
 
 public class BasicEnemy extends Enemy{
 
-    public BasicEnemy(String type, int health, int speed) {
-        super(type, health, speed);
+    public BasicEnemy(float x,float y,int id, int enemyType) {
+        super(x,y,id,enemyType);
     }
 }

@@ -1,3 +1,5 @@
+package Backpaint;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -7,6 +9,14 @@ import java.io.IOException;
 
 public class BackgroundPanel extends JPanel {
     private BufferedImage backgroundImage;
+    private int circleX, circleY, circleRadius;
+    private boolean circleshouldDrawCircle;
+    public void setCircle(int x, int y, int radius, boolean shouldDrawCircle) {
+        circleX = x;
+        circleY = y;
+        circleRadius = radius;
+        circleshouldDrawCircle = shouldDrawCircle;
+    }
 
     public BackgroundPanel(String imagePath) {
         try {
@@ -20,8 +30,14 @@ public class BackgroundPanel extends JPanel {
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         if (backgroundImage != null) {
-            // 绘制背景图片
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
+        System.out.println(circleX + " " + circleY);
+        if(circleshouldDrawCircle){
+            Graphics2D g2d = (Graphics2D) g;
+            g2d.setColor(new Color(255, 0, 0, 100));
+            g2d.setStroke(new BasicStroke(2.0f));
+            g2d.drawOval(circleX - circleRadius / 2 + 25, circleY - circleRadius / 2 + 25, circleRadius, circleRadius);
         }
     }
 }

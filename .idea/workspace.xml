@@ -4,30 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pic_src/ArcherTowerPreview.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/ArcherTower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/ArcherTowerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/FlameTower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/FlameTowerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/LightningTower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/LightningTowerFactory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/Tower.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Tower1/TowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArcherTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/ArcherTowerPreview.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CloseChange.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/LightningTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/TowerDefenceGame_Map.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/changeTower.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/BackgroundPanel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
-    </list>
+    <list default="true" id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,12 +64,12 @@
       <option name="presentableId" value="Default" />
       <updated>1696690818546</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
+    <task id="LOCAL-00001" summary="Merge 1">
+      <created>1698762191085</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
+      <updated>1698762191086</updated>
     </task>
     <task id="LOCAL-00002" summary="new project">
       <created>1696692572434</created>
@@ -115,6 +92,7 @@
       <option name="project" value="LOCAL" />
       <updated>1696694819419</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -131,5 +109,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
+    <MESSAGE value="Merge 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge 1" />
   </component>
 </project>

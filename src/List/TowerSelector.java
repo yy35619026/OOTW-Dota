@@ -1,9 +1,8 @@
 package List;
 
-import Backpaint.BackgroundPanel;
-
 import javax.swing.*;
 import java.awt.*;
+import Backpaint.BackgroundPanel;
 public class TowerSelector {
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
@@ -12,7 +11,6 @@ public class TowerSelector {
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
     private int circleRadius;
-
     public void Background() {
 
         JFrame frame = new JFrame("關卡一");
@@ -142,6 +140,7 @@ public class TowerSelector {
                     circleX = Originalx[index];
                     circleY = Originaly[index];
                     circleRadius = 300;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -160,6 +159,7 @@ public class TowerSelector {
                     circleX = Originalx[index];
                     circleY = Originaly[index];
                     circleRadius = 250;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -178,6 +178,7 @@ public class TowerSelector {
                     circleX = Originalx[index];
                     circleY = Originaly[index];
                     circleRadius = 200;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -223,7 +224,7 @@ public class TowerSelector {
         }
         frame.setVisible(true);
     }
-    //創建+-符號
+    //創建＋-符號
     private JButton[] getAddCanceljButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
         for (int i = 0; i < Originalx.length; i++) {

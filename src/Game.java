@@ -1,6 +1,6 @@
 import Backpaint.DotaJFrame;
 
-public class Main {
+public class Game {
     public static void main(String[] args) {
         new DotaJFrame().init();
     }

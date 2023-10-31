@@ -1,5 +1,6 @@
+package Backpaint;
+
 import Enemy.EnemyTest;
-import Tower.TowerCreate;
 import List.*;
 import javax.swing.*;
 import java.awt.*;
@@ -15,7 +16,7 @@ public class GameScreen extends JFrame {
         frame.setSize(800, 450);
 
         // 自定義面板的基礎構建
-        BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg"); // 替换成你的图像文件路径
+        BackgroundPanel backgroundPanel = new BackgroundPanel("./pic_src/test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
 

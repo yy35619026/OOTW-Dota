@@ -1,14 +1,17 @@
 package List;
-import Tower.BackgroundPanel;
+
+import Backpaint.BackgroundPanel;
 
 import javax.swing.*;
 import java.awt.*;
-
 public class TowerSelector {
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
+    private boolean shouldDrawCircle = false;
+    private int circleX, circleY;
+    private int circleRadius;
 
     public void Background() {
 
@@ -135,6 +138,10 @@ public class TowerSelector {
             imageArcherButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    circleRadius = 300;
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -149,6 +156,10 @@ public class TowerSelector {
             imageLightningButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    circleRadius = 250;
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -163,6 +174,10 @@ public class TowerSelector {
             imageColaButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    circleRadius = 200;
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -177,6 +192,8 @@ public class TowerSelector {
             imageEscapeButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.revalidate();
@@ -191,6 +208,8 @@ public class TowerSelector {
             imageSellButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageColaButton[index]);

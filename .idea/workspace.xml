@@ -4,24 +4,29 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/pic_src/ArcherTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Add.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Cancel.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Escape.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/GG.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Gold.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Heart.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/Button/Menu.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/ColaTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/LightningTower.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/TowerDefenceGame_Map.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pic_src/test.jpg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/pic_src/ArcherTowerPreview.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/ArcherTower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/ArcherTowerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/FlameTower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/FlameTowerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/LightningTower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/LightningTowerFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/Tower.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tower1/TowerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/B.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArcherTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ArcherTowerPreview.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/CloseChange.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/LightningTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/TowerDefenceGame_Map.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/changeTower.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/BackgroundPanel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -31,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -56,23 +61,27 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/jay99/OneDrive/桌面/OOTW-Dota"
+    "last_opened_file_path": "D:/OOTW-Dota"
   }
 }]]></component>
   <component name="RunManager">
-    <configuration name="Game" type="Application" factoryName="Application">
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="OOTW-Dota" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Game" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="" />
+      <changelist id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="" />
       <created>1696690818546</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />

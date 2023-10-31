@@ -37,7 +37,6 @@ public class TowerCreate {
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
-        //BackgroundPanel backgroundPanel = new BackgroundPanel("test.jpg");
 
         Container backgroundPanel = new Container();
         backgroundPanel.setLayout(null);

@@ -1,8 +1,8 @@
 package List;
-import Tower1.*;
 
 import javax.swing.*;
 import java.awt.*;
+import Backpaint.BackgroundPanel;
 public class TowerSelector {
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
@@ -263,14 +263,13 @@ public class TowerSelector {
     //創建已生成的防禦塔按鈕
     private JButton[] getTowerjButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
-        double alertRange = 0.0;
         for (int i = 0; i < Originalx.length; i++) {
             ImageIcon chosenTower = new ImageIcon(image);
             Image originalcloseImage = chosenTower.getImage();
             Image scaledcloseImage = originalcloseImage.getScaledInstance(135, 240, Image.SCALE_AREA_AVERAGING);
             ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
             JButton imageoptionButton = new JButton(scaledcloseIcon);
-            imageoptionButton.setBounds(Originalx[i], Originaly[i], 135, 240);
+            imageoptionButton.setBounds(Originalx[i]-42, Originaly[i]-170, 135, 240);
             imageoptionButton.setFocusPainted(false);
             imageoptionButton.setOpaque(false);
             imageoptionButton.setContentAreaFilled(false);

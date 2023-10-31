@@ -1,4 +1,4 @@
-package List;
+package Backpaint;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
@@ -37,8 +37,7 @@ public class BackgroundPanel extends JPanel {
             Graphics2D g2d = (Graphics2D) g;
             g2d.setColor(new Color(255, 0, 0, 100));
             g2d.setStroke(new BasicStroke(2.0f));
-            g2d.drawOval(circleX - circleRadius / 2, circleY - circleRadius / 2, circleRadius, circleRadius);
+            g2d.drawOval(circleX - circleRadius / 2 + 25, circleY - circleRadius / 2 + 25, circleRadius, circleRadius);
         }
-
     }
 }

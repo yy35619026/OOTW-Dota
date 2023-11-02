@@ -11,6 +11,7 @@ public class TowerSelector {
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
     private int circleRadius;
+
     public void Background() {
 
         JFrame frame = new JFrame("關卡一");
@@ -245,6 +246,7 @@ public class TowerSelector {
         }
         frame.setVisible(true);
     }
+
     //創建＋-符號
     private JButton[] getAddCanceljButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -263,6 +265,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建防禦塔選項
     private JButton[] getTowerChoosejButton(String image, int d) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -281,6 +284,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建已生成的防禦塔按鈕
     private JButton[] getTowerjButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -290,7 +294,7 @@ public class TowerSelector {
             Image scaledcloseImage = originalcloseImage.getScaledInstance(135, 240, Image.SCALE_AREA_AVERAGING);
             ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
             JButton imageoptionButton = new JButton(scaledcloseIcon);
-            imageoptionButton.setBounds(Originalx[i]-42, Originaly[i]-170, 135, 240);
+            imageoptionButton.setBounds(Originalx[i] - 42, Originaly[i] - 170, 135, 240);
             imageoptionButton.setFocusPainted(false);
             imageoptionButton.setOpaque(false);
             imageoptionButton.setContentAreaFilled(false);
@@ -299,6 +303,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建X和賣出按鈕
     private JButton[] getSellEscapejButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -308,19 +313,23 @@ public class TowerSelector {
             Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_AREA_AVERAGING);
             ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
             JButton imageoptionButton = new JButton(scaledoptionIcon);
-            if (image.equals("./pic_src/button/Gold.png")) {
-                imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
-            } else if (image.equals("./pic_src/button/Escape.png")) {
-                imageoptionButton.setBounds(Originalx[i] , Originaly[i] + 80, 50, 50);
-            } else if (image.equals("./pic_src/button/Upgrade.png")) {
-                imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
+            switch (image) {
+                case "./pic_src/button/Gold.png":
+                    imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
+                    break;
+                case "./pic_src/button/Escape.png":
+                    imageoptionButton.setBounds(Originalx[i], Originaly[i] + 80, 50, 50);
+                    break;
+                case "./pic_src/button/Upgrade.png":
+                    imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
+                    break;
             }
-            imageoptionButton.setFocusPainted(false);
-            imageoptionButton.setOpaque(false);
-            imageoptionButton.setContentAreaFilled(false);
-            imageoptionButton.setBorderPainted(false);
-            buttons[i] = imageoptionButton;
+                imageoptionButton.setFocusPainted(false);
+                imageoptionButton.setOpaque(false);
+                imageoptionButton.setContentAreaFilled(false);
+                imageoptionButton.setBorderPainted(false);
+                buttons[i] = imageoptionButton;
+            }
+            return buttons;
         }
-        return buttons;
     }
-}

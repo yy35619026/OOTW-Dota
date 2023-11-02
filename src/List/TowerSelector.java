@@ -2,8 +2,13 @@ package List;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 import Backpaint.BackgroundPanel;
-public class TowerSelector {
+import Enemy.Enemy;
+import Enemy.EnemyTileManager;
+
+public class TowerSelector implements Runnable {
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
@@ -17,7 +22,7 @@ public class TowerSelector {
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
-        BackgroundPanel backgroundPanel = new BackgroundPanel("./pic_src/TowerDefenceGame_Map.jpg");
+        backgroundPanel = new BackgroundPanel("./pic_src/TowerDefenceGame_Map.jpg");
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 
@@ -231,20 +236,9 @@ public class TowerSelector {
             });
         }
 
-        for (int i = 0; i < imageUpgradeButton.length; i++) {
-            final int index = i;
-            imageUpgradeButton[i].setActionCommand("change" + i);
-            imageUpgradeButton[i].addActionListener(e -> {
-                String actionCommand = e.getActionCommand();
-                if (actionCommand.equals("change" + index)) {
-                    shouldDrawCircle = false;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
-                    backgroundPanel.revalidate();
-                    backgroundPanel.repaint();
-                }
-            });
-        }
         frame.setVisible(true);
+        start();
+        enemy = backgroundPanel.enemyTileManager.getEnemies();
     }
 
     //創建＋-符號
@@ -333,3 +327,4 @@ public class TowerSelector {
             return buttons;
         }
     }
+}

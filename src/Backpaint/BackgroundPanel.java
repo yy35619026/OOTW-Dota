@@ -1,5 +1,7 @@
 package Backpaint;
 
+import Enemy.EnemyTileManager;
+
 import javax.imageio.ImageIO;
 import javax.swing.*;
 import java.awt.*;
@@ -11,6 +13,8 @@ public class BackgroundPanel extends JPanel {
     private BufferedImage backgroundImage;
     private int circleX, circleY, circleRadius;
     private boolean circleshouldDrawCircle;
+    public EnemyTileManager enemyTileManager;
+
     public void setCircle(int x, int y, int radius, boolean shouldDrawCircle) {
         circleX = x;
         circleY = y;
@@ -18,11 +22,17 @@ public class BackgroundPanel extends JPanel {
         circleshouldDrawCircle = shouldDrawCircle;
     }
     public BackgroundPanel(String imagePath) {
+        enemyTileManager = new EnemyTileManager();
         try {
             backgroundImage = ImageIO.read(new File(imagePath));
         } catch (IOException e) {
             e.printStackTrace();
         }
+    }
+
+    //傳給其他需要enemyTileManager的class
+    public EnemyTileManager getEnemymanager(){
+        return enemyTileManager;
     }
 
     @Override
@@ -31,8 +41,9 @@ public class BackgroundPanel extends JPanel {
         if (backgroundImage != null) {
             // 绘制背景图片
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+            enemyTileManager.draw(g);
         }
-        System.out.println(circleX + " " + circleY);
+
         if(circleshouldDrawCircle){
             Graphics2D g2d = (Graphics2D) g;
             g2d.setColor(new Color(255, 0, 0, 100));

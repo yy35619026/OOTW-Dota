@@ -14,15 +14,6 @@ public class EnemyTest extends JFrame implements Runnable {
         System.out.println("EnemyTest constructor called");
         setFrame();
         start();
-
-    }
-
-    @Override
-    public void paint(Graphics g) {
-        super.paint(g);
-
-        g.setColor(Color.black);
-        g.drawRect(10, 10, 100, 100);
     }
 
     private void setFrame() {

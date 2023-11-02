@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GameScreen extends JPanel {
-    EnemyTileManager enemyTileManager;
+    public EnemyTileManager enemyTileManager;
 
     public GameScreen(){
         enemyTileManager = new EnemyTileManager();

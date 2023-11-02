@@ -40,6 +40,8 @@ public class TowerSelector {
         JButton[] imageSellButton = getSellEscapejButton("./pic_src/button/Gold.png");
         //取消按鈕
         JButton[] imageEscapeButton = getSellEscapejButton("./pic_src/button/Escape.png");
+        //升級按鈕
+        JButton[] imageUpgradeButton = getSellEscapejButton("./pic_src/button/Upgrade.png");
 
         for (int i = 0; i < Originalx.length; i++) {
             backgroundPanel.add(imageAddButton[i]);
@@ -143,6 +145,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -162,6 +165,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -181,6 +185,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -197,6 +202,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -213,10 +219,25 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
                     backgroundPanel.remove(imageColaButton[index]);
                     backgroundPanel.remove(imageArcherButton[index]);
                     backgroundPanel.remove(imageLightningButton[index]);
                     backgroundPanel.add(imageAddButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageUpgradeButton.length; i++) {
+            final int index = i;
+            imageUpgradeButton[i].setActionCommand("change" + i);
+            imageUpgradeButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -288,9 +309,11 @@ public class TowerSelector {
             ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
             JButton imageoptionButton = new JButton(scaledoptionIcon);
             if (image.equals("./pic_src/button/Gold.png")) {
-                imageoptionButton.setBounds(Originalx[i] - 35, Originaly[i] + 80, 50, 50);
+                imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
             } else if (image.equals("./pic_src/button/Escape.png")) {
-                imageoptionButton.setBounds(Originalx[i] + 35, Originaly[i] + 80, 50, 50);
+                imageoptionButton.setBounds(Originalx[i] , Originaly[i] + 80, 50, 50);
+            } else if (image.equals("./pic_src/button/Upgrade.png")) {
+                imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
             }
             imageoptionButton.setFocusPainted(false);
             imageoptionButton.setOpaque(false);

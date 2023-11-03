@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="Changes">
-      <change afterPath="$PROJECT_DIR$/ArcherTowerPreview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerCreate.java" afterDir="false" />
-    </list>
+    <list default="true" id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -18,15 +14,11 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-        <entry key="$PROJECT_DIR$" value="master" />
-      </map>
-    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -34,7 +26,7 @@
   </component>
   <component name="ProjectColorInfo">{
   &quot;customColor&quot;: &quot;&quot;,
-  &quot;associatedIndex&quot;: 1
+
 }</component>
   <component name="ProjectId" id="2WRMD7RqHfPETIblGabwrtCCCYD" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true">
@@ -44,31 +36,14 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/OOTW-Dota&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
-  },
-  &quot;keyToStringList&quot;: {
-    &quot;ChangesTree.GroupingKeys&quot;: [
-      &quot;module&quot;
-    ]
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "last_opened_file_path": "D:/OOTW-Dota"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="D:\OOTW-Dota" />
-    </key>
-  </component>
+}]]></component>
   <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
+    <configuration name="Game" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="OOTW-Dota" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -76,25 +51,25 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="应用程序.Main" />
+        <item itemvalue="Application.Game" />
       </list>
     </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="bc48cf2e-66c9-4257-ba5d-1273ae679235" name="Changes" comment="" />
+      <changelist id="22b6519f-7a4f-472d-a7a4-28064c4b3cec" name="Changes" comment="" />
       <created>1696690818546</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1696690818546</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
+    <task id="LOCAL-00001" summary="Merge 1">
+      <created>1698762191085</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
+      <updated>1698762191086</updated>
     </task>
     <task id="LOCAL-00002" summary="new project">
       <created>1696692572434</created>
@@ -117,111 +92,7 @@
       <option name="project" value="LOCAL" />
       <updated>1696694819419</updated>
     </task>
-    <task id="LOCAL-00005" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697547870321</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1697547870321</updated>
-    </task>
-    <task id="LOCAL-00006" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697549144937</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1697549144937</updated>
-    </task>
-    <task id="LOCAL-00007" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697549241413</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1697549241413</updated>
-    </task>
-    <task id="LOCAL-00008" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697700121231</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1697700121231</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697713405046</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1697713405046</updated>
-    </task>
-    <task id="LOCAL-00010" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697713595577</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1697713595577</updated>
-    </task>
-    <task id="LOCAL-00011" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697824215438</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1697824215438</updated>
-    </task>
-    <task id="LOCAL-00012" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697824278221</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1697824278221</updated>
-    </task>
-    <task id="LOCAL-00013" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697876647511</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1697876647511</updated>
-    </task>
-    <task id="LOCAL-00014" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697876713450</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1697876713450</updated>
-    </task>
-    <task id="LOCAL-00015" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697876759231</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1697876759231</updated>
-    </task>
-    <task id="LOCAL-00016" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697878005997</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1697878005997</updated>
-    </task>
-    <task id="LOCAL-00017" summary="Changes">
-      <option name="closed" value="true" />
-      <created>1697878067098</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1697878067098</updated>
-    </task>
-    <option name="localTasksCounter" value="18" />
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -238,7 +109,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
-    <MESSAGE value="Changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Changes" />
+    <MESSAGE value="Merge 1" />
+    <option name="LAST_COMMIT_MESSAGE" value="Merge 1" />
   </component>
 </project>

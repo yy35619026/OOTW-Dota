@@ -16,6 +16,12 @@ public class TowerSelector implements Runnable {
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
     private int circleRadius;
+    private BackgroundPanel backgroundPanel;
+
+    private ArrayList<Enemy> enemy;
+    private final double FPS_SET = 120.0;
+    private final double UPS_SET = 60.0;
+    private Thread gameThread;
 
     public void Background() {
 
@@ -324,7 +330,60 @@ public class TowerSelector implements Runnable {
                 imageoptionButton.setBorderPainted(false);
                 buttons[i] = imageoptionButton;
             }
-            return buttons;
+        return buttons;
+    }
+
+
+    private void updatesEnemy() {
+        backgroundPanel.enemyTileManager.update();
+    }
+
+    private void start(){
+        gameThread = new Thread(this) {
+        };
+        gameThread.start();
+    }
+
+    public void run() {
+
+        double timePerFrame = 1000000000.0 / FPS_SET;
+        double timePerUpdate = 1000000000.0 / UPS_SET;
+
+        long lastFrame = System.nanoTime();
+        long lastUpdate = System.nanoTime();
+        long lastTimeCheck = System.currentTimeMillis();
+
+        int frames = 0;
+        int updates = 0;
+
+        long now;
+
+        while (true) {
+            now = System.nanoTime();
+
+            // Render
+            if (now - lastFrame >= timePerFrame) {
+                backgroundPanel.repaint();
+                lastFrame = now;
+                frames++;
+            }
+            // Update
+            if (now - lastUpdate >= timePerUpdate) {
+                updatesEnemy();
+                lastUpdate = now;
+                updates++;
+            }
+            if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
+                System.out.println("FPS: " + frames + " | UPS: " + updates);
+                frames = 0;
+                updates = 0;
+                lastTimeCheck = System.currentTimeMillis();
+
+                for(Enemy e:enemy){
+                    System.out.println(e.getX());
+                    System.out.println(e.getHealth());
+                }
+            }
         }
     }
 }

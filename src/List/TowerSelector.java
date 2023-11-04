@@ -21,7 +21,6 @@ public class TowerSelector implements Runnable {
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
-    private int circleRadius;
     private BackgroundPanel backgroundPanel;
 
     private ArrayList<Enemy> enemy;
@@ -217,7 +216,7 @@ public class TowerSelector implements Runnable {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
+                    backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);
@@ -234,7 +233,7 @@ public class TowerSelector implements Runnable {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
+                    backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);

@@ -3,7 +3,6 @@ package List;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-
 import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
 import Tower1.*;
@@ -12,11 +11,10 @@ public class TowerSelector implements Runnable {
     TowerFactory archerTowerFactory = new ArcherTowerFactory();
     Tower archerTower = archerTowerFactory.createTower();
     TowerFactory lightningTowerFactory = new LightningTowerFactory();
-
     Tower lightningTower = lightningTowerFactory.createTower();
     TowerFactory flameTowerFactory = new FlameTowerFactory();
-
     Tower flameTower = flameTowerFactory.createTower();
+  
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};

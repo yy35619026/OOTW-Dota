@@ -6,6 +6,6 @@ public interface Tower {
     double getCost();
     double getDamage();
     int getLevel();
-    double getAlertRange();
+    int getAlertRange();
     void update(ConcreteEnemy enemy, String status);
 }

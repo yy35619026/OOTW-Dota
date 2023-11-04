@@ -106,6 +106,7 @@ public class TowerSelector implements Runnable {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     backgroundPanel.add(imageArcherButton[index]);
+                    ArcherTowerFactory.addTower(archerTower, Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageArcherChooseButton[index]);
                     backgroundPanel.remove(imageLightningChooseButton[index]);
                     backgroundPanel.remove(imageColaChooseButton[index]);
@@ -123,6 +124,7 @@ public class TowerSelector implements Runnable {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     backgroundPanel.add(imageLightningButton[index]);
+                    LightningTowerFactory.addTower(lightningTower, Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageArcherChooseButton[index]);
                     backgroundPanel.remove(imageLightningChooseButton[index]);
                     backgroundPanel.remove(imageColaChooseButton[index]);
@@ -140,6 +142,7 @@ public class TowerSelector implements Runnable {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     backgroundPanel.add(imageColaButton[index]);
+                    FlameTowerFactory.addTower(flameTower, Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageArcherChooseButton[index]);
                     backgroundPanel.remove(imageLightningChooseButton[index]);
                     backgroundPanel.remove(imageColaChooseButton[index]);
@@ -159,8 +162,7 @@ public class TowerSelector implements Runnable {
                     shouldDrawCircle = true;
                     circleX = Originalx[index];
                     circleY = Originaly[index];
-                    circleRadius = 300;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
+                    backgroundPanel.setCircle(circleX, circleY, archerTower.getAlertRange(), shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.add(imageUpgradeButton[index]);
@@ -179,8 +181,7 @@ public class TowerSelector implements Runnable {
                     shouldDrawCircle = true;
                     circleX = Originalx[index];
                     circleY = Originaly[index];
-                    circleRadius = 250;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
+                    backgroundPanel.setCircle(circleX, circleY, lightningTower.getAlertRange(), shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.add(imageUpgradeButton[index]);
@@ -199,8 +200,7 @@ public class TowerSelector implements Runnable {
                     shouldDrawCircle = true;
                     circleX = Originalx[index];
                     circleY = Originaly[index];
-                    circleRadius = 200;
-                    backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
+                    backgroundPanel.setCircle(circleX, circleY, flameTower.getAlertRange(), shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
                     backgroundPanel.add(imageUpgradeButton[index]);
@@ -363,7 +363,7 @@ public class TowerSelector implements Runnable {
         int updates = 0;
 
         long now;
-
+/*
         while (true) {
             now = System.nanoTime();
 
@@ -393,6 +393,6 @@ public class TowerSelector implements Runnable {
                     }
                 }
             }
-        }
+        }*/
     }
 }

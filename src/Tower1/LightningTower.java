@@ -6,8 +6,8 @@ public class LightningTower implements Tower{
     double cost;
     double damage;
     int level;
-    double alertRange;
-    public LightningTower(double cost, double damage, int level, double alertRange) {
+    int alertRange;
+    public LightningTower(double cost, double damage, int level, int alertRange) {
         this.cost = cost;
         this.damage = damage;
         this.level = level;
@@ -26,7 +26,7 @@ public class LightningTower implements Tower{
         return level;
     }
     @Override
-    public double getAlertRange() {
+    public int getAlertRange() {
         return alertRange;
     }
     public void update(ConcreteEnemy enemy, String status) {

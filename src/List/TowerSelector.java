@@ -2,8 +2,21 @@ package List;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
+
 import Backpaint.BackgroundPanel;
-public class TowerSelector {
+import Enemy.Enemy;
+import Tower1.*;
+
+public class TowerSelector implements Runnable {
+    TowerFactory archerTowerFactory = new ArcherTowerFactory();
+    Tower archerTower = archerTowerFactory.createTower();
+    TowerFactory lightningTowerFactory = new LightningTowerFactory();
+
+    Tower lightningTower = lightningTowerFactory.createTower();
+    TowerFactory flameTowerFactory = new FlameTowerFactory();
+
+    Tower flameTower = flameTowerFactory.createTower();
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
@@ -11,12 +24,19 @@ public class TowerSelector {
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
     private int circleRadius;
+    private BackgroundPanel backgroundPanel;
+
+    private ArrayList<Enemy> enemy;
+    private final double FPS_SET = 120.0;
+    private final double UPS_SET = 60.0;
+    private Thread gameThread;
+
     public void Background() {
 
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
-        BackgroundPanel backgroundPanel = new BackgroundPanel("./pic_src/TowerDefenceGame_Map.jpg");
+        backgroundPanel = new BackgroundPanel("./pic_src/TowerDefenceGame_Map.jpg");
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 
@@ -40,6 +60,8 @@ public class TowerSelector {
         JButton[] imageSellButton = getSellEscapejButton("./pic_src/button/Gold.png");
         //取消按鈕
         JButton[] imageEscapeButton = getSellEscapejButton("./pic_src/button/Escape.png");
+        //升級按鈕
+        JButton[] imageUpgradeButton = getSellEscapejButton("./pic_src/button/Upgrade.png");
 
         for (int i = 0; i < Originalx.length; i++) {
             backgroundPanel.add(imageAddButton[i]);
@@ -143,6 +165,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -162,6 +185,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -181,6 +205,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.add(imageEscapeButton[index]);
                     backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -197,6 +222,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }
@@ -213,6 +239,7 @@ public class TowerSelector {
                     backgroundPanel.setCircle(circleX, circleY, circleRadius, shouldDrawCircle);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
                     backgroundPanel.remove(imageColaButton[index]);
                     backgroundPanel.remove(imageArcherButton[index]);
                     backgroundPanel.remove(imageLightningButton[index]);
@@ -222,8 +249,12 @@ public class TowerSelector {
                 }
             });
         }
+
         frame.setVisible(true);
+        start();
+        enemy = backgroundPanel.enemyTileManager.getEnemies();
     }
+
     //創建＋-符號
     private JButton[] getAddCanceljButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -242,6 +273,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建防禦塔選項
     private JButton[] getTowerChoosejButton(String image, int d) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -260,6 +292,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建已生成的防禦塔按鈕
     private JButton[] getTowerjButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -269,7 +302,7 @@ public class TowerSelector {
             Image scaledcloseImage = originalcloseImage.getScaledInstance(135, 240, Image.SCALE_AREA_AVERAGING);
             ImageIcon scaledcloseIcon = new ImageIcon(scaledcloseImage);
             JButton imageoptionButton = new JButton(scaledcloseIcon);
-            imageoptionButton.setBounds(Originalx[i]-42, Originaly[i]-170, 135, 240);
+            imageoptionButton.setBounds(Originalx[i] - 42, Originaly[i] - 170, 135, 240);
             imageoptionButton.setFocusPainted(false);
             imageoptionButton.setOpaque(false);
             imageoptionButton.setContentAreaFilled(false);
@@ -278,6 +311,7 @@ public class TowerSelector {
         }
         return buttons;
     }
+
     //創建X和賣出按鈕
     private JButton[] getSellEscapejButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -287,17 +321,80 @@ public class TowerSelector {
             Image scaledchosenImage = originaloptionbut.getScaledInstance(AddCancelButW, AddCancelButH, Image.SCALE_AREA_AVERAGING);
             ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
             JButton imageoptionButton = new JButton(scaledoptionIcon);
-            if (image.equals("./pic_src/button/Gold.png")) {
-                imageoptionButton.setBounds(Originalx[i] - 35, Originaly[i] + 80, 50, 50);
-            } else if (image.equals("./pic_src/button/Escape.png")) {
-                imageoptionButton.setBounds(Originalx[i] + 35, Originaly[i] + 80, 50, 50);
+            switch (image) {
+                case "./pic_src/button/Gold.png":
+                    imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
+                    break;
+                case "./pic_src/button/Upgrade.png":
+                    imageoptionButton.setBounds(Originalx[i], Originaly[i] + 80, 50, 50);
+                    break;
+                case "./pic_src/button/Escape.png":
+                    imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
+                    break;
             }
-            imageoptionButton.setFocusPainted(false);
-            imageoptionButton.setOpaque(false);
-            imageoptionButton.setContentAreaFilled(false);
-            imageoptionButton.setBorderPainted(false);
-            buttons[i] = imageoptionButton;
-        }
+                imageoptionButton.setFocusPainted(false);
+                imageoptionButton.setOpaque(false);
+                imageoptionButton.setContentAreaFilled(false);
+                imageoptionButton.setBorderPainted(false);
+                buttons[i] = imageoptionButton;
+            }
         return buttons;
+    }
+
+
+    private void updatesEnemy() {
+        backgroundPanel.enemyTileManager.update();
+    }
+
+    private void start(){
+        gameThread = new Thread(this) {
+        };
+        gameThread.start();
+    }
+
+    public void run() {
+
+        double timePerFrame = 1000000000.0 / FPS_SET;
+        double timePerUpdate = 1000000000.0 / UPS_SET;
+
+        long lastFrame = System.nanoTime();
+        long lastUpdate = System.nanoTime();
+        long lastTimeCheck = System.currentTimeMillis();
+
+        int frames = 0;
+        int updates = 0;
+
+        long now;
+
+        while (true) {
+            now = System.nanoTime();
+
+            // Render
+            if (now - lastFrame >= timePerFrame) {
+                backgroundPanel.repaint();
+                lastFrame = now;
+                frames++;
+            }
+            // Update
+            if (now - lastUpdate >= timePerUpdate) {
+                updatesEnemy();
+                lastUpdate = now;
+                updates++;
+            }
+            if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
+                System.out.println("FPS: " + frames + " | UPS: " + updates);
+                frames = 0;
+                updates = 0;
+                lastTimeCheck = System.currentTimeMillis();
+
+                for(Enemy e:enemy){
+                    System.out.println(e.getX());
+                    System.out.println(e.getHealth());
+                    if(e.getX() > 1500){
+                        System.out.println("HP-1");
+                    }
+                }
+            }
+        }
     }
 }

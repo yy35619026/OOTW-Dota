@@ -18,6 +18,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -56,12 +57,12 @@
       <option name="presentableId" value="Default" />
       <updated>1696690818546</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
+    <task id="LOCAL-00001" summary="Merge 1">
+      <created>1698762191085</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
+      <updated>1698762191086</updated>
     </task>
     <task id="LOCAL-00002" summary="new project">
       <created>1696692572434</created>

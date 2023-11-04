@@ -3,12 +3,18 @@ package List;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
-
 import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
-import Enemy.EnemyTileManager;
+import Tower1.*;
 
 public class TowerSelector implements Runnable {
+    TowerFactory archerTowerFactory = new ArcherTowerFactory();
+    Tower archerTower = archerTowerFactory.createTower();
+    TowerFactory lightningTowerFactory = new LightningTowerFactory();
+    Tower lightningTower = lightningTowerFactory.createTower();
+    TowerFactory flameTowerFactory = new FlameTowerFactory();
+    Tower flameTower = flameTowerFactory.createTower();
+  
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
@@ -317,10 +323,10 @@ public class TowerSelector implements Runnable {
                 case "./pic_src/button/Gold.png":
                     imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
                     break;
-                case "./pic_src/button/Escape.png":
+                case "./pic_src/button/Upgrade.png":
                     imageoptionButton.setBounds(Originalx[i], Originaly[i] + 80, 50, 50);
                     break;
-                case "./pic_src/button/Upgrade.png":
+                case "./pic_src/button/Escape.png":
                     imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
                     break;
             }
@@ -382,6 +388,9 @@ public class TowerSelector implements Runnable {
                 for(Enemy e:enemy){
                     System.out.println(e.getX());
                     System.out.println(e.getHealth());
+                    if(e.getX() > 1500){
+                        System.out.println("HP-1");
+                    }
                 }
             }
         }

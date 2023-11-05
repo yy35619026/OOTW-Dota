@@ -1,6 +1,6 @@
 package Attackenemy;
 
-import Tower1.*;
+import Tower.*;
 
 public interface Enemy_Subject {
     void addObserver(Tower tower);

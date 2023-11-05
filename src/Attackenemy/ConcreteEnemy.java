@@ -2,17 +2,17 @@ package Attackenemy;
 
 import java.util.ArrayList;
 import java.util.List;
-import Tower1.*;
+import Tower.*;
 public class ConcreteEnemy implements Enemy_Subject {
     private List<Tower> observers = new ArrayList<>();
     private String status;
     @Override
-    public void addObserver(Tower1.Tower tower) {
+    public void addObserver(Tower tower) {
         observers.add(tower);
     }
 
     @Override
-    public void removeObserver(Tower1.Tower tower) {
+    public void removeObserver(Tower tower) {
         observers.remove(tower);
     }
 

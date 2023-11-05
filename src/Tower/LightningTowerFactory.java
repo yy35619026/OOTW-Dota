@@ -13,4 +13,8 @@ public class LightningTowerFactory implements TowerFactory{
         TowerPlacement placement = new TowerPlacement(tower, x, y);
         Towerlist.add(placement);
     }
+
+    public static ArrayList<TowerPlacement> getTowerlist() {
+        return Towerlist;
+    }
 }

@@ -25,6 +25,7 @@ public class GameScreen extends JFrame implements Runnable{
     private int circleX, circleY;
     private int circleRadius;
     private ArrayList<Enemy> enemy;
+    private ArrayList<TowerPlacement> Towerlist;
     private final double FPS_SET = 120.0;
     private final double UPS_SET = 60.0;
     private Thread gameThread;
@@ -308,6 +309,7 @@ public class GameScreen extends JFrame implements Runnable{
         frame.setVisible(true);
         start();
         enemy = backgroundPanel.enemyTileManager.getEnemies();
+        Towerlist = LightningTowerFactory.getTowerlist();
     }
     private void updatesEnemy() {
         backgroundPanel.enemyTileManager.update();
@@ -317,6 +319,30 @@ public class GameScreen extends JFrame implements Runnable{
         gameThread = new Thread(this) {
         };
         gameThread.start();
+    }
+
+    private void updatesAttack() {
+        for(Enemy e:enemy){
+            for (TowerPlacement t:Towerlist) {
+                if(isInRange(e,t)){
+                    e.beAttack(t.getTower().getDamage());
+                }else{
+                    //System.out.println("No");
+                }
+            }
+        }
+    }
+
+    private boolean isInRange(Enemy e, TowerPlacement t) {
+        int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
+        return range < t.getTower().getAlertRange();
+    }
+
+    private static int GetHypoDistance(float x1, float y1 , int x2, int y2){
+        float XDiff = Math.abs(x1-x2);
+        float YDiff = Math.abs(y1-y2);
+
+        return (int) Math.hypot(XDiff,YDiff);
     }
 
     public void run() {
@@ -353,6 +379,8 @@ public class GameScreen extends JFrame implements Runnable{
                 frames = 0;
                 updates = 0;
                 lastTimeCheck = System.currentTimeMillis();
+
+                updatesAttack();
 
                 for (Enemy e : enemy) {
                     System.out.println(e.getX());

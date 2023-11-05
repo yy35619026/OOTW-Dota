@@ -5,8 +5,8 @@ import java.awt.*;
 public abstract class Enemy {
     protected float x,y;
     protected Rectangle bounds;
-    protected int health;
-    protected int maxhealth;
+    protected double health;
+    protected double maxhealth;
     protected int ID;
     protected int enemyType;
 
@@ -23,7 +23,11 @@ public abstract class Enemy {
         maxhealth = health;
     }
 
-    public float getHealthFloat(){
+    public void beAttack(double damage){
+        health = health-damage;
+    }
+
+    public double getHealthFloat(){
         return health/(float) maxhealth;
     }
 
@@ -44,7 +48,7 @@ public abstract class Enemy {
         return bounds;
     }
 
-    public int getHealth() {
+    public double getHealth() {
         return health;
     }
 

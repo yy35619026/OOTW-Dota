@@ -3,6 +3,8 @@ package Enemy;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.Iterator;
+
 import Attackenemy.*;
 import Tower.*;
 
@@ -15,7 +17,7 @@ public class EnemyTileManager {
         EnemyFactory basicenemyfactory = new BasicEnemyFactory();
         EnemyFactory fastenemyfactory = new FastEnemyFactory();
         enemyImgs = new BufferedImage[6];
-        addEnemy(32,300,basicenemyfactory);
+        addEnemy(32,400,basicenemyfactory);
         addEnemy(32,400,fastenemyfactory);
         loadEnemyImgs();
     }
@@ -66,25 +68,32 @@ public class EnemyTileManager {
         }
     }
 
-
-
     public void update() {
-        for(Enemy e:enemies){
-            switch (e.getEnemyType()){
+        Iterator<Enemy> iterator = enemies.iterator();
+        while (iterator.hasNext()) {
+            Enemy e = iterator.next();
+            switch (e.getEnemyType()) {
                 case 0:
-                    e.move(e.getSpeed(0),0);
+                    e.move(e.getSpeed(0), 0);
                     break;
                 case 1:
-                    e.move(e.getSpeed(1),0);
+                    e.move(e.getSpeed(1), 0);
                     break;
+            }
+
+            if (e.getHealth() <= 0) {
+                // 血量低于0时，从列表中移除敌人
+                iterator.remove();
             }
         }
     }
+
 
     //傳出去enemies陣列 可以去抓enemies的各種數值
     public ArrayList<Enemy> getEnemies() {
         return enemies;
     }
+
     private int getNewHPBarWidth(Enemy e){
         return (int)(HPBarWidth * e.getHealthFloat());
     }

@@ -3,6 +3,8 @@ package Enemy;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import Attackenemy.*;
+import Tower.*;
 
 public class EnemyTileManager {
     private BufferedImage[] enemyImgs;
@@ -31,6 +33,9 @@ public class EnemyTileManager {
         switch (factory.getType()){
             case ("basic"):
                 enemies.add(factory.CreatEnemy(x,y,0));
+                /*for(int i = 0; i < 8; i++){
+                    Enemy_Subject.addObserver(Tower);
+                }*/
                 break;
             case ("fast"):
                 enemies.add(factory.CreatEnemy(x,y,1));

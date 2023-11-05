@@ -12,7 +12,7 @@ import java.io.IOException;
 public class BackgroundPanel extends JPanel {
     private BufferedImage backgroundImage;
     private int circleX, circleY, circleRadius;
-    private boolean circleshouldDrawCircle;
+    private boolean circleshouldDrawCircle, shouldCreateEnemy;
     public EnemyTileManager enemyTileManager;
 
     public void setCircle(int x, int y, int radius, boolean shouldDrawCircle) {
@@ -20,6 +20,9 @@ public class BackgroundPanel extends JPanel {
         circleY = y;
         circleRadius = radius;
         circleshouldDrawCircle = shouldDrawCircle;
+    }
+    public void setEnemy(boolean shouldCreateEnemy){
+        this.shouldCreateEnemy = shouldCreateEnemy;
     }
     public BackgroundPanel(String imagePath) {
         enemyTileManager = new EnemyTileManager();
@@ -41,9 +44,10 @@ public class BackgroundPanel extends JPanel {
         if (backgroundImage != null) {
             // 绘制背景图片
             g.drawImage(backgroundImage, 0, 0, getWidth(), getHeight(), this);
+        }
+        if(shouldCreateEnemy){
             enemyTileManager.draw(g);
         }
-
         if(circleshouldDrawCircle){
             Graphics2D g2d = (Graphics2D) g;
             g2d.setColor(new Color(255, 0, 0, 100));

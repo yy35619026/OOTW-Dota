@@ -64,6 +64,8 @@ public class TowerSelector implements Runnable {
             backgroundPanel.add(imageAddButton[i]);
         }
 
+        backgroundPanel.setEnemy(true);
+
         for (int i = 0; i < imageAddButton.length; i++) {
             final int index = i;
             imageAddButton[i].setActionCommand("change" + i);
@@ -362,7 +364,7 @@ public class TowerSelector implements Runnable {
         int updates = 0;
 
         long now;
-/*
+
         while (true) {
             now = System.nanoTime();
 
@@ -392,6 +394,6 @@ public class TowerSelector implements Runnable {
                     }
                 }
             }
-        }*/
+        }
     }
 }

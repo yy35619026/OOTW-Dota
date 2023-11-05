@@ -1,7 +1,8 @@
 package Tower;
-public class ArcherTowerFactory implements TowerFactory {
+
+public class ArcherTowerFactory implements TowerFactory{
     @Override
     public Tower createTower() {
-        return new ArcherTower(20, 20, 1);
+        return new ArcherTower(20, 20, 1, 100.0);
     }
 }

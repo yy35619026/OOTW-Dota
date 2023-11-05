@@ -5,7 +5,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
-import Tower1.*;
+import Tower.*;
 
 public class TowerSelector implements Runnable {
     TowerFactory archerTowerFactory = new ArcherTowerFactory();
@@ -33,32 +33,33 @@ public class TowerSelector implements Runnable {
         JFrame frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
-        backgroundPanel = new BackgroundPanel("./pic_src/TowerDefenceGame_Map.jpg");
+        backgroundPanel = new BackgroundPanel("./res/TowerDefenceGame_Map.jpg");
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
+        frame.setLocationRelativeTo(null);
 
         //+號按鈕
-        JButton[] imageAddButton = getAddCanceljButton("./pic_src/button/Add.png");
+        JButton[] imageAddButton = getAddCanceljButton("./res/button/Add.png");
         //-號按鈕
-        JButton[] imageCancelButton = getAddCanceljButton("./pic_src/button/Cancel.png");
+        JButton[] imageCancelButton = getAddCanceljButton("./res/button/Cancel.png");
         //箭塔選項
-        JButton[] imageArcherChooseButton = getTowerChoosejButton("./pic_src/ArcherTower.png", 0);
+        JButton[] imageArcherChooseButton = getTowerChoosejButton("./res/ArcherTower.png", 0);
         //雷電塔選項
-        JButton[] imageLightningChooseButton = getTowerChoosejButton("./pic_src/LightningTower.png", 1);
+        JButton[] imageLightningChooseButton = getTowerChoosejButton("./res/LightningTower.png", 1);
         //可樂塔選項
-        JButton[] imageColaChooseButton = getTowerChoosejButton("./pic_src/ColaTower.png", 2);
+        JButton[] imageColaChooseButton = getTowerChoosejButton("./res/ColaTower.png", 2);
         //箭塔生成
-        JButton[] imageArcherButton = getTowerjButton("./pic_src/ArcherTower.png");
+        JButton[] imageArcherButton = getTowerjButton("./res/ArcherTower.png");
         //雷電塔生成
-        JButton[] imageLightningButton = getTowerjButton("./pic_src/LightningTower.png");
+        JButton[] imageLightningButton = getTowerjButton("./res/LightningTower.png");
         //可樂塔生成
-        JButton[] imageColaButton = getTowerjButton("./pic_src/ColaTower.png");
+        JButton[] imageColaButton = getTowerjButton("./res/ColaTower.png");
         //賣出按鈕
-        JButton[] imageSellButton = getSellEscapejButton("./pic_src/button/Gold.png");
+        JButton[] imageSellButton = getSellEscapejButton("./res/button/Gold.png");
         //取消按鈕
-        JButton[] imageEscapeButton = getSellEscapejButton("./pic_src/button/Escape.png");
+        JButton[] imageEscapeButton = getSellEscapejButton("./res/button/Escape.png");
         //升級按鈕
-        JButton[] imageUpgradeButton = getSellEscapejButton("./pic_src/button/Upgrade.png");
+        JButton[] imageUpgradeButton = getSellEscapejButton("./res/button/Upgrade.png");
 
         for (int i = 0; i < Originalx.length; i++) {
             backgroundPanel.add(imageAddButton[i]);
@@ -321,13 +322,13 @@ public class TowerSelector implements Runnable {
             ImageIcon scaledoptionIcon = new ImageIcon(scaledchosenImage);
             JButton imageoptionButton = new JButton(scaledoptionIcon);
             switch (image) {
-                case "./pic_src/button/Gold.png":
+                case "./res/button/Gold.png":
                     imageoptionButton.setBounds(Originalx[i] - 60, Originaly[i] + 80, 50, 50);
                     break;
-                case "./pic_src/button/Upgrade.png":
+                case "./res/button/Upgrade.png":
                     imageoptionButton.setBounds(Originalx[i], Originaly[i] + 80, 50, 50);
                     break;
-                case "./pic_src/button/Escape.png":
+                case "./res/button/Escape.png":
                     imageoptionButton.setBounds(Originalx[i] + 60, Originaly[i] + 80, 50, 50);
                     break;
             }

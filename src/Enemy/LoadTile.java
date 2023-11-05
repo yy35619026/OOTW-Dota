@@ -8,7 +8,7 @@ import java.io.InputStream;
 public class LoadTile {
     public static BufferedImage getSpriteAtlas() {
         BufferedImage img = null;
-        InputStream is = LoadTile.class.getClassLoader().getResourceAsStream("res/Free Sprites 4x.png");
+        InputStream is = LoadTile.class.getClassLoader().getResourceAsStream("sprites/Free Sprites 4x.png");
 
         try {
             img = ImageIO.read(is);

@@ -14,9 +14,10 @@ public class GameScreen extends JFrame {
         JFrame frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(800, 450);
+        frame.setLocationRelativeTo(null);
 
         // 自定義面板的基礎構建
-        BackgroundPanel backgroundPanel = new BackgroundPanel("./pic_src/test.jpg"); // 替换成你的图像文件路径
+        BackgroundPanel backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
 

@@ -4,7 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import Attackenemy.*;
-import Tower1.*;
+import Tower.*;
 
 public class EnemyTileManager {
     private BufferedImage[] enemyImgs;

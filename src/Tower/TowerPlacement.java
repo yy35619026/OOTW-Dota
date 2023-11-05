@@ -1,4 +1,4 @@
-package Tower1;
+package Tower;
 
 public class TowerPlacement {
     private Tower tower;

@@ -48,6 +48,7 @@ public class BackgroundPanel extends JPanel {
         if(shouldCreateEnemy){
             enemyTileManager.draw(g);
         }
+
         if(circleshouldDrawCircle){
             Graphics2D g2d = (Graphics2D) g;
             g2d.setColor(new Color(255, 0, 0, 100));

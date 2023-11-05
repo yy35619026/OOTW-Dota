@@ -4,48 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="Implement HP bar&#10;Allow TowerSeletor to capture various values of enemy">
+    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Tower/TowerSelector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/ArcherTower.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ArcherTower.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/ArcherTowerPreview.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ArcherTowerPreview.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Add.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Add.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Cancel.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Cancel.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Escape.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Escape.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/GG.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/GG.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Gold.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Gold.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Heart.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Heart.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Menu.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Menu.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/Button/Upgrade.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/Button/Upgrade.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/ColaTower.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/ColaTower.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/LightningTower.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/LightningTower.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/TowerDefenceGame_Map.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/res/TowerDefenceGame_Map.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pic_src/test.jpg" beforeDir="false" afterPath="$PROJECT_DIR$/res/test.jpg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ConcreteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ConcreteEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/Enemy_Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/Enemy_Subject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/EnemyTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/LoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/LoadTile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/List/TowerSelector.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerCreate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/ArcherTower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/ArcherTowerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/FlameTower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/FlameTowerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/LightningTower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/LightningTowerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/Tower.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower1/TowerFactory.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/Free Sprites 1x.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprites/Free Sprites 1x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/Free Sprites 2x.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprites/Free Sprites 2x.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/res/Free Sprites 4x.png" beforeDir="false" afterPath="$PROJECT_DIR$/res/sprites/Free Sprites 4x.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/List/TowerSelector.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +25,13 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GithubProjectSettings">
+    <option name="branchProtectionPatterns">
+      <list>
+        <option value="master" />
+      </list>
+    </option>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -100,12 +70,12 @@
       <option name="presentableId" value="Default" />
       <updated>1696690818546</updated>
     </task>
-    <task id="LOCAL-00001" summary="new project">
-      <created>1696692237151</created>
+    <task id="LOCAL-00001" summary="Fixed some functions">
+      <created>1699195634910</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1696692237151</updated>
+      <updated>1699195634910</updated>
     </task>
     <task id="LOCAL-00002" summary="new project">
       <created>1696692572434</created>
@@ -128,6 +98,7 @@
       <option name="project" value="LOCAL" />
       <updated>1696694819419</updated>
     </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -156,6 +127,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="new project" />
+    <MESSAGE value="Fixed some functions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed some functions" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

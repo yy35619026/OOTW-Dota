@@ -1,23 +1,44 @@
 package Backpaint;
 
-import Enemy.EnemyTest;
-import List.*;
+import Enemy.Enemy;
+import Tower.*;
+
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
-public class GameScreen extends JFrame {
-    JButton new_game, end_game;
-    JButton enemy;//enemy測試
+public class GameScreen extends JFrame implements Runnable{
+    TowerFactory archerTowerFactory = new ArcherTowerFactory();
+    Tower archerTower = archerTowerFactory.createTower();
+    TowerFactory lightningTowerFactory = new LightningTowerFactory();
+    Tower lightningTower = lightningTowerFactory.createTower();
+    TowerFactory flameTowerFactory = new FlameTowerFactory();
+    Tower flameTower = flameTowerFactory.createTower();
+    private JButton new_game, end_game;
+//    private JButton enemy;//enemy測試
+    private JFrame frame;
+    private BackgroundPanel backgroundPanel;
+    private TowerSelector selector = new TowerSelector();
+    final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
+    final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
+    private boolean shouldDrawCircle = false;
+    private int circleX, circleY;
+    private int circleRadius;
+    private ArrayList<Enemy> enemy;
+    private final double FPS_SET = 120.0;
+    private final double UPS_SET = 60.0;
+    private Thread gameThread;
+
 
     public void init() {
         //視窗
-        JFrame frame = new JFrame("第七組Tower Defence game");
+        frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(800, 450);
+        frame.setSize(1600, 900);
         frame.setLocationRelativeTo(null);
 
         // 自定義面板的基礎構建
-        BackgroundPanel backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
+        backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
 
@@ -44,19 +65,303 @@ public class GameScreen extends JFrame {
         frame.setVisible(true);
 
         new_game.addActionListener(e -> {
-            new TowerSelector().Background();
+            Game_level1();
+//            new TowerSelector().Background();
             SwingUtilities.getWindowAncestor(new_game).dispose();
+        });
+        end_game.addActionListener(e -> {
+            System.exit(0);
         });
 
         //just test enemy , it can delete.
-        enemy = new JButton("Enemy Test");
-        enemy.setFont(buttonfont);
-        enemy.setPreferredSize(buttonsize);
-        constraints.gridy = 2; // Y軸位置為2
-        backgroundPanel.add(enemy, constraints);
+//        enemy = new JButton("Enemy Test");
+//        enemy.setFont(buttonfont);
+//        enemy.setPreferredSize(buttonsize);
+//        constraints.gridy = 2; // Y軸位置為2
+//        backgroundPanel.add(enemy, constraints);
+//
+//        enemy.addActionListener(e -> {
+//            new EnemyTest();
+//        });
+    }
+    public void Game_level1(){
+        frame = new JFrame("關卡一");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1600, 900);
+        backgroundPanel = new BackgroundPanel("./res/TowerDefenceGame_Map.jpg");
+        backgroundPanel.setLayout(null);
+        frame.setContentPane(backgroundPanel);
+        frame.setLocationRelativeTo(null);
 
-        enemy.addActionListener(e -> {
-            new EnemyTest();
-        });
+        //+號按鈕
+        JButton[] imageAddButton = selector.getAddCanceljButton("./res/button/Add.png");
+        //-號按鈕
+        JButton[] imageCancelButton = selector.getAddCanceljButton("./res/button/Cancel.png");
+        //箭塔選項
+        JButton[] imageArcherChooseButton = selector.getTowerChoosejButton("./res/ArcherTower.png", 0);
+        //雷電塔選項
+        JButton[] imageLightningChooseButton = selector.getTowerChoosejButton("./res/LightningTower.png", 1);
+        //可樂塔選項
+        JButton[] imageColaChooseButton = selector.getTowerChoosejButton("./res/ColaTower.png", 2);
+        //箭塔生成
+        JButton[] imageArcherButton = selector.getTowerjButton("./res/ArcherTower.png");
+        //雷電塔生成
+        JButton[] imageLightningButton = selector.getTowerjButton("./res/LightningTower.png");
+        //可樂塔生成
+        JButton[] imageColaButton = selector.getTowerjButton("./res/ColaTower.png");
+        //賣出按鈕
+        JButton[] imageSellButton = selector.getSellEscapejButton("./res/button/Gold.png");
+        //取消按鈕
+        JButton[] imageEscapeButton = selector.getSellEscapejButton("./res/button/Escape.png");
+        //升級按鈕
+        JButton[] imageUpgradeButton = selector.getSellEscapejButton("./res/button/Upgrade.png");
+
+        for (int i = 0; i < Originalx.length; i++) {
+            backgroundPanel.add(imageAddButton[i]);
+        }
+
+        backgroundPanel.setEnemy(true);
+
+        for (int i = 0; i < imageAddButton.length; i++) {
+            final int index = i;
+            imageAddButton[i].setActionCommand("change" + i);
+            imageAddButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    backgroundPanel.add(imageArcherChooseButton[index]);
+                    backgroundPanel.add(imageLightningChooseButton[index]);
+                    backgroundPanel.add(imageColaChooseButton[index]);
+                    backgroundPanel.add(imageCancelButton[index]);
+                    backgroundPanel.remove(imageAddButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageCancelButton.length; i++) {
+            final int index = i;
+            imageCancelButton[i].setActionCommand("change" + i);
+            imageCancelButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    backgroundPanel.add(imageAddButton[index]);
+                    backgroundPanel.remove(imageArcherChooseButton[index]);
+                    backgroundPanel.remove(imageLightningChooseButton[index]);
+                    backgroundPanel.remove(imageColaChooseButton[index]);
+                    backgroundPanel.remove(imageCancelButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageArcherChooseButton.length; i++) {
+            final int index = i;
+            imageArcherChooseButton[i].setActionCommand("change" + i);
+            imageArcherChooseButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    backgroundPanel.add(imageArcherButton[index]);
+                    ArcherTowerFactory.addTower(archerTower, Originalx[index], Originaly[index]);
+                    backgroundPanel.remove(imageArcherChooseButton[index]);
+                    backgroundPanel.remove(imageLightningChooseButton[index]);
+                    backgroundPanel.remove(imageColaChooseButton[index]);
+                    backgroundPanel.remove(imageCancelButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageLightningChooseButton.length; i++) {
+            final int index = i;
+            imageLightningChooseButton[i].setActionCommand("change" + i);
+            imageLightningChooseButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    backgroundPanel.add(imageLightningButton[index]);
+                    LightningTowerFactory.addTower(lightningTower, Originalx[index], Originaly[index]);
+                    backgroundPanel.remove(imageArcherChooseButton[index]);
+                    backgroundPanel.remove(imageLightningChooseButton[index]);
+                    backgroundPanel.remove(imageColaChooseButton[index]);
+                    backgroundPanel.remove(imageCancelButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageColaChooseButton.length; i++) {
+            final int index = i;
+            imageColaChooseButton[i].setActionCommand("change" + i);
+            imageColaChooseButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    backgroundPanel.add(imageColaButton[index]);
+                    FlameTowerFactory.addTower(flameTower, Originalx[index], Originaly[index]);
+                    backgroundPanel.remove(imageArcherChooseButton[index]);
+                    backgroundPanel.remove(imageLightningChooseButton[index]);
+                    backgroundPanel.remove(imageColaChooseButton[index]);
+                    backgroundPanel.remove(imageCancelButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageArcherButton.length; i++) {
+            final int index = i;
+            imageArcherButton[i].setActionCommand("change" + i);
+            imageArcherButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    backgroundPanel.setCircle(circleX, circleY, archerTower.getAlertRange(), shouldDrawCircle);
+                    backgroundPanel.add(imageEscapeButton[index]);
+                    backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageLightningButton.length; i++) {
+            final int index = i;
+            imageLightningButton[i].setActionCommand("change" + i);
+            imageLightningButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    backgroundPanel.setCircle(circleX, circleY, lightningTower.getAlertRange(), shouldDrawCircle);
+                    backgroundPanel.add(imageEscapeButton[index]);
+                    backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageColaButton.length; i++) {
+            final int index = i;
+            imageColaButton[i].setActionCommand("change" + i);
+            imageColaButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = true;
+                    circleX = Originalx[index];
+                    circleY = Originaly[index];
+                    backgroundPanel.setCircle(circleX, circleY, flameTower.getAlertRange(), shouldDrawCircle);
+                    backgroundPanel.add(imageEscapeButton[index]);
+                    backgroundPanel.add(imageSellButton[index]);
+                    backgroundPanel.add(imageUpgradeButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageEscapeButton.length; i++) {
+            final int index = i;
+            imageEscapeButton[i].setActionCommand("change" + i);
+            imageEscapeButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
+                    backgroundPanel.remove(imageEscapeButton[index]);
+                    backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        for (int i = 0; i < imageSellButton.length; i++) {
+            final int index = i;
+            imageSellButton[i].setActionCommand("change" + i);
+            imageSellButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
+                    backgroundPanel.remove(imageEscapeButton[index]);
+                    backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
+                    backgroundPanel.remove(imageColaButton[index]);
+                    backgroundPanel.remove(imageArcherButton[index]);
+                    backgroundPanel.remove(imageLightningButton[index]);
+                    backgroundPanel.add(imageAddButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+        frame.setVisible(true);
+        start();
+        enemy = backgroundPanel.enemyTileManager.getEnemies();
+    }
+    private void updatesEnemy() {
+        backgroundPanel.enemyTileManager.update();
+    }
+
+    private void start(){
+        gameThread = new Thread(this) {
+        };
+        gameThread.start();
+    }
+
+    public void run() {
+
+        double timePerFrame = 1000000000.0 / FPS_SET;
+        double timePerUpdate = 1000000000.0 / UPS_SET;
+
+        long lastFrame = System.nanoTime();
+        long lastUpdate = System.nanoTime();
+        long lastTimeCheck = System.currentTimeMillis();
+
+        int frames = 0;
+        int updates = 0;
+
+        long now;
+
+        while (true) {
+            now = System.nanoTime();
+
+            // Render
+            if (now - lastFrame >= timePerFrame) {
+                backgroundPanel.repaint();
+                lastFrame = now;
+                frames++;
+            }
+            // Update
+            if (now - lastUpdate >= timePerUpdate) {
+                updatesEnemy();
+                lastUpdate = now;
+                updates++;
+            }
+            if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
+                System.out.println("FPS: " + frames + " | UPS: " + updates);
+                frames = 0;
+                updates = 0;
+                lastTimeCheck = System.currentTimeMillis();
+
+                for (Enemy e : enemy) {
+                    System.out.println(e.getX());
+                    System.out.println(e.getHealth());
+                    if (e.getX() > 1500) {
+                        System.out.println("HP-1");
+                    }
+                }
+            }
+        }
     }
 }

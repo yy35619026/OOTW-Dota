@@ -22,10 +22,9 @@ public class Constants {
                 case Basic:
                     return 1000;
                 case Fast:
-                    return 50;
+                    return 100;
             }
             return 0;
-
         }
     }
 }

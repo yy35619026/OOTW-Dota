@@ -336,7 +336,8 @@ public class GameScreen extends JFrame implements Runnable{
 
     private boolean isInRange(Enemy e, TowerPlacement t) {
         int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
-        return range < t.getTower().getAlertRange();
+        //System.out.println("range:" + range + " ,tower:" + t.getTower().getAlertRange());
+        return range < (t.getTower().getAlertRange()/2);
     }
 
     private static int GetHypoDistance(float x1, float y1 , int x2, int y2){

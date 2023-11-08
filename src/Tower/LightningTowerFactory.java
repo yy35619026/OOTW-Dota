@@ -17,4 +17,11 @@ public class LightningTowerFactory implements TowerFactory{
     public static ArrayList<TowerPlacement> getTowerlist() {
         return Towerlist;
     }
+    public static void removeTower(int x, int y) {
+        for(int i = 0; i < Towerlist.size(); i++){
+            if(Towerlist.get(i).getX() == x && Towerlist.get(i).getY() == y){
+                Towerlist.remove(i);
+            }
+        }
+    }
 }

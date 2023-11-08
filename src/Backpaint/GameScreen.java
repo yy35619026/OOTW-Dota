@@ -293,6 +293,7 @@ public class GameScreen extends JFrame implements Runnable{
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
                     backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
+                    LightningTowerFactory.removeTower(Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);
@@ -375,7 +376,7 @@ public class GameScreen extends JFrame implements Runnable{
                 updates++;
             }
             if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
-                System.out.println("FPS: " + frames + " | UPS: " + updates);
+                //System.out.println("FPS: " + frames + " | UPS: " + updates);
                 frames = 0;
                 updates = 0;
                 lastTimeCheck = System.currentTimeMillis();
@@ -383,8 +384,8 @@ public class GameScreen extends JFrame implements Runnable{
                 updatesAttack();
 
                 for (Enemy e : enemy) {
-                    System.out.println(e.getX());
-                    System.out.println(e.getHealth());
+                    //System.out.println(e.getX());
+                    //System.out.println(e.getHealth());
                     if (e.getX() > 1500) {
                         System.out.println("HP-1");
                     }

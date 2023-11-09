@@ -44,33 +44,29 @@ public class Level1Screen extends GameScreen{
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         frame.setLocationRelativeTo(null);
-        ButtonSelector cancelButton = new CancelButton();
-        ButtonSelector chooseButton = new ChooseButton();
-        ButtonSelector towerButton = new TowerButton();
-        ButtonSelector functionButton = new FunctionButton();
 
-        //+號按鈕
-        JButton[] imageAddButton = cancelButton.getButton("./res/button/Add.png");
-        //-號按鈕
-        JButton[] imageCancelButton = cancelButton.getButton("./res/button/Cancel.png");
-        //箭塔選項
-        JButton[] imageArcherChooseButton = chooseButton.getButton("./res/Tower/tower1.png");
-        //雷電塔選項
-        JButton[] imageLightningChooseButton = chooseButton.getButton("./res/Tower/tower2.png");
-        //可樂塔選項
-        JButton[] imageColaChooseButton = chooseButton.getButton("./res/Tower/tower3.png");
-        //箭塔生成
-        JButton[] imageArcherButton = towerButton.getButton("./res/Tower/tower1.png");
-        //雷電塔生成
-        JButton[] imageLightningButton = towerButton.getButton("./res/Tower/tower2.png");
-        //可樂塔生成
-        JButton[] imageColaButton = towerButton.getButton("./res/Tower/tower3.png");
-        //賣出按鈕
-        JButton[] imageSellButton = functionButton.getButton("./res/button/Gold.png");
-        //取消按鈕
-        JButton[] imageEscapeButton = functionButton.getButton("./res/button/Escape.png");
-        //升級按鈕
-        JButton[] imageUpgradeButton = functionButton.getButton("./res/button/Upgrade.png");
+        //+-號按鈕
+        setButtonSelector(new CancelButton());
+        JButton[] imageAddButton = buttonSelector.getButton("./res/button/Add.png");
+        JButton[] imageCancelButton = buttonSelector.getButton("./res/button/Cancel.png");
+
+        //箭塔選項(雷電塔、可樂塔)
+        setButtonSelector(new ChooseButton());
+        JButton[] imageArcherChooseButton = buttonSelector.getButton("./res/Tower/tower1.png");
+        JButton[] imageLightningChooseButton = buttonSelector.getButton("./res/Tower/tower2.png");
+        JButton[] imageColaChooseButton = buttonSelector.getButton("./res/Tower/tower3.png");
+
+        //箭塔、雷電塔、可樂塔生成
+        setButtonSelector(new TowerButton());
+        JButton[] imageArcherButton = buttonSelector.getButton("./res/Tower/tower1.png");
+        JButton[] imageLightningButton = buttonSelector.getButton("./res/Tower/tower2.png");
+        JButton[] imageColaButton = buttonSelector.getButton("./res/Tower/tower3.png");
+
+        //賣出、取消、升級按鈕
+        setButtonSelector(new FunctionButton());
+        JButton[] imageSellButton = buttonSelector.getButton("./res/button/Gold.png");
+        JButton[] imageEscapeButton = buttonSelector.getButton("./res/button/Escape.png");
+        JButton[] imageUpgradeButton = buttonSelector.getButton("./res/button/Upgrade.png");
 
         RunGame = new JButton();
         StopGame = new JButton();
@@ -105,10 +101,11 @@ public class Level1Screen extends GameScreen{
         });
 
         SaveGame.addActionListener(e -> {
+            System.out.println("Save!");
             Originator originator = new Originator();
             Caretaker caretaker = new Caretaker(originator);
 
-            Backpaint.GameScreen Level1 = new Backpaint.GameScreen();
+            Level1Screen Level1 = new Level1Screen();
             originator.setVersion(Level1);
             caretaker.saveMemento();
         });

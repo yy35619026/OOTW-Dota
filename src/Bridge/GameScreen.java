@@ -6,6 +6,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public abstract class GameScreen extends JFrame implements Runnable {
+    protected ButtonSelector buttonSelector;
     protected JFrame frame;
     protected BackgroundPanel backgroundPanel;
     public void settings(){
@@ -19,6 +20,9 @@ public abstract class GameScreen extends JFrame implements Runnable {
         backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
+    }
+    public void setButtonSelector(ButtonSelector buttonSelector){
+        this.buttonSelector = buttonSelector;
     }
     public abstract void getScreen();
 }

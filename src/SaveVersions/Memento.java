@@ -1,6 +1,6 @@
 package SaveVersions;
 
-import Backpaint.GameScreen;
+import Bridge.GameScreen;
 
 public class Memento {
     private GameScreen gameScreen;

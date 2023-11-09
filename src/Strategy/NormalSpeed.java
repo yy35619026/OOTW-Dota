@@ -11,7 +11,7 @@ public class NormalSpeed implements SpeedStrategy{
 
     @Override
     public void execute(Enemy enemy, float x, float y) {
-        speedX = enemy.getSpeed(enemy.getEnemyType());
+        speedX = enemy.getSpeed();
         speedY = 0;
 
         speedX = enemy.getX()+(float) (1 * speedX);

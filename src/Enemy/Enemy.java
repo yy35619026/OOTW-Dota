@@ -87,7 +87,7 @@ public abstract class Enemy {
         return enemyType;
     }
 
-    public float getSpeed(int enemyType){
+    public float getSpeed(){
         return Constants.enemys.getSpeed(enemyType);
     }
 }

@@ -24,7 +24,7 @@ public class FastSpeed implements SpeedStrategy {
 
     @Override
     public void execute(Enemy enemy, float x, float y) {
-        speedX = enemy.getSpeed(enemy.getEnemyType());
+        speedX = enemy.getSpeed();
 
         if (increasing) {
             speedY = 0.25f;

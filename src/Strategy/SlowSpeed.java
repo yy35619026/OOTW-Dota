@@ -10,7 +10,7 @@ public class SlowSpeed implements SpeedStrategy{
 
     @Override
     public void execute(Enemy enemy, float x, float y) {
-        speedX = enemy.getSpeed(enemy.getEnemyType());
+        speedX = enemy.getSpeed();
         speedY = 0;
 
         speedX = enemy.getX()+(float) (0.5 * speedX);

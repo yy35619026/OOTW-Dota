@@ -1,5 +1,8 @@
 package Enemy;
 
+import Strategy.NormalSpeed;
+import Strategy.SpeedStrategy;
+
 import java.awt.*;
 
 public abstract class Enemy {
@@ -10,9 +13,11 @@ public abstract class Enemy {
     protected int ID;
     protected int enemyType;
 
+    SpeedStrategy strategy;
+
     public Enemy(float x,float y,int id, int enemyType) {
         this.x=x;
-        this.y=y;;
+        this.y=y;
         this.ID=id;
         this.enemyType=enemyType;
         bounds = new Rectangle((int) x, (int) y, 64,64);
@@ -34,6 +39,10 @@ public abstract class Enemy {
     public void move(float x ,float y ){
         this.x += x;
         this.y += y;
+    }
+
+    public void setStrategy(SpeedStrategy strategy) {
+        this.strategy = strategy;
     }
 
     public float getX() {

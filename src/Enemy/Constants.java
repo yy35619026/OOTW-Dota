@@ -4,6 +4,7 @@ public class Constants {
     public static class enemys{
         public static final int Basic = 0;
         public static final int Fast = 1;
+
         public static float getSpeed(int enemyType){
 
             switch (enemyType){

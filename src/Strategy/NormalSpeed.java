@@ -1,23 +1,23 @@
 package Strategy;
 
 
+import Enemy.Enemy;
+
 public class NormalSpeed implements SpeedStrategy{
 
     private float speedX;
     private float speedY;
 
-    public NormalSpeed(float speedX, float speedY) {
-        this.speedX = speedX;
-        this.speedY = speedY;
-    }
 
     @Override
-    public void execute() {
+    public void execute(Enemy enemy, float x, float y) {
+        speedX = enemy.getSpeed(enemy.getEnemyType());
+        speedY = 0;
 
-    }
+        speedX = enemy.getX()+(float) (1 * speedX);
+        speedY = enemy.getY()+(float) (1 * speedY);
 
-    @Override
-    public void updatePosition(float x, float y) {
-
+        enemy.setX(speedX);
+        enemy.setY(speedY);
     }
 }

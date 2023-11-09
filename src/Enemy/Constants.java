@@ -14,7 +14,6 @@ public class Constants {
                     return 0.75f;
             }
             return 0;
-
         }
 
         public static int GetStartHealth(int enemyType) {

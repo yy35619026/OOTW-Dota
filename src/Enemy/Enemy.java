@@ -1,5 +1,6 @@
 package Enemy;
 
+import Strategy.FastSpeed;
 import Strategy.NormalSpeed;
 import Strategy.SpeedStrategy;
 
@@ -35,13 +36,31 @@ public abstract class Enemy {
         return health/(float) maxhealth;
     }
 
-    public void move(float x ,float y ){
-        this.x += x;
-        this.y += y;
+    public double getMaxhealth() {
+        return maxhealth;
+    }
+
+    public void move(){
+        if(strategy == null){
+            strategy = new FastSpeed(this);
+        }
+        strategy.execute(this,this.x,this.y);
     }
 
     public void setStrategy(SpeedStrategy strategy) {
         this.strategy = strategy;
+    }
+
+    public SpeedStrategy getStrategy() {
+        return strategy;
+    }
+
+    public void setX(float x) {
+        this.x = x;
+    }
+
+    public void setY(float y) {
+        this.y = y;
     }
 
     public float getX() {
@@ -71,5 +90,4 @@ public abstract class Enemy {
     public float getSpeed(int enemyType){
         return Constants.enemys.getSpeed(enemyType);
     }
-
 }

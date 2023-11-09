@@ -1,6 +1,6 @@
-package Backpaint;
+package Bridge;
 
-import Bridge.*;
+import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
 import SaveVersions.Caretaker;
 import SaveVersions.Originator;
@@ -10,16 +10,14 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public class GameScreen extends JFrame implements Runnable{
+public class Level1Screen extends GameScreen{
     TowerFactory archerTowerFactory = new ArcherTowerFactory();
     Tower archerTower = archerTowerFactory.createTower();
     TowerFactory lightningTowerFactory = new LightningTowerFactory();
     Tower lightningTower = lightningTowerFactory.createTower();
     TowerFactory flameTowerFactory = new FlameTowerFactory();
     Tower flameTower = flameTowerFactory.createTower();
-    private JButton new_game, end_game, version1, version2, version3, version4, RunGame, StopGame, SaveGame;
-    private JFrame frame;
-    private BackgroundPanel backgroundPanel;
+    private JButton RunGame, StopGame, SaveGame;
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     private boolean shouldDrawCircle = false;
@@ -31,101 +29,8 @@ public class GameScreen extends JFrame implements Runnable{
     private final double FPS_SET = 120.0;
     private final double UPS_SET = 60.0;
     private Thread gameThread;
-
-    public void setting(){
-        //視窗
-        frame = new JFrame("第七組Tower Defence game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
-        frame.setLocationRelativeTo(null);
-
-        // 自定義面板的基礎構建
-        backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
-        backgroundPanel.setLayout(new GridBagLayout());
-        frame.setContentPane(backgroundPanel);
-    }
-
-    public void init() {
-        setting();
-        // GridBagConstraints物件的布局設置
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 0; // X軸位置為0
-        constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
-        constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
-        //按鈕一些屬性設置
-        Dimension buttonSize = new Dimension(150, 50);
-        Font buttonFont = new Font("Arial", Font.BOLD, 16);
-        new_game = new JButton();
-        end_game = new JButton();
-        new_game.setFont(buttonFont);
-        end_game.setFont(buttonFont);
-        new_game.setPreferredSize(buttonSize);
-        end_game.setPreferredSize(buttonSize);
-
-        ImageIcon StartGame = new ImageIcon("./res/button/Start.png");
-        Image scaledStartImage = StartGame.getImage().getScaledInstance(150, 50, Image.SCALE_SMOOTH);
-        ImageIcon scaledStartIcon = new ImageIcon(scaledStartImage);
-        new_game.setIcon(scaledStartIcon);
-        new_game.setFocusPainted(false);
-        new_game.setOpaque(false);
-        new_game.setContentAreaFilled(false);
-        new_game.setBorderPainted(false);
-
-        ImageIcon ExitGame = new ImageIcon("./res/button/Exit.png");
-        Image scaledExitImage = ExitGame.getImage().getScaledInstance(150, 50, Image.SCALE_SMOOTH);
-        ImageIcon scaledExitIcon = new ImageIcon(scaledExitImage);
-        end_game.setIcon(scaledExitIcon);
-        end_game.setFocusPainted(false);
-        end_game.setOpaque(false);
-        end_game.setContentAreaFilled(false);
-        end_game.setBorderPainted(false);
-
-
-        constraints.gridy = 0; // Y軸位置為0
-        backgroundPanel.add(new_game, constraints);
-        constraints.gridy = 1; // Y軸位置為1
-        backgroundPanel.add(end_game, constraints);
-
-        frame.setVisible(true);
-
-        new_game.addActionListener(e -> {
-            Game_ChooseVersion();
-//            new TowerSelector().Background();
-            SwingUtilities.getWindowAncestor(new_game).dispose();
-        });
-        end_game.addActionListener(e -> {
-            System.exit(0);
-        });
-    }
-    public void Game_ChooseVersion(){
-        setting();
-        // GridBagConstraints物件的布局設置
-        GridBagConstraints constraints = new GridBagConstraints();
-        constraints.gridx = 0; // X軸位置為0
-        constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
-        constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
-        //按鈕一些屬性設置
-        Dimension buttonSize = new Dimension(150, 50);
-        Font buttonFont = new Font("Arial", Font.BOLD, 16);
-        JButton[] versions = { version1, version2, version3, version4 };
-        String[] versionsTexts = { "Version1", "Version2", "Version3", "Version4" };
-
-        for (int i = 0; i < versions.length; i++) {
-            versions[i] = new JButton(versionsTexts[i]);
-            versions[i].setFont(buttonFont);
-            versions[i].setPreferredSize(buttonSize);
-            constraints.gridy = i;
-            backgroundPanel.add(versions[i], constraints);
-        }
-
-        frame.setVisible(true);
-        //Version1
-        versions[0].addActionListener(e -> {
-            Game_level1();
-            SwingUtilities.getWindowAncestor(versions[0]).dispose();
-        });
-    }
-    public void Game_level1(){
+    @Override
+    public void getScreen() {
         frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
@@ -197,7 +102,7 @@ public class GameScreen extends JFrame implements Runnable{
             Originator originator = new Originator();
             Caretaker caretaker = new Caretaker(originator);
 
-            GameScreen Level1 = new GameScreen();
+            Backpaint.GameScreen Level1 = new Backpaint.GameScreen();
             originator.setVersion(Level1);
             caretaker.saveMemento();
         });
@@ -397,39 +302,10 @@ public class GameScreen extends JFrame implements Runnable{
         enemy = backgroundPanel.enemyTileManager.getEnemies();
         Towerlist = LightningTowerFactory.getTowerlist();
     }
-    private void updatesEnemy() {
-        backgroundPanel.enemyTileManager.update();
-    }
-
     private void start(){
         gameThread = new Thread(this) {
         };
         gameThread.start();
-    }
-
-    private void updatesAttack() {
-        for(Enemy e:enemy){
-            for (TowerPlacement t:Towerlist) {
-                if(isInRange(e,t)){
-                    e.beAttack(t.getTower().getDamage());
-                }else{
-                    //System.out.println("No");
-                }
-            }
-        }
-    }
-
-    private boolean isInRange(Enemy e, TowerPlacement t) {
-        int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
-        //System.out.println("range:" + range + " ,tower:" + t.getTower().getAlertRange());
-        return range < (t.getTower().getAlertRange()/2);
-    }
-
-    private static int GetHypoDistance(float x1, float y1 , int x2, int y2){
-        float XDiff = Math.abs(x1-x2);
-        float YDiff = Math.abs(y1-y2);
-
-        return (int) Math.hypot(XDiff,YDiff);
     }
     public void GoRunning(){
         isRunning = true;
@@ -437,8 +313,8 @@ public class GameScreen extends JFrame implements Runnable{
     public void stopRunning() {
         isRunning = false;
     }
+    @Override
     public void run() {
-
         double timePerFrame = 1000000000.0 / FPS_SET;
         double timePerUpdate = 1000000000.0 / UPS_SET;
 
@@ -484,5 +360,30 @@ public class GameScreen extends JFrame implements Runnable{
                 }
             }
         }
+    }
+    private void updatesEnemy() {
+        backgroundPanel.enemyTileManager.update();
+    }
+    private void updatesAttack() {
+        for(Enemy e:enemy){
+            for (TowerPlacement t:Towerlist) {
+                if(isInRange(e,t)){
+                    e.beAttack(t.getTower().getDamage());
+                }else{
+                    //System.out.println("No");
+                }
+            }
+        }
+    }
+    private boolean isInRange(Enemy e, TowerPlacement t) {
+        int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
+        //System.out.println("range:" + range + " ,tower:" + t.getTower().getAlertRange());
+        return range < (t.getTower().getAlertRange()/2);
+    }
+    private static int GetHypoDistance(float x1, float y1 , int x2, int y2){
+        float XDiff = Math.abs(x1-x2);
+        float YDiff = Math.abs(y1-y2);
+
+        return (int) Math.hypot(XDiff,YDiff);
     }
 }

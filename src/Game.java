@@ -1,7 +1,7 @@
-import Backpaint.GameScreen;
+import Bridge.InitScreen;
 
 public class Game {
     public static void main(String[] args) {
-        new GameScreen().init();
+        new InitScreen().getScreen();
     }
 }

@@ -1,11 +1,11 @@
 package Tower;
 
-import Attackenemy.ConcreteEnemy;
+import Attackenemy.ConcreteCastle;
 
 public interface Tower {
     double getCost();
     double getDamage();
     int getLevel();
     int getAlertRange();
-    void update(ConcreteEnemy enemy, String status);
+    void update(ConcreteCastle enemy, String status);
 }

@@ -69,7 +69,8 @@ public class GameScreen extends JFrame implements Runnable{
         frame.setVisible(true);
 
         new_game.addActionListener(e -> {
-            Game_level1();
+            Game_ChooseVersion();
+//            Game_level1();
 //            new TowerSelector().Background();
             SwingUtilities.getWindowAncestor(new_game).dispose();
         });
@@ -105,27 +106,35 @@ public class GameScreen extends JFrame implements Runnable{
         constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
         constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
         //按鈕一些屬性設置
-        Dimension buttonsize = new Dimension(150, 50);
-        Font buttonfont = new Font("Arial", Font.BOLD, 16);
         JButton version1 = new JButton("Version1");
         JButton version2 = new JButton("Version2");
         JButton version3 = new JButton("Version3");
         JButton version4 = new JButton("Version4");
-        version1.setFont(buttonfont);
-        version2.setFont(buttonfont);
-        version3.setFont(buttonfont);
-        version4.setFont(buttonfont);
-        version1.setPreferredSize(buttonsize);
-        version2.setPreferredSize(buttonsize);
-        version3.setPreferredSize(buttonsize);
-        version4.setPreferredSize(buttonsize);
 
+        Dimension buttonSize = new Dimension(150, 50);
+        Font buttonFont = new Font("Arial", Font.BOLD, 16);
+        JButton[] buttons = { version1, version2, version3, version4 };
+        String[] buttonTexts = { "Version1", "Version2", "Version3", "Version4" };
+
+        for (int i = 0; i < buttons.length; i++) {
+            buttons[i] = new JButton(buttonTexts[i]);
+            buttons[i].setFont(buttonFont);
+            buttons[i].setPreferredSize(buttonSize);
+        }
         constraints.gridy = 0; // Y軸位置為0
-        backgroundPanel.add(new_game, constraints);
+        backgroundPanel.add(version1, constraints);
         constraints.gridy = 1; // Y軸位置為1
-        backgroundPanel.add(end_game, constraints);
+        backgroundPanel.add(version2, constraints);
+        constraints.gridy = 2; // Y軸位置為1
+        backgroundPanel.add(version3, constraints);
+        constraints.gridy = 3; // Y軸位置為1
+        backgroundPanel.add(version4, constraints);
 
         frame.setVisible(true);
+        version1.addActionListener(e -> {
+            Game_level1();
+            SwingUtilities.getWindowAncestor(version1).dispose();
+        });
     }
     public void Game_level1(){
         frame = new JFrame("關卡一");

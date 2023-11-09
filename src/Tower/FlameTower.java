@@ -1,6 +1,6 @@
 package Tower;
 
-import Attackenemy.ConcreteEnemy;
+import Attackenemy.ConcreteCastle;
 
 public class FlameTower implements Tower{
     double cost;
@@ -29,7 +29,7 @@ public class FlameTower implements Tower{
     public int getAlertRange() {
         return alertRange;
     }
-    public void update(ConcreteEnemy enemy, String status) {
+    public void update(ConcreteCastle enemy, String status) {
         System.out.println("Archer Tower 收到通知，敵人狀態更新為: " + status);
     }
 }

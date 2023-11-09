@@ -80,9 +80,12 @@ public class EnemyTileManager {
                     e.move(e.getSpeed(1), 0);
                     break;
             }
-
             if (e.getHealth() <= 0) {
                 // 血量低于0时，从列表中移除敌人
+                iterator.remove();
+            }else if(e.getX() >= 1500){
+                Castle_Subject castle_subject = new ConcreteCastle();
+                castle_subject.updateStatus("敵人成功攻城");
                 iterator.remove();
             }
         }

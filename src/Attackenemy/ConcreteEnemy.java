@@ -1,31 +1,16 @@
 package Attackenemy;
 
-import java.util.ArrayList;
-import java.util.List;
-import Tower.*;
-public class ConcreteEnemy implements Enemy_Subject {
-    private List<Tower> observers = new ArrayList<>();
-    private String status;
-    @Override
-    public void addObserver(Tower tower) {
-        observers.add(tower);
-    }
+public class ConcreteEnemy implements Enemy_Observer {
+    private String name;
 
-    @Override
-    public void removeObserver(Tower tower) {
-        observers.remove(tower);
+    public ConcreteEnemy(String name) {
+        this.name = name;
     }
-
     @Override
-    public void notifyObservers() {
-        for (Tower tower : observers) {
-            tower.update(this, status);
+    public void update(String status) {
+        switch (status){
+            case "敵人成功攻城":
         }
-    }
-
-    @Override
-    public void updateStatus(String status) {
-        this.status = status;
-        notifyObservers();
+        System.out.println(name + " 收到通知，敵人狀態更新為: " + status);
     }
 }

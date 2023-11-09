@@ -2,7 +2,7 @@ package Attackenemy;
 
 import Tower.*;
 
-public interface Enemy_Subject {
+public interface Castle_Subject {
     void addObserver(Tower tower);
     void removeObserver(Tower tower);
     void notifyObservers();

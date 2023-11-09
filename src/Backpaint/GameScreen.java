@@ -26,6 +26,7 @@ public class GameScreen extends JFrame implements Runnable{
     private int circleRadius;
     private ArrayList<Enemy> enemy;
     private ArrayList<TowerPlacement> Towerlist;
+    private volatile boolean isRunning = true;
     private final double FPS_SET = 120.0;
     private final double UPS_SET = 60.0;
     private Thread gameThread;
@@ -85,6 +86,45 @@ public class GameScreen extends JFrame implements Runnable{
 //            new EnemyTest();
 //        });
     }
+    public void Game_ChooseVersion(){
+        frame = new JFrame("第七組Tower Defence game");
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setSize(1600, 900);
+        frame.setLocationRelativeTo(null);
+
+        // 自定義面板的基礎構建
+        backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
+        backgroundPanel.setLayout(new GridBagLayout());
+        frame.setContentPane(backgroundPanel);
+
+        // GridBagConstraints物件的布局設置
+        GridBagConstraints constraints = new GridBagConstraints();
+        constraints.gridx = 0; // X軸位置為0
+        constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
+        constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
+        //按鈕一些屬性設置
+        Dimension buttonsize = new Dimension(150, 50);
+        Font buttonfont = new Font("Arial", Font.BOLD, 16);
+        JButton version1 = new JButton("Version1");
+        JButton version2 = new JButton("Version2");
+        JButton version3 = new JButton("Version3");
+        JButton version4 = new JButton("Version4");
+        version1.setFont(buttonfont);
+        version2.setFont(buttonfont);
+        version3.setFont(buttonfont);
+        version4.setFont(buttonfont);
+        version1.setPreferredSize(buttonsize);
+        version2.setPreferredSize(buttonsize);
+        version3.setPreferredSize(buttonsize);
+        version4.setPreferredSize(buttonsize);
+
+        constraints.gridy = 0; // Y軸位置為0
+        backgroundPanel.add(new_game, constraints);
+        constraints.gridy = 1; // Y軸位置為1
+        backgroundPanel.add(end_game, constraints);
+
+        frame.setVisible(true);
+    }
     public void Game_level1(){
         frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -116,6 +156,43 @@ public class GameScreen extends JFrame implements Runnable{
         JButton[] imageEscapeButton = selector.getSellEscapejButton("./res/button/Escape.png");
         //升級按鈕
         JButton[] imageUpgradeButton = selector.getSellEscapejButton("./res/button/Upgrade.png");
+
+        JButton RunGame = new JButton();
+        JButton StopGame = new JButton();
+        JButton SaveGame = new JButton();
+
+        ImageIcon RunGameIcon = new ImageIcon("./res/button/run.jpg");
+        Image scaledRunImage = RunGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledRunIcon = new ImageIcon(scaledRunImage);
+        RunGame.setIcon(scaledRunIcon);
+        RunGame.setBounds(frame.getWidth() - 50, 0, 50, 50);
+        frame.getContentPane().add(RunGame);
+
+        ImageIcon stopGameIcon = new ImageIcon("./res/button/stop.jpg");
+        Image scaledStopImage = stopGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledStopIcon = new ImageIcon(scaledStopImage);
+        StopGame.setIcon(scaledStopIcon);
+        StopGame.setBounds(frame.getWidth() - 100, 0, 50, 50);
+        frame.getContentPane().add(StopGame);
+
+        ImageIcon saveGameIcon = new ImageIcon("./res/button/save.jpg");
+        Image scaledSaveImage = saveGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledSaveIcon = new ImageIcon(scaledSaveImage);
+        SaveGame.setIcon(scaledSaveIcon);
+        SaveGame.setBounds(frame.getWidth() - 150, 0, 50, 50);
+        frame.getContentPane().add(SaveGame);
+
+        RunGame.addActionListener(e -> {
+            GoRunning();
+        });
+
+        StopGame.addActionListener(e -> {
+            stopRunning();
+        });
+
+        SaveGame.addActionListener(e -> {
+
+        });
 
         for (int i = 0; i < Originalx.length; i++) {
             backgroundPanel.add(imageAddButton[i]);
@@ -346,7 +423,12 @@ public class GameScreen extends JFrame implements Runnable{
 
         return (int) Math.hypot(XDiff,YDiff);
     }
-
+    public void GoRunning(){
+        isRunning = true;
+    }
+    public void stopRunning() {
+        isRunning = false;
+    }
     public void run() {
 
         double timePerFrame = 1000000000.0 / FPS_SET;
@@ -363,32 +445,33 @@ public class GameScreen extends JFrame implements Runnable{
 
         while (true) {
             now = System.nanoTime();
+            if(isRunning) {
+                // Render
+                if (now - lastFrame >= timePerFrame) {
+                    backgroundPanel.repaint();
+                    lastFrame = now;
+                    frames++;
+                }
+                // Update
+                if (now - lastUpdate >= timePerUpdate) {
+                    updatesEnemy();
+                    lastUpdate = now;
+                    updates++;
+                }
+                if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
+                    //System.out.println("FPS: " + frames + " | UPS: " + updates);
+                    frames = 0;
+                    updates = 0;
+                    lastTimeCheck = System.currentTimeMillis();
 
-            // Render
-            if (now - lastFrame >= timePerFrame) {
-                backgroundPanel.repaint();
-                lastFrame = now;
-                frames++;
-            }
-            // Update
-            if (now - lastUpdate >= timePerUpdate) {
-                updatesEnemy();
-                lastUpdate = now;
-                updates++;
-            }
-            if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
-                //System.out.println("FPS: " + frames + " | UPS: " + updates);
-                frames = 0;
-                updates = 0;
-                lastTimeCheck = System.currentTimeMillis();
+                    updatesAttack();
 
-                updatesAttack();
-
-                for (Enemy e : enemy) {
-                    //System.out.println(e.getX());
-                    //System.out.println(e.getHealth());
-                    if (e.getX() > 1500) {
-                        System.out.println("HP-1");
+                    for (Enemy e : enemy) {
+                        //System.out.println(e.getX());
+                        //System.out.println(e.getHealth());
+                        if (e.getX() > 1500) {
+                            System.out.println("HP-1");
+                        }
                     }
                 }
             }

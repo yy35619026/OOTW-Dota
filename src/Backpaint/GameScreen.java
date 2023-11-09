@@ -1,6 +1,8 @@
 package Backpaint;
 
 import Enemy.Enemy;
+import SaveVersions.Caretaker;
+import SaveVersions.Originator;
 import Tower.*;
 
 import javax.swing.*;
@@ -191,7 +193,12 @@ public class GameScreen extends JFrame implements Runnable{
         });
 
         SaveGame.addActionListener(e -> {
+            Originator originator = new Originator();
+            Caretaker caretaker = new Caretaker(originator);
 
+            GameScreen Level1 = new GameScreen();
+            originator.setVersion(Level1);
+            caretaker.saveMemento();
         });
 
         for (int i = 0; i < Originalx.length; i++) {

@@ -12,7 +12,6 @@ public abstract class Enemy {
     protected double maxhealth;
     protected int ID;
     protected int enemyType;
-
     SpeedStrategy strategy;
 
     public Enemy(float x,float y,int id, int enemyType) {

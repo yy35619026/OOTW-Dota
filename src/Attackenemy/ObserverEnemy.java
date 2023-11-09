@@ -7,10 +7,9 @@ public class ObserverEnemy implements Observer {
         if(count != 0){
             switch (status){
                 case "敵人成功攻城":
+                case "敵人死亡":
                     count--;
                     return String.valueOf(count);
-                case "敵人死亡":
-                    throw new UnsupportedOperationException();
             }
         }
         return null;

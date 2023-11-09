@@ -4,13 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
+    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="strategy done">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/Level1Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1Screen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Memento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Originator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,11 +41,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/t0931/IdeaProjects/OO-曹/OOTW-Dota&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\t0931\IdeaProjects\OOTW-Dota\src" />

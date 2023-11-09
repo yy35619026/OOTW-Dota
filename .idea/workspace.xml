@@ -5,14 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/res/Button/Continue.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Button/Exit.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Button/Save.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Button/Start.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Tower/tower1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Tower/tower2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/res/Tower/tower3.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Button/run.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Button/save.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/res/Button/stop.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/Castle_Subject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/Castle_Subject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ConcreteCastle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ConcreteCastle.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ConcreteEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ConcreteEnemy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/Enemy_Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/Enemy_Observer.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/GameScreen.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -91,14 +91,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699544334102</updated>
     </task>
-    <task id="LOCAL-00004" summary="new project">
-      <created>1696694819419</created>
+    <task id="LOCAL-00004" summary="upDate">
+      <created>1699547869064</created>
       <option name="number" value="00004" />
       <option name="presentableId" value="LOCAL-00004" />
       <option name="project" value="LOCAL" />
-      <updated>1696694819419</updated>
+      <updated>1699547869064</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -130,7 +130,8 @@
     <MESSAGE value="stop and running function" />
     <MESSAGE value="Memento completed!" />
     <MESSAGE value="Observer 半成品" />
-    <option name="LAST_COMMIT_MESSAGE" value="Observer 半成品" />
+    <MESSAGE value="upDate" />
+    <option name="LAST_COMMIT_MESSAGE" value="upDate" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

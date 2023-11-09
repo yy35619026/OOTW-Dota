@@ -4,6 +4,10 @@ import Bridge.*;
 import Enemy.Enemy;
 import SaveVersions.Caretaker;
 import SaveVersions.Originator;
+import Strategy.FastSpeed;
+import Strategy.NormalSpeed;
+import Strategy.SlowSpeed;
+import Strategy.SpeedStrategy;
 import Tower.*;
 
 import javax.swing.*;
@@ -31,6 +35,10 @@ public class GameScreen extends JFrame implements Runnable{
     private final double FPS_SET = 120.0;
     private final double UPS_SET = 60.0;
     private Thread gameThread;
+
+    SpeedStrategy normal = new NormalSpeed();
+    SpeedStrategy slow = new SlowSpeed();
+
 
     public void setting(){
         //視窗
@@ -407,13 +415,14 @@ public class GameScreen extends JFrame implements Runnable{
         gameThread.start();
     }
 
+
+
     private void updatesAttack() {
         for(Enemy e:enemy){
             for (TowerPlacement t:Towerlist) {
                 if(isInRange(e,t)){
                     e.beAttack(t.getTower().getDamage());
                 }else{
-                    //System.out.println("No");
                 }
             }
         }
@@ -437,6 +446,19 @@ public class GameScreen extends JFrame implements Runnable{
     public void stopRunning() {
         isRunning = false;
     }
+
+    private void checkHP() {
+
+        for(Enemy e:enemy){
+            if(e.getHealth()<e.getHealth()*2/3){
+                e.setStrategy(normal);
+            }else if(e.getHealth()<e.getHealth()/3) {
+                e.setStrategy(slow);
+            }
+
+        }
+    }
+
     public void run() {
 
         double timePerFrame = 1000000000.0 / FPS_SET;
@@ -473,9 +495,9 @@ public class GameScreen extends JFrame implements Runnable{
                     lastTimeCheck = System.currentTimeMillis();
 
                     updatesAttack();
+                    checkHP();
 
                     for (Enemy e : enemy) {
-                        //System.out.println(e.getX());
                         //System.out.println(e.getHealth());
                         if (e.getX() > 1500) {
                             System.out.println("HP-1");
@@ -485,4 +507,6 @@ public class GameScreen extends JFrame implements Runnable{
             }
         }
     }
+
+
 }

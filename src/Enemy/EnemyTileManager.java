@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.Iterator;
 
 import Attackenemy.*;
+import Strategy.SlowSpeed;
+import Strategy.SpeedStrategy;
 import Tower.*;
 
 public class EnemyTileManager {
@@ -74,14 +76,8 @@ public class EnemyTileManager {
         Iterator<Enemy> iterator = enemies.iterator();
         while (iterator.hasNext()) {
             Enemy e = iterator.next();
-            switch (e.getEnemyType()) {
-                case 0:
-                    e.move(e.getSpeed(0), 0);
-                    break;
-                case 1:
-                    e.move(e.getSpeed(1), 0);
-                    break;
-            }
+            e.move();
+
             if (e.getHealth() <= 0) {
                 // 血量低于0时，从列表中移除敌人
                 concreteCastle.updateStatus("敵人死亡");

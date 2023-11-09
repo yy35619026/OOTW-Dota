@@ -4,6 +4,9 @@ import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
 import SaveVersions.Caretaker;
 import SaveVersions.Originator;
+import Strategy.NormalSpeed;
+import Strategy.SlowSpeed;
+import Strategy.SpeedStrategy;
 import Tower.*;
 
 import javax.swing.*;
@@ -29,6 +32,9 @@ public class Level1Screen extends GameScreen{
     private final double FPS_SET = 120.0;
     private final double UPS_SET = 60.0;
     private Thread gameThread;
+    SpeedStrategy normal = new NormalSpeed();
+    SpeedStrategy slow = new SlowSpeed();
+
     @Override
     public void getScreen() {
         frame = new JFrame("關卡一");
@@ -349,6 +355,7 @@ public class Level1Screen extends GameScreen{
                     lastTimeCheck = System.currentTimeMillis();
 
                     updatesAttack();
+                    checkHP();
 
                     for (Enemy e : enemy) {
                         //System.out.println(e.getX());
@@ -385,5 +392,14 @@ public class Level1Screen extends GameScreen{
         float YDiff = Math.abs(y1-y2);
 
         return (int) Math.hypot(XDiff,YDiff);
+    }
+    private void checkHP() {
+        for(Enemy e:enemy){
+            if(e.getHealth()<e.getMaxhealth()*2/3){
+                e.setStrategy(normal);
+            }else if(e.getHealth()<e.getMaxhealth()/3) {
+                e.setStrategy(slow);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 package Strategy;
 
+import Enemy.Enemy;
+
 public interface SpeedStrategy {
-    void execute();
-    void updatePosition(float x, float y);
+    void execute(Enemy enemy,float x, float y);
 }

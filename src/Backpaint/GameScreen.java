@@ -61,6 +61,7 @@ public class GameScreen extends JFrame implements Runnable{
         end_game.setFont(buttonFont);
         new_game.setPreferredSize(buttonSize);
         end_game.setPreferredSize(buttonSize);
+
         ImageIcon StartGame = new ImageIcon("./res/button/Start.png");
         Image scaledStartImage = StartGame.getImage().getScaledInstance(150, 50, Image.SCALE_SMOOTH);
         ImageIcon scaledStartIcon = new ImageIcon(scaledStartImage);

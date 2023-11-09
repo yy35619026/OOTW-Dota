@@ -3,31 +3,29 @@ package Attackenemy;
 import java.util.ArrayList;
 import java.util.List;
 
-import Enemy.Enemy;
-import Tower.*;
-public class ConcreteCastle implements Castle_Subject {
-    private List<Enemy_Observer> observers = new ArrayList<>();
-    private String status;
+
+public class ConcreteCastle implements Subjest {
+    private List<Observer> observers = new ArrayList<>();
+    private String states;
+
     @Override
-    public void addObserver(Enemy_Observer o) {
-        observers.add(o);
+    public void addObserver(Observer observer) {
+        observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Enemy_Observer o) {
-        observers.remove(o);
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
     }
-
     @Override
     public void notifyObservers() {
-        for (Enemy_Observer o : observers) {
-            o.update(this, status);
+        for (Observer o : observers) {
+            o.update(states);
         }
     }
-
     @Override
-    public void updateStatus(String status) {
-        this.status = status;
+    public void updateStatus(String states) {
+        this.states = states;
         notifyObservers();
     }
 }

@@ -69,6 +69,8 @@ public class EnemyTileManager {
     }
 
     public void update() {
+        Subjest concreteCastle = new ConcreteCastle();
+
         Iterator<Enemy> iterator = enemies.iterator();
         while (iterator.hasNext()) {
             Enemy e = iterator.next();
@@ -82,10 +84,10 @@ public class EnemyTileManager {
             }
             if (e.getHealth() <= 0) {
                 // 血量低于0时，从列表中移除敌人
+                concreteCastle.updateStatus("敵人死亡");
                 iterator.remove();
             }else if(e.getX() >= 1500){
-                Castle_Subject castle_subject = new ConcreteCastle();
-                castle_subject.updateStatus("敵人成功攻城");
+                concreteCastle.updateStatus("敵人成功攻城");
                 iterator.remove();
             }
         }

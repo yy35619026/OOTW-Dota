@@ -6,22 +6,22 @@ import java.util.List;
 import Enemy.Enemy;
 import Tower.*;
 public class ConcreteCastle implements Castle_Subject {
-    private List<Tower> observers = new ArrayList<>();
+    private List<Enemy_Observer> observers = new ArrayList<>();
     private String status;
     @Override
-    public void addObserver(Tower tower) {
-        observers.add(tower);
+    public void addObserver(Enemy_Observer o) {
+        observers.add(o);
     }
 
     @Override
-    public void removeObserver(Tower tower) {
-        observers.remove(tower);
+    public void removeObserver(Enemy_Observer o) {
+        observers.remove(o);
     }
 
     @Override
     public void notifyObservers() {
-        for (Tower tower : observers) {
-            tower.update(this, status);
+        for (Enemy_Observer o : observers) {
+            o.update(this, status);
         }
     }
 

@@ -16,8 +16,7 @@ public class GameScreen extends JFrame implements Runnable{
     Tower lightningTower = lightningTowerFactory.createTower();
     TowerFactory flameTowerFactory = new FlameTowerFactory();
     Tower flameTower = flameTowerFactory.createTower();
-    private JButton new_game, end_game;
-//    private JButton enemy;//enemy測試
+    private JButton new_game, end_game, version1, version2, version3, version4, RunGame, StopGame, SaveGame;
     private JFrame frame;
     private BackgroundPanel backgroundPanel;
     private TowerSelector selector = new TowerSelector();
@@ -33,8 +32,7 @@ public class GameScreen extends JFrame implements Runnable{
     private final double UPS_SET = 60.0;
     private Thread gameThread;
 
-
-    public void init() {
+    public void setting(){
         //視窗
         frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -45,21 +43,24 @@ public class GameScreen extends JFrame implements Runnable{
         backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
         backgroundPanel.setLayout(new GridBagLayout());
         frame.setContentPane(backgroundPanel);
+    }
 
+    public void init() {
+        setting();
         // GridBagConstraints物件的布局設置
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // X軸位置為0
         constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
         constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
         //按鈕一些屬性設置
-        Dimension buttonsize = new Dimension(150, 50);
-        Font buttonfont = new Font("Arial", Font.BOLD, 16);
+        Dimension buttonSize = new Dimension(150, 50);
+        Font buttonFont = new Font("Arial", Font.BOLD, 16);
         new_game = new JButton("New Game");
         end_game = new JButton("Exit");
-        new_game.setFont(buttonfont);
-        end_game.setFont(buttonfont);
-        new_game.setPreferredSize(buttonsize);
-        end_game.setPreferredSize(buttonsize);
+        new_game.setFont(buttonFont);
+        end_game.setFont(buttonFont);
+        new_game.setPreferredSize(buttonSize);
+        end_game.setPreferredSize(buttonSize);
 
         constraints.gridy = 0; // Y軸位置為0
         backgroundPanel.add(new_game, constraints);
@@ -70,70 +71,39 @@ public class GameScreen extends JFrame implements Runnable{
 
         new_game.addActionListener(e -> {
             Game_ChooseVersion();
-//            Game_level1();
 //            new TowerSelector().Background();
             SwingUtilities.getWindowAncestor(new_game).dispose();
         });
         end_game.addActionListener(e -> {
             System.exit(0);
         });
-
-        //just test enemy , it can delete.
-//        enemy = new JButton("Enemy Test");
-//        enemy.setFont(buttonfont);
-//        enemy.setPreferredSize(buttonsize);
-//        constraints.gridy = 2; // Y軸位置為2
-//        backgroundPanel.add(enemy, constraints);
-//
-//        enemy.addActionListener(e -> {
-//            new EnemyTest();
-//        });
     }
     public void Game_ChooseVersion(){
-        frame = new JFrame("第七組Tower Defence game");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
-        frame.setLocationRelativeTo(null);
-
-        // 自定義面板的基礎構建
-        backgroundPanel = new BackgroundPanel("./res/test.jpg"); // 替换成你的图像文件路径
-        backgroundPanel.setLayout(new GridBagLayout());
-        frame.setContentPane(backgroundPanel);
-
+        setting();
         // GridBagConstraints物件的布局設置
         GridBagConstraints constraints = new GridBagConstraints();
         constraints.gridx = 0; // X軸位置為0
         constraints.insets = new Insets(50, 10, 10, 10);    // 設置按鈕周圍的間距
         constraints.anchor = GridBagConstraints.CENTER;                         // 設置按鈕在Y軸上居中對齊
         //按鈕一些屬性設置
-        JButton version1 = new JButton("Version1");
-        JButton version2 = new JButton("Version2");
-        JButton version3 = new JButton("Version3");
-        JButton version4 = new JButton("Version4");
-
         Dimension buttonSize = new Dimension(150, 50);
         Font buttonFont = new Font("Arial", Font.BOLD, 16);
-        JButton[] buttons = { version1, version2, version3, version4 };
-        String[] buttonTexts = { "Version1", "Version2", "Version3", "Version4" };
+        JButton[] versions = { version1, version2, version3, version4 };
+        String[] versionsTexts = { "Version1", "Version2", "Version3", "Version4" };
 
-        for (int i = 0; i < buttons.length; i++) {
-            buttons[i] = new JButton(buttonTexts[i]);
-            buttons[i].setFont(buttonFont);
-            buttons[i].setPreferredSize(buttonSize);
+        for (int i = 0; i < versions.length; i++) {
+            versions[i] = new JButton(versionsTexts[i]);
+            versions[i].setFont(buttonFont);
+            versions[i].setPreferredSize(buttonSize);
+            constraints.gridy = i;
+            backgroundPanel.add(versions[i], constraints);
         }
-        constraints.gridy = 0; // Y軸位置為0
-        backgroundPanel.add(version1, constraints);
-        constraints.gridy = 1; // Y軸位置為1
-        backgroundPanel.add(version2, constraints);
-        constraints.gridy = 2; // Y軸位置為1
-        backgroundPanel.add(version3, constraints);
-        constraints.gridy = 3; // Y軸位置為1
-        backgroundPanel.add(version4, constraints);
 
         frame.setVisible(true);
-        version1.addActionListener(e -> {
+        //Version1
+        versions[0].addActionListener(e -> {
             Game_level1();
-            SwingUtilities.getWindowAncestor(version1).dispose();
+            SwingUtilities.getWindowAncestor(versions[0]).dispose();
         });
     }
     public void Game_level1(){
@@ -150,17 +120,17 @@ public class GameScreen extends JFrame implements Runnable{
         //-號按鈕
         JButton[] imageCancelButton = selector.getAddCanceljButton("./res/button/Cancel.png");
         //箭塔選項
-        JButton[] imageArcherChooseButton = selector.getTowerChoosejButton("./res/ArcherTower.png", 0);
+        JButton[] imageArcherChooseButton = selector.getTowerChoosejButton("./res/Tower/tower1.png", 0);
         //雷電塔選項
-        JButton[] imageLightningChooseButton = selector.getTowerChoosejButton("./res/LightningTower.png", 1);
+        JButton[] imageLightningChooseButton = selector.getTowerChoosejButton("./res/Tower/tower2.png", 1);
         //可樂塔選項
-        JButton[] imageColaChooseButton = selector.getTowerChoosejButton("./res/ColaTower.png", 2);
+        JButton[] imageColaChooseButton = selector.getTowerChoosejButton("./res/Tower/tower3.png", 2);
         //箭塔生成
-        JButton[] imageArcherButton = selector.getTowerjButton("./res/ArcherTower.png");
+        JButton[] imageArcherButton = selector.getTowerjButton("./res/Tower/tower1.png");
         //雷電塔生成
-        JButton[] imageLightningButton = selector.getTowerjButton("./res/LightningTower.png");
+        JButton[] imageLightningButton = selector.getTowerjButton("./res/Tower/tower2.png");
         //可樂塔生成
-        JButton[] imageColaButton = selector.getTowerjButton("./res/ColaTower.png");
+        JButton[] imageColaButton = selector.getTowerjButton("./res/Tower/tower3.png");
         //賣出按鈕
         JButton[] imageSellButton = selector.getSellEscapejButton("./res/button/Gold.png");
         //取消按鈕
@@ -168,29 +138,28 @@ public class GameScreen extends JFrame implements Runnable{
         //升級按鈕
         JButton[] imageUpgradeButton = selector.getSellEscapejButton("./res/button/Upgrade.png");
 
-        JButton RunGame = new JButton();
-        JButton StopGame = new JButton();
-        JButton SaveGame = new JButton();
-
-        ImageIcon RunGameIcon = new ImageIcon("./res/button/run.jpg");
+        RunGame = new JButton();
+        StopGame = new JButton();
+        SaveGame = new JButton();
+        ImageIcon RunGameIcon = new ImageIcon("./res/button/Continue.png");
         Image scaledRunImage = RunGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon scaledRunIcon = new ImageIcon(scaledRunImage);
         RunGame.setIcon(scaledRunIcon);
-        RunGame.setBounds(frame.getWidth() - 50, 0, 50, 50);
+        RunGame.setBounds(frame.getWidth() - 100, 0, 50, 50);
         frame.getContentPane().add(RunGame);
 
-        ImageIcon stopGameIcon = new ImageIcon("./res/button/stop.jpg");
+        ImageIcon stopGameIcon = new ImageIcon("./res/button/Pause.png");
         Image scaledStopImage = stopGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon scaledStopIcon = new ImageIcon(scaledStopImage);
         StopGame.setIcon(scaledStopIcon);
-        StopGame.setBounds(frame.getWidth() - 100, 0, 50, 50);
+        StopGame.setBounds(frame.getWidth() - 150, 0, 50, 50);
         frame.getContentPane().add(StopGame);
 
-        ImageIcon saveGameIcon = new ImageIcon("./res/button/save.jpg");
+        ImageIcon saveGameIcon = new ImageIcon("./res/button/save.png");
         Image scaledSaveImage = saveGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
         ImageIcon scaledSaveIcon = new ImageIcon(scaledSaveImage);
         SaveGame.setIcon(scaledSaveIcon);
-        SaveGame.setBounds(frame.getWidth() - 150, 0, 50, 50);
+        SaveGame.setBounds(frame.getWidth() - 200, 0, 50, 50);
         frame.getContentPane().add(SaveGame);
 
         RunGame.addActionListener(e -> {

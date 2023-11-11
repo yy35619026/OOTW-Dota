@@ -10,7 +10,7 @@ public class ObserverCastleHP implements Observer {
                     count--;
                     return String.valueOf(count);
                 case "敵人死亡":
-                    throw new UnsupportedOperationException();
+
             }
         }
         return null;

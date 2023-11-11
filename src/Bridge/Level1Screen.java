@@ -20,12 +20,14 @@ public class Level1Screen extends GameScreen{
     Tower lightningTower = lightningTowerFactory.createTower();
     TowerFactory flameTowerFactory = new FlameTowerFactory();
     Tower flameTower = flameTowerFactory.createTower();
-    private JButton RunGame, StopGame, SaveGame;
+    TowerArray towerArray = new TowerArray();
+    private JButton SaveGame, StopGame, RunGame;
+    private JButton[] buttons = {SaveGame, StopGame, RunGame};
+    private String[] icons = {"./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png"};
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     private boolean shouldDrawCircle = false;
     private int circleX, circleY;
-    private int circleRadius;
     private ArrayList<Enemy> enemy;
     private ArrayList<TowerPlacement> Towerlist;
     private volatile boolean isRunning = true;
@@ -34,6 +36,8 @@ public class Level1Screen extends GameScreen{
     private Thread gameThread;
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
+    private double money = 100.0;
+    private JLabel moneyLabel, GoldLab;
 
     @Override
     public void getScreen() {
@@ -44,6 +48,10 @@ public class Level1Screen extends GameScreen{
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
         frame.setLocationRelativeTo(null);
+
+        moneyLabel = new JLabel("Money" + money);
+        moneyLabel.setBounds(frame.getWidth() / 2 + 50, 0, 100, 50);
+        frame.getContentPane().add(moneyLabel);
 
         //+-號按鈕
         setButtonSelector(new CancelButton());
@@ -68,39 +76,29 @@ public class Level1Screen extends GameScreen{
         JButton[] imageEscapeButton = buttonSelector.getButton("./res/button/Escape.png");
         JButton[] imageUpgradeButton = buttonSelector.getButton("./res/button/Upgrade.png");
 
-        RunGame = new JButton();
-        StopGame = new JButton();
-        SaveGame = new JButton();
-        ImageIcon RunGameIcon = new ImageIcon("./res/button/Continue.png");
-        Image scaledRunImage = RunGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        ImageIcon scaledRunIcon = new ImageIcon(scaledRunImage);
-        RunGame.setIcon(scaledRunIcon);
-        RunGame.setBounds(frame.getWidth() - 100, 0, 50, 50);
-        frame.getContentPane().add(RunGame);
+        GoldLab = new JLabel();
+        ImageIcon Gold = new ImageIcon("./res/button/Gold.png");
+        Image scaledGoldImage = Gold.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledGoldIcon = new ImageIcon(scaledGoldImage);
+        GoldLab.setIcon(scaledGoldIcon);
+        GoldLab.setBounds(frame.getWidth() / 2, 0, 100, 50);
+        frame.getContentPane().add(GoldLab);
 
-        ImageIcon stopGameIcon = new ImageIcon("./res/button/Pause.png");
-        Image scaledStopImage = stopGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        ImageIcon scaledStopIcon = new ImageIcon(scaledStopImage);
-        StopGame.setIcon(scaledStopIcon);
-        StopGame.setBounds(frame.getWidth() - 150, 0, 50, 50);
-        frame.getContentPane().add(StopGame);
+        for(int i = 0 ; i < buttons.length ; i++){
+            buttons[i] = new JButton();
+            ImageIcon icon = new ImageIcon(icons[i]);
+            Image scaledImage = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+            ImageIcon scaledIcon = new ImageIcon(scaledImage);
+            buttons[i].setIcon(scaledIcon);
+            buttons[i].setFocusPainted(false);
+            buttons[i].setOpaque(false);
+            buttons[i].setContentAreaFilled(false);
+            buttons[i].setBorderPainted(false);
+            buttons[i].setBounds(frame.getWidth() - (100 + 50 * i), 0, 50, 50);
+            frame.getContentPane().add(buttons[i]);
+        }
 
-        ImageIcon saveGameIcon = new ImageIcon("./res/button/save.png");
-        Image scaledSaveImage = saveGameIcon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
-        ImageIcon scaledSaveIcon = new ImageIcon(scaledSaveImage);
-        SaveGame.setIcon(scaledSaveIcon);
-        SaveGame.setBounds(frame.getWidth() - 200, 0, 50, 50);
-        frame.getContentPane().add(SaveGame);
-
-        RunGame.addActionListener(e -> {
-            GoRunning();
-        });
-
-        StopGame.addActionListener(e -> {
-            stopRunning();
-        });
-
-        SaveGame.addActionListener(e -> {
+        buttons[0].addActionListener(e -> {
             System.out.println("Save!");
             Originator originator = new Originator();
             Caretaker caretaker = new Caretaker(originator);
@@ -108,6 +106,14 @@ public class Level1Screen extends GameScreen{
             Level1Screen Level1 = new Level1Screen();
             originator.setVersion(Level1);
             caretaker.saveMemento();
+        });
+
+        buttons[1].addActionListener(e -> {
+            stopRunning();
+        });
+
+        buttons[2].addActionListener(e -> {
+            GoRunning();
         });
 
         for (int i = 0; i < Originalx.length; i++) {
@@ -155,15 +161,21 @@ public class Level1Screen extends GameScreen{
             imageArcherChooseButton[i].setActionCommand("change" + i);
             imageArcherChooseButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
-                if (actionCommand.equals("change" + index)) {
-                    backgroundPanel.add(imageArcherButton[index]);
-                    ArcherTowerFactory.addTower(archerTower, Originalx[index], Originaly[index]);
-                    backgroundPanel.remove(imageArcherChooseButton[index]);
-                    backgroundPanel.remove(imageLightningChooseButton[index]);
-                    backgroundPanel.remove(imageColaChooseButton[index]);
-                    backgroundPanel.remove(imageCancelButton[index]);
-                    backgroundPanel.revalidate();
-                    backgroundPanel.repaint();
+                if (money >= archerTower.getCost()) {
+                    if (actionCommand.equals("change" + index)) {
+                        backgroundPanel.add(imageArcherButton[index]);
+                        archerTowerFactory.addTower(archerTower, Originalx[index], Originaly[index]);
+                        money = money - archerTower.getCost();
+                        updateMoneyLabel();
+                        backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageCancelButton[index]);
+                        backgroundPanel.revalidate();
+                        backgroundPanel.repaint();
+                    }
+                }else{
+                    System.out.println("金錢不足");
                 }
             });
         }
@@ -173,15 +185,21 @@ public class Level1Screen extends GameScreen{
             imageLightningChooseButton[i].setActionCommand("change" + i);
             imageLightningChooseButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
-                if (actionCommand.equals("change" + index)) {
-                    backgroundPanel.add(imageLightningButton[index]);
-                    LightningTowerFactory.addTower(lightningTower, Originalx[index], Originaly[index]);
-                    backgroundPanel.remove(imageArcherChooseButton[index]);
-                    backgroundPanel.remove(imageLightningChooseButton[index]);
-                    backgroundPanel.remove(imageColaChooseButton[index]);
-                    backgroundPanel.remove(imageCancelButton[index]);
-                    backgroundPanel.revalidate();
-                    backgroundPanel.repaint();
+                if (money >= lightningTower.getCost()) {
+                    if (actionCommand.equals("change" + index)) {
+                        backgroundPanel.add(imageLightningButton[index]);
+                        lightningTowerFactory.addTower(lightningTower, Originalx[index], Originaly[index]);
+                        money = money - lightningTower.getCost();
+                        updateMoneyLabel();
+                        backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageCancelButton[index]);
+                        backgroundPanel.revalidate();
+                        backgroundPanel.repaint();
+                    }
+                }else{
+                    System.out.println("金錢不足");
                 }
             });
         }
@@ -191,15 +209,21 @@ public class Level1Screen extends GameScreen{
             imageColaChooseButton[i].setActionCommand("change" + i);
             imageColaChooseButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
-                if (actionCommand.equals("change" + index)) {
-                    backgroundPanel.add(imageColaButton[index]);
-                    FlameTowerFactory.addTower(flameTower, Originalx[index], Originaly[index]);
-                    backgroundPanel.remove(imageArcherChooseButton[index]);
-                    backgroundPanel.remove(imageLightningChooseButton[index]);
-                    backgroundPanel.remove(imageColaChooseButton[index]);
-                    backgroundPanel.remove(imageCancelButton[index]);
-                    backgroundPanel.revalidate();
-                    backgroundPanel.repaint();
+                if (money >= flameTower.getCost()) {
+                    if (actionCommand.equals("change" + index)) {
+                        backgroundPanel.add(imageColaButton[index]);
+                        flameTowerFactory.addTower(flameTower, Originalx[index], Originaly[index]);
+                        money = money - flameTower.getCost();
+                        updateMoneyLabel();
+                        backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageCancelButton[index]);
+                        backgroundPanel.revalidate();
+                        backgroundPanel.repaint();
+                    }
+                }else{
+                    System.out.println("金錢不足");
                 }
             });
         }
@@ -286,7 +310,9 @@ public class Level1Screen extends GameScreen{
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
                     backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
-                    LightningTowerFactory.removeTower(Originalx[index], Originaly[index]);
+                    money = money + towerArray.getCost(Originalx[index], Originaly[index]) * 0.8;
+                    updateMoneyLabel();
+                    towerArray.removeTower(Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);
@@ -366,7 +392,11 @@ public class Level1Screen extends GameScreen{
         }
     }
     private void updatesEnemy() {
-        backgroundPanel.enemyTileManager.update();
+        backgroundPanel.enemyTileManager.update(money);
+        if(backgroundPanel.enemyTileManager.isEnemyDown()){
+            money = backgroundPanel.enemyTileManager.getMoney();
+        }
+        updateMoneyLabel();
     }
     private void updatesAttack() {
         for(Enemy e:enemy){
@@ -398,5 +428,8 @@ public class Level1Screen extends GameScreen{
                 e.setStrategy(slow);
             }
         }
+    }
+    private void updateMoneyLabel(){
+        moneyLabel.setText(String.valueOf(money));
     }
 }

@@ -14,8 +14,15 @@ public class EnemyTileManager {
     private BufferedImage[] enemyImgs;
     private ArrayList<Enemy> enemies= new ArrayList<>();
     private int HPBarWidth = 40;
+    Subjest concreteCastle = new ConcreteCastle();
+    ObserverCastleHP observerCastleHP = new ObserverCastleHP();
+    ObserverEnemy observerEnemy = new ObserverEnemy();
+    boolean EnemyDown = false;
+    private double money;
 
     public EnemyTileManager(){
+        concreteCastle.addObserver(observerCastleHP);
+        concreteCastle.addObserver(observerEnemy);
         EnemyFactory basicenemyfactory = new BasicEnemyFactory();
         EnemyFactory fastenemyfactory = new FastEnemyFactory();
         enemyImgs = new BufferedImage[6];
@@ -70,17 +77,17 @@ public class EnemyTileManager {
         }
     }
 
-    public void update() {
-        Subjest concreteCastle = new ConcreteCastle();
-
+    public void update(double money) {
         Iterator<Enemy> iterator = enemies.iterator();
         while (iterator.hasNext()) {
             Enemy e = iterator.next();
             e.move();
 
             if (e.getHealth() <= 0) {
-                // 血量低于0时，从列表中移除敌人
                 concreteCastle.updateStatus("敵人死亡");
+                EnemyDown = true;
+                money += 20.0;
+                this.money = money;
                 iterator.remove();
             }else if(e.getX() >= 1500){
                 concreteCastle.updateStatus("敵人成功攻城");
@@ -89,6 +96,14 @@ public class EnemyTileManager {
         }
     }
 
+    public double getMoney(){
+        EnemyDown = false;
+        return money;
+    }
+
+    public boolean isEnemyDown() {
+        return EnemyDown;
+    }
 
     //傳出去enemies陣列 可以去抓enemies的各種數值
     public ArrayList<Enemy> getEnemies() {

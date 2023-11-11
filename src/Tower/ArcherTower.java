@@ -1,7 +1,5 @@
 package Tower;
 
-import Attackenemy.ConcreteCastle;
-
 public class ArcherTower implements Tower{
     double cost;
     double damage;
@@ -28,8 +26,5 @@ public class ArcherTower implements Tower{
     @Override
     public int getAlertRange() {
         return alertRange;
-    }
-    public void update(ConcreteCastle enemy, String status) {
-        System.out.println("Archer Tower 收到通知，敵人狀態更新為: " + status);
     }
 }

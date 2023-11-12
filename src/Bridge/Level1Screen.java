@@ -64,6 +64,12 @@ public class Level1Screen extends GameScreen{
         JButton[] imageLightningChooseButton = buttonSelector.getButton("./res/Tower/tower2.png");
         JButton[] imageColaChooseButton = buttonSelector.getButton("./res/Tower/tower3.png");
 
+        //箭塔金額(雷電塔、可樂塔)
+        setButtonSelector(new DollarButton());
+        JButton[] imageArcherGoldChooseButton = buttonSelector.getButton("./res/Button/20dollar.png");
+        JButton[] imageLightningGoldChooseButton = buttonSelector.getButton("./res/Button/50dollar.png");
+        JButton[] imageColaGoldChooseButton = buttonSelector.getButton("./res/Button/80dollar.png");
+
         //箭塔、雷電塔、可樂塔生成
         setButtonSelector(new TowerButton());
         JButton[] imageArcherButton = buttonSelector.getButton("./res/Tower/tower1.png");
@@ -129,8 +135,11 @@ public class Level1Screen extends GameScreen{
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     backgroundPanel.add(imageArcherChooseButton[index]);
+                    backgroundPanel.add(imageArcherGoldChooseButton[index]);
                     backgroundPanel.add(imageLightningChooseButton[index]);
+                    backgroundPanel.add(imageLightningGoldChooseButton[index]);
                     backgroundPanel.add(imageColaChooseButton[index]);
+                    backgroundPanel.add(imageColaGoldChooseButton[index]);
                     backgroundPanel.add(imageCancelButton[index]);
                     backgroundPanel.remove(imageAddButton[index]);
                     backgroundPanel.revalidate();
@@ -147,8 +156,11 @@ public class Level1Screen extends GameScreen{
                 if (actionCommand.equals("change" + index)) {
                     backgroundPanel.add(imageAddButton[index]);
                     backgroundPanel.remove(imageArcherChooseButton[index]);
+                    backgroundPanel.remove(imageArcherGoldChooseButton[index]);
                     backgroundPanel.remove(imageLightningChooseButton[index]);
+                    backgroundPanel.remove(imageLightningGoldChooseButton[index]);
                     backgroundPanel.remove(imageColaChooseButton[index]);
+                    backgroundPanel.remove(imageColaGoldChooseButton[index]);
                     backgroundPanel.remove(imageCancelButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
@@ -168,8 +180,11 @@ public class Level1Screen extends GameScreen{
                         money = money - archerTower.getCost();
                         updateMoneyLabel();
                         backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageArcherGoldChooseButton[index]);
                         backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageLightningGoldChooseButton[index]);
                         backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageColaGoldChooseButton[index]);
                         backgroundPanel.remove(imageCancelButton[index]);
                         backgroundPanel.revalidate();
                         backgroundPanel.repaint();
@@ -192,8 +207,11 @@ public class Level1Screen extends GameScreen{
                         money = money - lightningTower.getCost();
                         updateMoneyLabel();
                         backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageArcherGoldChooseButton[index]);
                         backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageLightningGoldChooseButton[index]);
                         backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageColaGoldChooseButton[index]);
                         backgroundPanel.remove(imageCancelButton[index]);
                         backgroundPanel.revalidate();
                         backgroundPanel.repaint();
@@ -216,8 +234,11 @@ public class Level1Screen extends GameScreen{
                         money = money - flameTower.getCost();
                         updateMoneyLabel();
                         backgroundPanel.remove(imageArcherChooseButton[index]);
+                        backgroundPanel.remove(imageArcherGoldChooseButton[index]);
                         backgroundPanel.remove(imageLightningChooseButton[index]);
+                        backgroundPanel.remove(imageLightningGoldChooseButton[index]);
                         backgroundPanel.remove(imageColaChooseButton[index]);
+                        backgroundPanel.remove(imageColaGoldChooseButton[index]);
                         backgroundPanel.remove(imageCancelButton[index]);
                         backgroundPanel.revalidate();
                         backgroundPanel.repaint();

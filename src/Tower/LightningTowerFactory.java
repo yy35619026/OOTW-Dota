@@ -3,7 +3,6 @@ package Tower;
 import java.util.ArrayList;
 
 public class LightningTowerFactory implements TowerFactory{
-    public static double Towercost;
     @Override
     public Tower createTower() {
         return new LightningTower(50, 35, 1, 400);

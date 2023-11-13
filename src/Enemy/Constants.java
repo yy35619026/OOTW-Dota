@@ -20,7 +20,7 @@ public class Constants {
 
             switch (enemyType){
                 case Basic:
-                    return 1000;
+                    return 200;
                 case Fast:
                     return 100;
             }

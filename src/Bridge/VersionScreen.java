@@ -26,7 +26,7 @@ public class VersionScreen extends GameScreen{
         frame.setVisible(true);
         //Version1
         versions[0].addActionListener(e -> {
-            Level1Screen level1Screen = new Level1Screen();
+            Level1_GUI level1Screen = new Level1_GUI();
             level1Screen.getScreen();
             SwingUtilities.getWindowAncestor(versions[0]).dispose();
         });

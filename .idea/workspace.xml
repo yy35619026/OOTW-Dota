@@ -5,24 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Tower/TowerArray.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ObserverCastleHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ObserverCastleHP.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/InitScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/InitScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/Level1Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1Screen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridge/Level1Screen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyTileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/EnemyTileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/Tower.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerFactory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tower/TowerPlacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerPlacement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,11 +45,11 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "last_opened_file_path": "C:/Users/t0931/IdeaProjects/OOTW-Dota-master"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/t0931/IdeaProjects/OOTW-Dota-master&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\t0931\IdeaProjects\OOTW-Dota\src" />
@@ -128,7 +115,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699556190080</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Final version">
+      <created>1699720513875</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1699720513875</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -162,7 +156,8 @@
     <MESSAGE value="Observer 半成品" />
     <MESSAGE value="upDate" />
     <MESSAGE value="Observer update" />
-    <option name="LAST_COMMIT_MESSAGE" value="Observer update" />
+    <MESSAGE value="Final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

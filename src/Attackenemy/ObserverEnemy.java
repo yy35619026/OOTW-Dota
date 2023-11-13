@@ -1,7 +1,10 @@
 package Attackenemy;
 
 public class ObserverEnemy implements Observer {
-    private int count = 20;
+    private int count;
+    public ObserverEnemy(){
+        count = 20;
+    }
     @Override
     public String update(String status) {
         if(count != 0){
@@ -14,7 +17,7 @@ public class ObserverEnemy implements Observer {
         }
         return null;
     }
-    public int getEnemy(){
+    public int getEnemyNumber(){
         return count;
     }
 }

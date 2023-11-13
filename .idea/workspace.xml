@@ -4,16 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="Final version2">
-      <change afterPath="$PROJECT_DIR$/src/Bridge/SaveLevel.java" afterDir="false" />
+    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/InitScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/InitScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Caretaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Caretaker.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Originator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -126,7 +120,14 @@
       <option name="project" value="LOCAL" />
       <updated>1699720513875</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Memento final version">
+      <created>1699860127888</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1699860127888</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -161,7 +162,8 @@
     <MESSAGE value="upDate" />
     <MESSAGE value="Observer update" />
     <MESSAGE value="Final version" />
-    <option name="LAST_COMMIT_MESSAGE" value="Final version" />
+    <MESSAGE value="Memento final version" />
+    <option name="LAST_COMMIT_MESSAGE" value="Memento final version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

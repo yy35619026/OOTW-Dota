@@ -6,6 +6,7 @@ import SaveVersions.Caretaker;
 import SaveVersions.Originator;
 import Strategy.*;
 import Tower.*;
+import Attackenemy.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -13,7 +14,6 @@ import java.util.ArrayList;
 
 public abstract class Level_GUI extends GameScreen implements Runnable{
     protected ButtonSelector buttonSelector;
-    protected VersionScreen versionScreen = new VersionScreen();
     TowerFactory archerTowerFactory = new ArcherTowerFactory();
     Tower archerTower = archerTowerFactory.createTower();
     TowerFactory lightningTowerFactory = new LightningTowerFactory();
@@ -24,8 +24,6 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     protected JButton SaveGame, StopGame, RunGame, InitGame;
     protected JButton[] buttons = {SaveGame, StopGame, RunGame, InitGame};
     protected String[] icons = {"./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png", "./res/button/GG.png"};
-    final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
-    final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     protected boolean shouldDrawCircle = false;
     protected int circleX, circleY;
     protected ArrayList<Enemy> enemy;
@@ -37,11 +35,13 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
-    protected JLabel moneyLabel, GoldLab;
+    protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab;
     public void setButtonSelector(ButtonSelector buttonSelector){
         this.buttonSelector = buttonSelector;
     }
-    private int limit = 0;
+    private int limit = 0, enemynumber = 20, castlehp = 10;
+    ObserverEnemy observerenemy;
+    ObserverCastleHP observercastlehp;
     protected void settings(){
         //視窗
         frame = new JFrame("關卡一");
@@ -52,9 +52,17 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         frame.setContentPane(backgroundPanel);
         frame.setLocationRelativeTo(null);
 
-        moneyLabel = new JLabel("Money" + money);
+        moneyLabel = new JLabel(String.valueOf(money));
         moneyLabel.setBounds(frame.getWidth() / 2 + 50, 0, 100, 50);
         frame.getContentPane().add(moneyLabel);
+
+        enemynumberLabel = new JLabel("敵人數量剩餘：" + String.valueOf(enemynumber));
+        enemynumberLabel.setBounds(frame.getWidth() / 2 - 400, 0, 120, 50);
+        frame.getContentPane().add(enemynumberLabel);
+
+        castlehpLabel = new JLabel("剩餘生命：" + String.valueOf(castlehp));
+        castlehpLabel.setBounds(frame.getWidth() / 2 - 800, 0, 100, 50);
+        frame.getContentPane().add(castlehpLabel);
 
         GoldLab = new JLabel();
         ImageIcon Gold = new ImageIcon("./res/button/Gold.png");
@@ -92,6 +100,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
             GoRunning();
         });
         buttons[3].addActionListener(e -> {
+            VersionScreen versionScreen = new VersionScreen();
             versionScreen.getScreen();
             SwingUtilities.getWindowAncestor(buttons[3]).dispose();
         });
@@ -147,8 +156,6 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
                     checkTime();
 
                     for (Enemy e : enemy) {
-                        //System.out.println(e.getX());
-                        //System.out.println(e.getHealth());
                         if (e.getX() > 1500) {
                             System.out.println("HP-1");
                         }
@@ -171,6 +178,8 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
             money = backgroundPanel.enemyTileManager.getMoney();
         }
         updateMoneyLabel();
+        updateEnemyNumber();
+        updateCastleHP();
     }
     protected void updatesAttack() {
         for(Enemy e:enemy){
@@ -185,7 +194,6 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     }
     protected boolean isInRange(Enemy e, TowerPlacement t) {
         int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
-        //System.out.println("range:" + range + " ,tower:" + t.getTower().getAlertRange());
         return range < (t.getTower().getAlertRange()/2);
     }
     protected static int GetHypoDistance(float x1, float y1 , int x2, int y2){
@@ -205,5 +213,11 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     }
     protected void updateMoneyLabel(){
         moneyLabel.setText(String.valueOf(money));
+    }
+    protected void updateEnemyNumber(){
+        enemynumberLabel.setText("敵人數量剩餘： " + String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
+    }
+    protected void updateCastleHP(){
+        castlehpLabel.setText("剩餘生命： " + String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
     }
 }

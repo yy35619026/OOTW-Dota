@@ -14,4 +14,7 @@ public class ObserverEnemy implements Observer {
         }
         return null;
     }
+    public int getEnemy(){
+        return count;
+    }
 }

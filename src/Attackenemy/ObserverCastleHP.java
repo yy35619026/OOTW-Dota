@@ -15,4 +15,7 @@ public class ObserverCastleHP implements Observer {
         }
         return null;
     }
+    public int getCastleHP(){
+        return count;
+    }
 }

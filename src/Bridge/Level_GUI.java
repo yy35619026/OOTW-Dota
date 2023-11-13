@@ -35,7 +35,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
-    protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab;
+    protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab, EnemyNumberLab, CastleHPLab;
     protected int limit = 0, enemynumber = 20, castlehp = 10;
     public void setButtonSelector(ButtonSelector buttonSelector){
         this.buttonSelector = buttonSelector;
@@ -53,14 +53,17 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         moneyLabel = new JLabel(String.valueOf(money));
         moneyLabel.setBounds(frame.getWidth() / 2 + 50, 0, 100, 50);
         frame.getContentPane().add(moneyLabel);
+        moneyLabel.setFont(new Font("Arial", Font.PLAIN, 20));
 
-        enemynumberLabel = new JLabel("敵人數量剩餘：" + String.valueOf(enemynumber));
-        enemynumberLabel.setBounds(frame.getWidth() / 2 - 400, 0, 120, 50);
+        enemynumberLabel = new JLabel(String.valueOf(enemynumber));
+        enemynumberLabel.setBounds(frame.getWidth() / 2 - 350, 0, 120, 50);
         frame.getContentPane().add(enemynumberLabel);
+        enemynumberLabel.setFont(new Font("Arial", Font.PLAIN, 20));
 
-        castlehpLabel = new JLabel("剩餘生命：" + String.valueOf(castlehp));
-        castlehpLabel.setBounds(frame.getWidth() / 2 - 800, 0, 100, 50);
+        castlehpLabel = new JLabel(String.valueOf(castlehp));
+        castlehpLabel.setBounds(frame.getWidth() / 2 - 750, 0, 100, 50);
         frame.getContentPane().add(castlehpLabel);
+        castlehpLabel.setFont(new Font("Arial", Font.PLAIN, 20));
 
         GoldLab = new JLabel();
         ImageIcon Gold = new ImageIcon("./res/button/Gold.png");
@@ -69,6 +72,22 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         GoldLab.setIcon(scaledGoldIcon);
         GoldLab.setBounds(frame.getWidth() / 2, 0, 100, 50);
         frame.getContentPane().add(GoldLab);
+
+        EnemyNumberLab = new JLabel();
+        ImageIcon EnemyNumber = new ImageIcon("./res/button/GG.png");
+        Image scaledEnemyNumberImage = EnemyNumber.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledEnemyNumberIcon = new ImageIcon(scaledEnemyNumberImage);
+        EnemyNumberLab.setIcon(scaledEnemyNumberIcon);
+        EnemyNumberLab.setBounds(frame.getWidth() / 2 - 400, 0, 100, 50);
+        frame.getContentPane().add(EnemyNumberLab);
+
+        CastleHPLab = new JLabel();
+        ImageIcon CastleHP = new ImageIcon("./res/button/Heart.png");
+        Image scaledCastleHPImage = CastleHP.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
+        ImageIcon scaledCastleHPIcon = new ImageIcon(scaledCastleHPImage);
+        CastleHPLab.setIcon(scaledCastleHPIcon);
+        CastleHPLab.setBounds(frame.getWidth() / 2 - 800, 0, 100, 50);
+        frame.getContentPane().add(CastleHPLab);
 
         for(int i = 0 ; i < buttons.length ; i++){
             buttons[i] = new JButton();
@@ -213,9 +232,9 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         moneyLabel.setText(String.valueOf(money));
     }
     protected void updateEnemyNumber(){
-        enemynumberLabel.setText("敵人數量剩餘： " + String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
+        enemynumberLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
     }
     protected void updateCastleHP(){
-        castlehpLabel.setText("剩餘生命： " + String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
+        castlehpLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
     }
 }

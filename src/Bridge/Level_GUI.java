@@ -23,7 +23,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     TowerArray towerArray = new TowerArray();
     protected JButton SaveGame, StopGame, RunGame, InitGame;
     protected JButton[] buttons = {SaveGame, StopGame, RunGame, InitGame};
-    protected String[] icons = {"./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png", "./res/button/GG.png"};
+    protected String[] icons = {"./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png", "./res/button/Back.png"};
     protected boolean shouldDrawCircle = false;
     protected int circleX, circleY;
     protected ArrayList<Enemy> enemy;
@@ -36,12 +36,10 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
     protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab;
+    protected int limit = 0, enemynumber = 20, castlehp = 10;
     public void setButtonSelector(ButtonSelector buttonSelector){
         this.buttonSelector = buttonSelector;
     }
-    private int limit = 0, enemynumber = 20, castlehp = 10;
-    ObserverEnemy observerenemy;
-    ObserverCastleHP observercastlehp;
     protected void settings(){
         //視窗
         frame = new JFrame("關卡一");

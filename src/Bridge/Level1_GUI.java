@@ -1,5 +1,6 @@
 package Bridge;
 
+import Backpaint.BackgroundPanel;
 import Tower.*;
 
 import javax.swing.*;

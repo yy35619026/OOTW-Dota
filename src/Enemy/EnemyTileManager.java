@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Random;
 
 import Attackenemy.*;
 import Strategy.SlowSpeed;
@@ -11,6 +12,7 @@ import Strategy.SpeedStrategy;
 import Tower.*;
 
 public class EnemyTileManager {
+    Random random = new Random();
     private BufferedImage[] enemyImgs;
     private ArrayList<Enemy> enemies= new ArrayList<>();
     private int HPBarWidth = 40;
@@ -20,14 +22,20 @@ public class EnemyTileManager {
     boolean EnemyDown = false;
     private double money;
 
+    EnemyFactory basicenemyfactory = new BasicEnemyFactory();
+    EnemyFactory fastenemyfactory = new FastEnemyFactory();
+
+
+
     public EnemyTileManager(){
+        
+        
+        
         concreteCastle.addObserver(observerCastleHP);
         concreteCastle.addObserver(observerEnemy);
-        EnemyFactory basicenemyfactory = new BasicEnemyFactory();
-        EnemyFactory fastenemyfactory = new FastEnemyFactory();
+
         enemyImgs = new BufferedImage[6];
-        addEnemy(32,400,basicenemyfactory);
-        addEnemy(32,400,fastenemyfactory);
+
         loadEnemyImgs();
     }
 
@@ -40,17 +48,13 @@ public class EnemyTileManager {
         }
     }
 
-    private void addEnemy(int x, int y,EnemyFactory factory) {
-        switch (factory.getType()){
-            case ("basic"):
-                enemies.add(factory.CreatEnemy(x,y,0));
-                /*for(int i = 0; i < 8; i++){
-                    Enemy_Subject.addObserver(Tower);
-                }*/
-                break;
-            case ("fast"):
-                enemies.add(factory.CreatEnemy(x,y,1));
-                break;
+
+    public void TimeSpawnEnemy() {
+        int randomInRange = random.nextInt(2);
+        if(randomInRange == 0){
+            enemies.add(basicenemyfactory.CreatEnemy(32, 400, 0));
+        }else if(randomInRange == 1){
+            enemies.add(fastenemyfactory.CreatEnemy(32, 400, 1));
         }
     }
 

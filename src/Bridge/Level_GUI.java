@@ -40,6 +40,7 @@ public abstract class Level_GUI extends GameScreen{
     public void setButtonSelector(ButtonSelector buttonSelector){
         this.buttonSelector = buttonSelector;
     }
+    private int limit = 0;
     protected void settings(){
         //視窗
         frame = new JFrame("關卡一");
@@ -142,6 +143,7 @@ public abstract class Level_GUI extends GameScreen{
 
                     updatesAttack();
                     checkHP();
+                    checkTime();
 
                     for (Enemy e : enemy) {
                         //System.out.println(e.getX());
@@ -154,6 +156,14 @@ public abstract class Level_GUI extends GameScreen{
             }
         }
     }
+
+    private void checkTime() {
+        if(limit <20){
+            backgroundPanel.enemyTileManager.TimeSpawnEnemy();
+            limit++;
+        }
+    }
+
     protected void updatesEnemy() {
         backgroundPanel.enemyTileManager.update(money);
         if(backgroundPanel.enemyTileManager.isEnemyDown()){

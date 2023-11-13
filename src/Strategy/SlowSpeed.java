@@ -4,7 +4,6 @@ import Enemy.Enemy;
 
 public class SlowSpeed implements SpeedStrategy{
 
-
     private float speedX;
     private float speedY;
 
@@ -19,6 +18,4 @@ public class SlowSpeed implements SpeedStrategy{
         enemy.setX(speedX);
         enemy.setY(speedY);
     }
-
-
 }

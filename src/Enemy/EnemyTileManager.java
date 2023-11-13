@@ -28,9 +28,6 @@ public class EnemyTileManager {
 
 
     public EnemyTileManager(){
-        
-        
-        
         concreteCastle.addObserver(observerCastleHP);
         concreteCastle.addObserver(observerEnemy);
 
@@ -38,7 +35,12 @@ public class EnemyTileManager {
 
         loadEnemyImgs();
     }
-
+    public ObserverCastleHP getObserverCastleHP() {
+        return observerCastleHP;
+    }
+    public ObserverEnemy getObserverEnemy() {
+        return observerEnemy;
+    }
 
     private void loadEnemyImgs() {
         BufferedImage atals = LoadTile.getSpriteAtlas();

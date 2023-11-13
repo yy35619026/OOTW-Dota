@@ -1,22 +1,30 @@
 package SaveVersions;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Caretaker {
     private Originator originator;
-    private LinkedList<Memento> history = new LinkedList<Memento>();
+    private ArrayList<Memento> history = new ArrayList<Memento>(5);
     public Caretaker(Originator originator){
         this.originator = originator;
     }
-    public void saveMemento(){
-        history.push(originator.save());
+    public void saveMemento(int index){
+        if (index >= 0 && index <= history.size()) {
+            history.add(index, originator.save());
+        } else {
+            System.out.println("Invalid index!");
+        }
     }
-    public void undo(){
-        if(!history.isEmpty()){
-            originator.restore(history.pop());
+    public boolean undo(int index){
+        if(!history.isEmpty() && index >= 0 && index < history.size()){
+            originator.restore(history.get(index));
             System.out.println("目前狀態： " + originator.getGameScreen());
+            originator.getGameScreen().getScreen();
+            return true;
         }else {
             System.out.println("History is null!");
+            return false;
         }
     }
 }

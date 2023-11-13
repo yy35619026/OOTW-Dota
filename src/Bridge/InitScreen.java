@@ -12,7 +12,7 @@ public class InitScreen extends GameScreen{
     }
     @Override
     public void getScreen() {
-        settings();
+        settings(1600, 900);
 
         for(int i = 0 ; i < buttons.length ; i++){
             buttons[i] = new JButton();
@@ -38,9 +38,5 @@ public class InitScreen extends GameScreen{
         buttons[1].addActionListener(e -> {
             System.exit(0);
         });
-    }
-    @Override
-    public void run() {
-        throw new UnsupportedOperationException();
     }
 }

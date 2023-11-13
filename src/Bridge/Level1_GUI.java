@@ -5,8 +5,8 @@ import Tower.*;
 import javax.swing.*;
 
 public class Level1_GUI extends Level_GUI{
-    final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
-    final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
+
+
     @Override
     public void getScreen() {
         settings();

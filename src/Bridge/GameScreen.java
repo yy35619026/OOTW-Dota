@@ -5,15 +5,15 @@ import Backpaint.BackgroundPanel;
 import javax.swing.*;
 import java.awt.*;
 
-public abstract class GameScreen extends JFrame implements Runnable {
+public abstract class GameScreen extends JFrame{
     protected JFrame frame;
     protected BackgroundPanel backgroundPanel;
     protected GridBagConstraints constraints;
-    protected void settings(){
+    protected void settings(int width, int height){
         //視窗
         frame = new JFrame("第七組Tower Defence game");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setSize(1600, 900);
+        frame.setSize(width, height);
         frame.setLocationRelativeTo(null);
 
         // 自定義面板的基礎構建

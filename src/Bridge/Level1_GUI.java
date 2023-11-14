@@ -11,6 +11,11 @@ public class Level1_GUI extends Level_GUI{
     @Override
     public void getScreen() {
         settings();
+        buttons[0].addActionListener(e -> {
+            SaveLevel saveLevel = new SaveLevel();
+            saveLevel.setLevel(new Level1_GUI());
+            saveLevel.getScreen();
+        });
         //+-號按鈕
         setButtonSelector(new CancelButton());
         JButton[] imageAddButton = buttonSelector.getButton("./res/button/Add.png");

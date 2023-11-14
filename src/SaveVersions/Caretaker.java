@@ -1,7 +1,5 @@
 package SaveVersions;
-
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Caretaker {
     private Originator originator;

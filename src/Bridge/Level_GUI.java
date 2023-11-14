@@ -31,7 +31,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     protected volatile boolean isRunning = true;
     protected final double FPS_SET = 120.0;
     protected final double UPS_SET = 60.0;
-    protected Thread gameThread;
+    protected Thread gameThread = new Thread(this);
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
@@ -103,12 +103,6 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
             frame.getContentPane().add(buttons[i]);
         }
 
-        buttons[0].addActionListener(e -> {
-            SaveLevel saveLevel = new SaveLevel();
-            saveLevel.setLevel(this);
-            saveLevel.getScreen();
-        });
-
         buttons[1].addActionListener(e -> {
             stopRunning();
         });
@@ -123,8 +117,6 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         });
     }
     protected void start(){
-        gameThread = new Thread(this) {
-        };
         gameThread.start();
     }
     public void GoRunning(){
@@ -233,8 +225,14 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     }
     protected void updateEnemyNumber(){
         enemynumberLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
+        if(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber() == 0){
+            frame.dispose();
+        }
     }
     protected void updateCastleHP(){
         castlehpLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
+        if(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP() == 0){
+            frame.dispose();
+        }
     }
 }

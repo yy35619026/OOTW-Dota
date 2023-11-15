@@ -2,6 +2,8 @@ package Bridge;
 
 import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
+import Message.Failed;
+import Message.Success;
 import SaveVersions.Caretaker;
 import SaveVersions.Originator;
 import Strategy.*;
@@ -31,7 +33,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     protected volatile boolean isRunning = true;
     protected final double FPS_SET = 120.0;
     protected final double UPS_SET = 60.0;
-    protected Thread gameThread = new Thread(this);
+    protected Thread gameThread;
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
@@ -117,6 +119,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         });
     }
     protected void start(){
+        gameThread = new Thread(this);
         gameThread.start();
     }
     public void GoRunning(){
@@ -189,6 +192,18 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         updateMoneyLabel();
         updateEnemyNumber();
         updateCastleHP();
+        if(updateEnemyNumber() == 0){
+            Success success = new Success();
+            success.win(new Level1_GUI());
+            buttonSelector = null;
+            stopRunning();
+        }
+        if (updateCastleHP() == 0){
+            Failed failed = new Failed();
+            failed.lose(new Level1_GUI());
+            buttonSelector = null;
+            stopRunning();
+        }
     }
     protected void updatesAttack() {
         for(Enemy e:enemy){
@@ -223,16 +238,12 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     protected void updateMoneyLabel(){
         moneyLabel.setText(String.valueOf(money));
     }
-    protected void updateEnemyNumber(){
+    protected int updateEnemyNumber(){
         enemynumberLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
-        if(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber() == 0){
-            frame.dispose();
-        }
+        return backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber();
     }
-    protected void updateCastleHP(){
+    protected int updateCastleHP(){
         castlehpLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
-        if(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP() == 0){
-            frame.dispose();
-        }
+        return backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP();
     }
 }

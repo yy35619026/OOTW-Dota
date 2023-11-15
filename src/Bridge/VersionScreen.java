@@ -42,17 +42,17 @@ public class VersionScreen extends GameScreen{
         });
         buttons[2].addActionListener(e -> {
             if (caretaker.undo(1)){
-                SwingUtilities.getWindowAncestor(buttons[1]).dispose();
+                SwingUtilities.getWindowAncestor(buttons[2]).dispose();
             }
         });
         buttons[3].addActionListener(e -> {
             if(caretaker.undo(2)){
-                SwingUtilities.getWindowAncestor(buttons[1]).dispose();
+                SwingUtilities.getWindowAncestor(buttons[3]).dispose();
             }
         });
         buttons[4].addActionListener(e -> {
             if (caretaker.undo(3)){
-                SwingUtilities.getWindowAncestor(buttons[1]).dispose();
+                SwingUtilities.getWindowAncestor(buttons[4]).dispose();
             }
         });
     }

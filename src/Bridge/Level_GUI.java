@@ -31,7 +31,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
     protected volatile boolean isRunning = true;
     protected final double FPS_SET = 120.0;
     protected final double UPS_SET = 60.0;
-    protected Thread gameThread = new Thread(this);
+    protected Thread gameThread;
     SpeedStrategy normal = new NormalSpeed();
     SpeedStrategy slow = new SlowSpeed();
     protected double money = 100.0;
@@ -117,6 +117,7 @@ public abstract class Level_GUI extends GameScreen implements Runnable{
         });
     }
     protected void start(){
+        gameThread = new Thread(this){};
         gameThread.start();
     }
     public void GoRunning(){

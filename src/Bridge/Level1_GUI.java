@@ -1,8 +1,7 @@
 package Bridge;
 
-import Backpaint.BackgroundPanel;
 import Tower.*;
-
+import Command.*;
 import javax.swing.*;
 
 public class Level1_GUI extends Level_GUI{
@@ -16,6 +15,12 @@ public class Level1_GUI extends Level_GUI{
             saveLevel.setLevel(new Level1_GUI());
             saveLevel.getScreen();
         });
+        //Command按鈕
+        TowerCommand tower = new TowerCommand();
+        Command upgradeCommand = new UpgradeTowerCommand(tower);
+        Command sellCommand = new SellTowerCommand(tower);
+        Command cancelCommand = new CancelTowerCommand();
+        TowerController controller = new TowerController();
         //+-號按鈕
         setButtonSelector(new CancelButton());
         JButton[] imageAddButton = buttonSelector.getButton("./res/button/Add.png");
@@ -229,14 +234,44 @@ public class Level1_GUI extends Level_GUI{
             });
         }
 
-        for (int i = 0; i < imageEscapeButton.length; i++) {
+        for (int i = 0; i < imageSellButton.length; i++) {
             final int index = i;
-            imageEscapeButton[i].setActionCommand("change" + i);
-            imageEscapeButton[i].addActionListener(e -> {
+            imageSellButton[i].setActionCommand("change" + i);
+            imageSellButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
                     backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
+                    controller.setCommand(sellCommand, money, towerArray.getTower(Originalx[index], Originaly[index]));
+                    controller.performAction();
+                    money = ((SellTowerCommand) sellCommand).getMoney();
+                    updateMoneyLabel();
+                    //money = money + towerArray.getCost(Originalx[index], Originaly[index]) * 0.8;
+                    towerArray.removeTower(Originalx[index], Originaly[index]);
+                    backgroundPanel.remove(imageEscapeButton[index]);
+                    backgroundPanel.remove(imageSellButton[index]);
+                    backgroundPanel.remove(imageUpgradeButton[index]);
+                    backgroundPanel.remove(imageColaButton[index]);
+                    backgroundPanel.remove(imageArcherButton[index]);
+                    backgroundPanel.remove(imageLightningButton[index]);
+                    backgroundPanel.add(imageAddButton[index]);
+                    backgroundPanel.revalidate();
+                    backgroundPanel.repaint();
+                }
+            });
+        }
+
+
+        for (int i = 0; i < imageUpgradeButton.length; i++) {
+            final int index = i;
+            imageUpgradeButton[i].setActionCommand("change" + i);
+            imageUpgradeButton[i].addActionListener(e -> {
+                String actionCommand = e.getActionCommand();
+                if (actionCommand.equals("change" + index)) {
+                    shouldDrawCircle = false;
+                    backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
+                    controller.setCommand(upgradeCommand, money, towerArray.getTower(Originalx[index], Originaly[index]));
+                    controller.performAction();
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);
@@ -246,24 +281,20 @@ public class Level1_GUI extends Level_GUI{
             });
         }
 
-        for (int i = 0; i < imageSellButton.length; i++) {
+
+        for (int i = 0; i < imageEscapeButton.length; i++) {
             final int index = i;
-            imageSellButton[i].setActionCommand("change" + i);
-            imageSellButton[i].addActionListener(e -> {
+            imageEscapeButton[i].setActionCommand("change" + i);
+            imageEscapeButton[i].addActionListener(e -> {
                 String actionCommand = e.getActionCommand();
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
                     backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
-                    money = money + towerArray.getCost(Originalx[index], Originaly[index]) * 0.8;
-                    updateMoneyLabel();
-                    towerArray.removeTower(Originalx[index], Originaly[index]);
+                    controller.setCommand(cancelCommand, money, towerArray.getTower(Originalx[index], Originaly[index]));
+                    controller.performAction();
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);
-                    backgroundPanel.remove(imageColaButton[index]);
-                    backgroundPanel.remove(imageArcherButton[index]);
-                    backgroundPanel.remove(imageLightningButton[index]);
-                    backgroundPanel.add(imageAddButton[index]);
                     backgroundPanel.revalidate();
                     backgroundPanel.repaint();
                 }

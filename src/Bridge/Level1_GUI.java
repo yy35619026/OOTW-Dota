@@ -12,7 +12,7 @@ public class Level1_GUI extends Level_GUI{
         settings();
         buttons[0].addActionListener(e -> {
             SaveLevel saveLevel = new SaveLevel();
-            saveLevel.setLevel(new Level1_GUI());
+            saveLevel.setLevel(this);
             saveLevel.getScreen();
         });
         //Command按鈕

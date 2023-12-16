@@ -17,8 +17,8 @@ public class Caretaker {
     public boolean undo(int index){
         if(!history.isEmpty() && index >= 0 && index < history.size()){
             originator.restore(history.get(index));
-            System.out.println("目前狀態： " + originator.getGameScreen());
-            originator.getGameScreen().getScreen();
+            System.out.println("目前狀態： " + originator.getLevel());
+            originator.getLevel().getScreen();
             return true;
         }else {
             System.out.println("History is null!");

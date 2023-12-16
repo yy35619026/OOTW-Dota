@@ -1,15 +1,16 @@
 package Bridge;
 
-import Tower.*;
 import Command.*;
+import Command.TowerCommand;
+import Tower.LightningTowerFactory;
+
 import javax.swing.*;
 
-public class Level1_GUI extends Level_GUI{
+public class Level2_GUI extends Level_GUI{
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     @Override
     public void create() {
-//        settings();
         buttons[0].addActionListener(e -> {
             SaveLevel saveLevel = new SaveLevel();
             saveLevel.setLevel(this);

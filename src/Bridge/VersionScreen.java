@@ -31,8 +31,8 @@ public class VersionScreen extends GameScreen{
         frame.setVisible(true);
         //New Game
         buttons[0].addActionListener(e -> {
-            Level1_GUI level1Screen = new Level1_GUI();
-            level1Screen.getScreen();
+            Level_GUI level1Screen = new Level1_GUI();
+            level1Screen.MainExecute();
             SwingUtilities.getWindowAncestor(buttons[0]).dispose();
         });
         buttons[1].addActionListener(e -> {

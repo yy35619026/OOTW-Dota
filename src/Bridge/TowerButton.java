@@ -3,7 +3,7 @@ package Bridge;
 import javax.swing.*;
 import java.awt.*;
 
-public class TowerButton implements ButtonSelector{
+public class TowerButton extends ButtonSelector{
     @Override
     public JButton[] getButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -21,5 +21,10 @@ public class TowerButton implements ButtonSelector{
             buttons[i] = imageoptionButton;
         }
         return buttons;
+    }
+
+    @Override
+    public void create() {
+
     }
 }

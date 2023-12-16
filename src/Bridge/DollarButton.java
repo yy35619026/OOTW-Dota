@@ -3,7 +3,7 @@ package Bridge;
 import javax.swing.*;
 import java.awt.*;
 
-public class DollarButton implements ButtonSelector{
+public class DollarButton extends ButtonSelector{
     @Override
     public JButton[] getButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];
@@ -27,5 +27,10 @@ public class DollarButton implements ButtonSelector{
             buttons[i] = imageoptionButton;
         }
         return buttons;
+    }
+
+    @Override
+    public void create() {
+
     }
 }

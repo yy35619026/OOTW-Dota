@@ -21,24 +21,44 @@ public class SaveLevel extends VersionScreen{
         }
         //Versions
         buttons[1].addActionListener(e -> {
-            originator.setVersion(level);
+            originator.setVersion(new Level1_GUI());
             caretaker.saveMemento(0);
+            level.Towerlist.clear();
+            level.isRunning = false;
+
+            VersionScreen versionScreen = new VersionScreen();
+            versionScreen.getScreen();
             SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });
         buttons[2].addActionListener(e -> {
-            originator.setVersion(level);
-            caretaker.saveMemento(1);
-            SwingUtilities.getWindowAncestor(buttons[2]).dispose();
+            originator.setVersion(new Level1_GUI());
+            caretaker.saveMemento(0);
+            level.Towerlist.clear();
+            level.isRunning = false;
+
+            VersionScreen versionScreen = new VersionScreen();
+            versionScreen.getScreen();
+            SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });
         buttons[3].addActionListener(e -> {
-            originator.setVersion(level);
-            caretaker.saveMemento(2);
-            SwingUtilities.getWindowAncestor(buttons[3]).dispose();
+            originator.setVersion(new Level1_GUI());
+            caretaker.saveMemento(0);
+            level.Towerlist.clear();
+            level.isRunning = false;
+
+            VersionScreen versionScreen = new VersionScreen();
+            versionScreen.getScreen();
+            SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });
         buttons[4].addActionListener(e -> {
-            originator.setVersion(level);
-            caretaker.saveMemento(3);
-            SwingUtilities.getWindowAncestor(buttons[4]).dispose();
+            originator.setVersion(new Level1_GUI());
+            caretaker.saveMemento(0);
+            level.Towerlist.clear();
+            level.isRunning = false;
+
+            VersionScreen versionScreen = new VersionScreen();
+            versionScreen.getScreen();
+            SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });
 
         frame.setVisible(true);

@@ -3,10 +3,6 @@ package Command;
 import Tower.*;
 
 public class TowerCommand {
-    public void upgrade() {
-        System.out.println("Tower upgraded");
-    }
-
     public double sell(double money, Tower tower) {
         if (tower instanceof ArcherTower) {
             System.out.println("ArcherTower sold");
@@ -19,5 +15,8 @@ public class TowerCommand {
             money += 64;
         }
         return money;
+    }
+    public void cancel() {
+        System.out.println("Cancel choose");
     }
 }

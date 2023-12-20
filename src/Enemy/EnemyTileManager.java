@@ -6,12 +6,11 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
 
+import Iterator.*;
 import Attackenemy.*;
-import Strategy.SlowSpeed;
-import Strategy.SpeedStrategy;
-import Tower.*;
 
-public class EnemyTileManager {
+//This is Iterator's ConcreteAggregate
+public class EnemyTileManager implements EnemyCollection{
     Random random = new Random();
     private BufferedImage[] enemyImgs;
     private ArrayList<Enemy> enemies= new ArrayList<>();
@@ -54,9 +53,9 @@ public class EnemyTileManager {
     public void TimeSpawnEnemy() {
         int randomInRange = random.nextInt(2);
         if(randomInRange == 0){
-            enemies.add(basicenemyfactory.CreatEnemy(32, 400, 0));
+            addEnemy(basicenemyfactory.CreatEnemy(32, 400, 0));
         }else if(randomInRange == 1){
-            enemies.add(fastenemyfactory.CreatEnemy(32, 400, 1));
+            addEnemy(fastenemyfactory.CreatEnemy(32, 400, 1));
         }
     }
 
@@ -83,8 +82,10 @@ public class EnemyTileManager {
         }
     }
 
+
+
     public void update(double money) {
-        Iterator<Enemy> iterator = enemies.iterator();
+        EnemyIterator iterator = (EnemyIterator) getIterator();
         while (iterator.hasNext()) {
             Enemy e = iterator.next();
             e.move();
@@ -94,10 +95,10 @@ public class EnemyTileManager {
                 EnemyDown = true;
                 money += 20.0;
                 this.money = money;
-                iterator.remove();
+                removeEnemy(e);
             }else if(e.getX() >= 1500){
                 concreteCastle.updateStatus("敵人成功攻城");
-                iterator.remove();
+                removeEnemy(e);
             }
         }
     }
@@ -118,5 +119,20 @@ public class EnemyTileManager {
 
     private int getNewHPBarWidth(Enemy e){
         return (int)(HPBarWidth * e.getHealthFloat());
+    }
+
+    @Override
+    public void addEnemy(Enemy enemy) {
+        enemies.add(enemy);
+    }
+
+    @Override
+    public void removeEnemy(Enemy enemy) {
+        enemies.remove(enemy);
+    }
+
+    @Override
+    public Iterator<Enemy> getIterator() {
+        return new EnemyTileManagerIterator(enemies);
     }
 }

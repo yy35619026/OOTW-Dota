@@ -4,27 +4,70 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="Final Version">
-      <change afterPath="$PROJECT_DIR$/src/Bridge/GameInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Bridge/Level2_GUI.java" afterDir="false" />
+    <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="Final Version!">
+      <change afterPath="$PROJECT_DIR$/src/Adapter/Adapter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Adapter/AdapterController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Adapter/Target.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Iterator/EnemyCollection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Iterator/EnemyIterator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Iterator/EnemyTileManagerIterator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ConcreteCastle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ConcreteCastle.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attackenemy/Observer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/Observer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ObserverCastleHP.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ObserverCastleHP.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attackenemy/ObserverEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/ObserverEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Attackenemy/Subjest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Attackenemy/Subjest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Backpaint/BackgroundPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Backpaint/BackgroundPanel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/ButtonSelector.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/ButtonSelector.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/CancelButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/CancelButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/ChooseButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/ChooseButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/DollarButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/DollarButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/FunctionButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/FunctionButton.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridge/GameInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/GameInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridge/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridge/InitScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/InitScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Bridge/Level2_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level2_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/SaveLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/SaveLevel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/TowerButton.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/TowerButton.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/CancelTowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/CancelTowerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/Command.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/Command.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/SellTowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/SellTowerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/TowerCommand.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/TowerCommand.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/TowerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Command/TowerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Command/UpgradeTowerCommand.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/BasicEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/BasicEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/BasicEnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/Constants.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/Constants.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/Enemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/Enemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/EnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/EnemyTileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/EnemyTileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/FastEnemy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/FastEnemy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/FastEnemyFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/FastEnemyFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/GameScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Enemy/LoadTile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Enemy/LoadTile.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Message/Failed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message/Failed.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Message/Success.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message/Success.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SaveVersions/Caretaker.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Caretaker.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SaveVersions/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Memento.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/SaveVersions/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Originator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Strategy/FastSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Strategy/FastSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Strategy/NormalSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Strategy/NormalSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Strategy/SlowSpeed.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Strategy/SlowSpeed.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Strategy/SpeedStrategy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Strategy/SpeedStrategy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/ArcherTowerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/FlameTowerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/LightningTowerFactory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tower/Tower.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/Tower.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/TowerArray.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerArray.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/TowerFactory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerFactory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tower/TowerPlacement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tower/TowerPlacement.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,21 +77,15 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="JUnit5 Test Class" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GithubProjectSettings">
-    <option name="branchProtectionPatterns">
-      <list>
-        <option value="master" />
-      </list>
-    </option>
+    <option name="RESET_MODE" value="HARD" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -61,22 +98,6 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
-    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
-    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
-    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
-    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/t0931/IdeaProjects/OOTW-Dota&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.scopes&quot;
-  }
-}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\t0931\IdeaProjects\OOTW-Dota\src" />
@@ -88,7 +109,7 @@
       <recent name="Bridge" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Game">
+  <component name="RunManager" selected="应用程序.Game">
     <configuration name="Game" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="Game" />
       <module name="OOTW-Dota" />

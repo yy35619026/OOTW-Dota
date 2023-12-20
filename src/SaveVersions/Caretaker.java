@@ -18,7 +18,7 @@ public class Caretaker {
         if(!history.isEmpty() && index >= 0 && index < history.size()){
             originator.restore(history.get(index));
             System.out.println("目前狀態： " + originator.getLevel());
-            originator.getLevel().getScreen();
+            originator.getLevel().create();
             return true;
         }else {
             System.out.println("History is null!");

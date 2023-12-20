@@ -3,11 +3,12 @@ package Command;
 import Tower.Tower;
 
 public class CancelTowerCommand implements Command {
-    // No specific tower needed for cancel operation
-
+    private TowerCommand towerCommand;
+    public CancelTowerCommand(TowerCommand towerCommand) {
+        this.towerCommand = towerCommand;
+    }
     @Override
     public void execute(double money, Tower tower) {
-        // Logic for cancel operation
-        System.out.println("Cancel operation");
+        towerCommand.cancel();
     }
 }

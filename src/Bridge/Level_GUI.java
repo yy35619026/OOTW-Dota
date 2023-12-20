@@ -9,6 +9,8 @@ import SaveVersions.Originator;
 import Strategy.*;
 import Tower.*;
 import Attackenemy.*;
+import Command.*;
+import Adapter.*;
 
 import javax.swing.*;
 import java.awt.*;
@@ -41,6 +43,10 @@ public abstract class Level_GUI extends JFrame implements Runnable, GameInfo{
     protected double money = 100.0;
     protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab, EnemyNumberLab, CastleHPLab;
     protected int limit = 0, enemynumber = 20, castlehp = 10;
+    TowerCommand tower = new TowerCommand();
+    SellTowerCommand sellCommand = new SellTowerCommand(tower);
+    CancelTowerCommand cancelCommand = new CancelTowerCommand(tower);
+    TowerController controller = new TowerController();
     public final void MainExecute(){
         settings();
         create();
@@ -240,6 +246,16 @@ public abstract class Level_GUI extends JFrame implements Runnable, GameInfo{
     protected void updateMoneyLabel(){
         moneyLabel.setText(String.valueOf(money));
     }
+    protected void sellcommandbutton(int x, int y){
+        controller.setCommand(sellCommand, money, towerArray.getTower(x, y));
+        controller.performAction();
+        money = sellCommand.getMoney();
+        updateMoneyLabel();
+    }
+    protected void cancelcommandbutton(int x, int y){
+        controller.setCommand(sellCommand, money, towerArray.getTower(x, y));
+        controller.performAction();
+    }
     protected int updateEnemyNumber(){
         enemynumberLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
         return backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber();
@@ -247,5 +263,14 @@ public abstract class Level_GUI extends JFrame implements Runnable, GameInfo{
     protected int updateCastleHP(){
         castlehpLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
         return backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP();
+    }
+
+    protected  void  Towerlvlup(int x,int y){
+        Adapter adapter = new Adapter();
+        Tower t = new ArcherTowerFactory().createTower();
+        AdapterController adc = new AdapterController(adapter,money,towerArray.getTower(x, y));
+        adc.towerlvlup();
+        money = adapter.getMoney();
+        updateMoneyLabel();
     }
 }

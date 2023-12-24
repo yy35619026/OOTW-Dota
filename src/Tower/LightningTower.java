@@ -11,6 +11,11 @@ public class LightningTower implements Tower{
         this.level = level;
         this.alertRange = alertRange;
     }
+    public void upgrade() {
+        this.level++;
+        this.cost += 30;
+        this.damage += (level - 1) * 18;
+    }
     @Override
     public double getCost() {
         return cost;

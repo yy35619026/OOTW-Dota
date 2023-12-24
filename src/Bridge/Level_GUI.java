@@ -44,6 +44,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
     protected JLabel moneyLabel, enemynumberLabel, castlehpLabel, GoldLab, EnemyNumberLab, CastleHPLab;
     protected int limit = 0, enemynumber = 20, castlehp = 10;
     TowerCommand tower = new TowerCommand();
+    UpgradeTowerCommand upgradeCommand = new UpgradeTowerCommand(tower);
     SellTowerCommand sellCommand = new SellTowerCommand(tower);
     CancelTowerCommand cancelCommand = new CancelTowerCommand(tower);
     TowerController controller = new TowerController();
@@ -242,6 +243,12 @@ public abstract class Level_GUI extends JFrame implements Runnable{
     protected void updateMoneyLabel(){
         moneyLabel.setText(String.valueOf(money));
     }
+    protected void upgradecommandbutton(int x, int y){
+        controller.setCommand(upgradeCommand, money, towerArray.getTower(x, y));
+        controller.performAction();
+        money = upgradeCommand.getMoney();
+        updateMoneyLabel();
+    }
     protected void sellcommandbutton(int x, int y){
         controller.setCommand(sellCommand, money, towerArray.getTower(x, y));
         controller.performAction();
@@ -249,7 +256,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
         updateMoneyLabel();
     }
     protected void cancelcommandbutton(int x, int y){
-        controller.setCommand(sellCommand, money, towerArray.getTower(x, y));
+        controller.setCommand(cancelCommand, money, towerArray.getTower(x, y));
         controller.performAction();
     }
     protected int updateEnemyNumber(){

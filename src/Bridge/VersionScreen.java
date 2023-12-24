@@ -32,7 +32,7 @@ public class VersionScreen extends GameScreen{
         //New Game
         buttons[0].addActionListener(e -> {
             Level_GUI level1Screen = new Level1_GUI();
-            level1Screen.MainExecute();
+            level1Screen.getScreen();
             SwingUtilities.getWindowAncestor(buttons[0]).dispose();
         });
         buttons[1].addActionListener(e -> {

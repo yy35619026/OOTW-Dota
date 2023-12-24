@@ -18,7 +18,7 @@ public class Failed extends Success{
         jFrame.setVisible(true);
         //Restart the Game
         buttons[1].addActionListener(e -> {
-            level.MainExecute();
+            level.getScreen();
             level.dispose();
             SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });

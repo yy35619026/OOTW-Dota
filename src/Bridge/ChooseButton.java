@@ -28,9 +28,4 @@ public class ChooseButton extends ButtonSelector{
         }
         return buttons;
     }
-
-    @Override
-    public void create() {
-
-    }
 }

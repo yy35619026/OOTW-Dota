@@ -22,9 +22,4 @@ public class CancelButton extends ButtonSelector{
         }
         return buttons;
     }
-
-    @Override
-    public void create() {
-
-    }
 }

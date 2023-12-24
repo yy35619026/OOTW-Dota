@@ -28,9 +28,4 @@ public class DollarButton extends ButtonSelector{
         }
         return buttons;
     }
-
-    @Override
-    public void create() {
-
-    }
 }

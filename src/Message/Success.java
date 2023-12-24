@@ -48,13 +48,13 @@ public class Success {
         jFrame.setVisible(true);
         //Next Game
         buttons[0].addActionListener(e -> {
-            level.MainExecute();
+            level.getScreen();
             level.dispose();
             SwingUtilities.getWindowAncestor(buttons[0]).dispose();
         });
         //Next Game
         buttons[1].addActionListener(e -> {
-            level.MainExecute();
+            level.getScreen();
             level.dispose();
             SwingUtilities.getWindowAncestor(buttons[1]).dispose();
         });

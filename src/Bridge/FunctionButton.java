@@ -32,9 +32,4 @@ public class FunctionButton extends ButtonSelector{
         }
         return buttons;
     }
-
-    @Override
-    public void create() {
-
-    }
 }

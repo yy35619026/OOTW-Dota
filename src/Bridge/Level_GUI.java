@@ -16,7 +16,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public abstract class Level_GUI extends JFrame implements Runnable, GameInfo{
+public abstract class Level_GUI extends JFrame implements Runnable{
     protected JFrame frame;
     protected BackgroundPanel backgroundPanel;
     protected ButtonSelector buttonSelector;
@@ -47,14 +47,10 @@ public abstract class Level_GUI extends JFrame implements Runnable, GameInfo{
     SellTowerCommand sellCommand = new SellTowerCommand(tower);
     CancelTowerCommand cancelCommand = new CancelTowerCommand(tower);
     TowerController controller = new TowerController();
-    public final void MainExecute(){
-        settings();
-        create();
-        start();
-    }
     public void setButtonSelector(ButtonSelector buttonSelector){
         this.buttonSelector = buttonSelector;
     }
+    public abstract void getScreen();
     protected void settings(){
         //視窗
         frame = new JFrame("關卡一");

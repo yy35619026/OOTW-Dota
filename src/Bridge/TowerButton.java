@@ -22,9 +22,4 @@ public class TowerButton extends ButtonSelector{
         }
         return buttons;
     }
-
-    @Override
-    public void create() {
-
-    }
 }

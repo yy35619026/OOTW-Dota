@@ -11,6 +11,11 @@ public class ArcherTower implements Tower{
         this.level = level;
         this.alertRange = alertRange;
     }
+    public void upgrade() {
+        this.level++;
+        this.cost += 10;
+        this.damage += (level - 1) * 12;
+    }
     @Override
     public double getCost() {
         return cost;

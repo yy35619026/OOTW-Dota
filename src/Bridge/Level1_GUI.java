@@ -265,7 +265,7 @@ public class Level1_GUI extends Level_GUI{
                 if (actionCommand.equals("change" + index)) {
                     shouldDrawCircle = false;
                     backgroundPanel.setCircle(circleX, circleY, 0, shouldDrawCircle);
-                    Towerlvlup(Originalx[index], Originaly[index]);
+                    upgradecommandbutton(Originalx[index], Originaly[index]);
                     backgroundPanel.remove(imageEscapeButton[index]);
                     backgroundPanel.remove(imageSellButton[index]);
                     backgroundPanel.remove(imageUpgradeButton[index]);

@@ -11,12 +11,12 @@ import Tower.*;
 import Attackenemy.*;
 import Command.*;
 import Adapter.*;
-
+import State.*;
 import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 
-public abstract class Level_GUI extends JFrame implements Runnable{
+public abstract class Level_GUI extends JFrame implements Runnable {
     protected JFrame frame;
     protected BackgroundPanel backgroundPanel;
     protected ButtonSelector buttonSelector;
@@ -28,8 +28,9 @@ public abstract class Level_GUI extends JFrame implements Runnable{
     Tower flameTower = flameTowerFactory.createTower();
     TowerArray towerArray = new TowerArray();
     protected JButton SaveGame, StopGame, RunGame, InitGame;
-    protected JButton[] buttons = {SaveGame, StopGame, RunGame, InitGame};
-    protected String[] icons = {"./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png", "./res/button/Back.png"};
+    protected JButton[] buttons = { SaveGame, StopGame, RunGame, InitGame };
+    protected String[] icons = { "./res/button/save.png", "./res/button/Pause.png", "./res/button/Continue.png",
+            "./res/button/Back.png" };
     protected boolean shouldDrawCircle = false;
     protected int circleX, circleY;
     protected ArrayList<Enemy> enemy;
@@ -48,12 +49,16 @@ public abstract class Level_GUI extends JFrame implements Runnable{
     SellTowerCommand sellCommand = new SellTowerCommand(tower);
     CancelTowerCommand cancelCommand = new CancelTowerCommand(tower);
     TowerController controller = new TowerController();
-    public void setButtonSelector(ButtonSelector buttonSelector){
+    private State state;
+
+    public void setButtonSelector(ButtonSelector buttonSelector) {
         this.buttonSelector = buttonSelector;
     }
+
     public abstract void getScreen();
-    protected void settings(){
-        //視窗
+
+    protected void settings() {
+        // 視窗
         frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
@@ -63,17 +68,17 @@ public abstract class Level_GUI extends JFrame implements Runnable{
         backgroundPanel.setLayout(null);
         frame.setContentPane(backgroundPanel);
 
-        //創建JLabel
+        // 創建JLabel
         moneyLabel = createLabel(String.valueOf(money), frame.getWidth() / 2 + 50, 0);
         enemynumberLabel = createLabel(String.valueOf(enemynumber), frame.getWidth() / 2 - 350, 0);
         castlehpLabel = createLabel(String.valueOf(castlehp), frame.getWidth() / 2 - 750, 0);
 
-        //創建JLabel with icon
+        // 創建JLabel with icon
         GoldLab = createImageLabel("./res/button/Gold.png", frame.getWidth() / 2, 0);
         EnemyNumberLab = createImageLabel("./res/button/GG.png", frame.getWidth() / 2 - 400, 0);
         CastleHPLab = createImageLabel("./res/button/Heart.png", frame.getWidth() / 2 - 800, 0);
 
-        //將JLabel添加到JFrame
+        // 將JLabel添加到JFrame
         frame.getContentPane().add(moneyLabel);
         frame.getContentPane().add(enemynumberLabel);
         frame.getContentPane().add(castlehpLabel);
@@ -81,7 +86,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
         frame.getContentPane().add(EnemyNumberLab);
         frame.getContentPane().add(CastleHPLab);
 
-        for(int i = 0 ; i < buttons.length ; i++){
+        for (int i = 0; i < buttons.length; i++) {
             buttons[i] = new JButton();
             ImageIcon icon = new ImageIcon(icons[i]);
             Image scaledImage = icon.getImage().getScaledInstance(50, 50, Image.SCALE_SMOOTH);
@@ -96,34 +101,38 @@ public abstract class Level_GUI extends JFrame implements Runnable{
         }
 
         buttons[1].addActionListener(e -> {
-            isRunning = false;
+            setState(new ConcreteStateStop(isRunning));
+            isRunning = state.Handle();
         });
 
         buttons[2].addActionListener(e -> {
-            isRunning = true;
+            setState(new ConcreteStateGo(isRunning));
+            isRunning = state.Handle();
         });
         buttons[3].addActionListener(e -> {
-            VersionScreen versionScreen = new VersionScreen();
-            versionScreen.getScreen();
-            SwingUtilities.getWindowAncestor(buttons[3]).dispose();
+            setState(new ConcreteStateRE(buttons));
+            state.ReGm();
         });
     }
-    protected void start(){
+
+    protected void start() {
         gameThread = new Thread(this);
         gameThread.start();
     }
-//    public void GoRunning(){
-//        isRunning = true;
-//    }
-//    public void stopRunning() {
-//        isRunning = false;
-//    }
+
+    // public void GoRunning(){
+    // isRunning = true;
+    // }
+    // public void stopRunning() {
+    // isRunning = false;
+    // }
     private JLabel createLabel(String text, int x, int y) {
         JLabel label = new JLabel(text);
         label.setBounds(x, y, 100, 50);
         label.setFont(new Font("Arial", Font.PLAIN, 20));
         return label;
     }
+
     private JLabel createImageLabel(String imagePath, int x, int y) {
         JLabel label = new JLabel();
         ImageIcon icon = new ImageIcon(imagePath);
@@ -133,6 +142,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
         label.setBounds(x, y, 100, 50);
         return label;
     }
+
     @Override
     public void run() {
         double timePerFrame = 1000000000.0 / FPS_SET;
@@ -149,7 +159,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
 
         while (true) {
             now = System.nanoTime();
-            if(isRunning) {
+            if (isRunning) {
                 // Render
                 if (now - lastFrame >= timePerFrame) {
                     backgroundPanel.repaint();
@@ -163,7 +173,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
                     updates++;
                 }
                 if (System.currentTimeMillis() - lastTimeCheck >= 1000) {
-                    //System.out.println("FPS: " + frames + " | UPS: " + updates);
+                    // System.out.println("FPS: " + frames + " | UPS: " + updates);
                     frames = 0;
                     updates = 0;
                     lastTimeCheck = System.currentTimeMillis();
@@ -183,7 +193,7 @@ public abstract class Level_GUI extends JFrame implements Runnable{
     }
 
     private void checkTime() {
-        if(limit <20){
+        if (limit < 20) {
             backgroundPanel.enemyTileManager.TimeSpawnEnemy();
             limit++;
         }
@@ -191,89 +201,108 @@ public abstract class Level_GUI extends JFrame implements Runnable{
 
     protected void updatesEnemy() {
         backgroundPanel.enemyTileManager.update(money);
-        if(backgroundPanel.enemyTileManager.isEnemyDown()){
+        if (backgroundPanel.enemyTileManager.isEnemyDown()) {
             money = backgroundPanel.enemyTileManager.getMoney();
         }
         updateMoneyLabel();
         updateEnemyNumber();
         updateCastleHP();
-        if(updateEnemyNumber() == 0){
+        if (updateEnemyNumber() == 0) {
             Success success = new Success();
             success.win(new Level1_GUI());
             Towerlist.clear();
             isRunning = false;
         }
-        if (updateCastleHP() == 0){
+        if (updateCastleHP() == 0) {
             Failed failed = new Failed();
             failed.lose(new Level1_GUI());
             Towerlist.clear();
             isRunning = false;
         }
     }
+
     protected void updatesAttack() {
-        for(Enemy e:enemy){
-            for (TowerPlacement t:Towerlist) {
-                if(isInRange(e,t)){
+        for (Enemy e : enemy) {
+            for (TowerPlacement t : Towerlist) {
+                if (isInRange(e, t)) {
                     e.beAttack(t.getTower().getDamage());
-                }else{
-                    //System.out.println("No");
+                } else {
+                    // System.out.println("No");
                 }
             }
         }
     }
-    protected boolean isInRange(Enemy e, TowerPlacement t) {
-        int range = GetHypoDistance(e.getX(),e.getY(),t.getX(),t.getY());
-        return range < (t.getTower().getAlertRange()/2);
-    }
-    protected static int GetHypoDistance(float x1, float y1 , int x2, int y2){
-        float XDiff = Math.abs(x1-x2);
-        float YDiff = Math.abs(y1-y2);
 
-        return (int) Math.hypot(XDiff,YDiff);
+    protected boolean isInRange(Enemy e, TowerPlacement t) {
+        int range = GetHypoDistance(e.getX(), e.getY(), t.getX(), t.getY());
+        return range < (t.getTower().getAlertRange() / 2);
     }
+
+    protected static int GetHypoDistance(float x1, float y1, int x2, int y2) {
+        float XDiff = Math.abs(x1 - x2);
+        float YDiff = Math.abs(y1 - y2);
+
+        return (int) Math.hypot(XDiff, YDiff);
+    }
+
     protected void checkHP() {
-        for(Enemy e:enemy){
-            if(e.getHealth()<e.getMaxhealth()*2/3){
+        for (Enemy e : enemy) {
+            if (e.getHealth() < e.getMaxhealth() * 2 / 3) {
                 e.setStrategy(normal);
-            }else if(e.getHealth()<e.getMaxhealth()/3) {
+            } else if (e.getHealth() < e.getMaxhealth() / 3) {
                 e.setStrategy(slow);
             }
         }
     }
-    protected void updateMoneyLabel(){
+
+    protected void updateMoneyLabel() {
         moneyLabel.setText(String.valueOf(money));
     }
-    protected void upgradecommandbutton(int x, int y){
+
+    protected void upgradecommandbutton(int x, int y) {
         controller.setCommand(upgradeCommand, money, towerArray.getTower(x, y));
         controller.performAction();
         money = upgradeCommand.getMoney();
         updateMoneyLabel();
     }
-    protected void sellcommandbutton(int x, int y){
+
+    protected void sellcommandbutton(int x, int y) {
         controller.setCommand(sellCommand, money, towerArray.getTower(x, y));
         controller.performAction();
         money = sellCommand.getMoney();
         updateMoneyLabel();
     }
-    protected void cancelcommandbutton(int x, int y){
+
+    protected void cancelcommandbutton(int x, int y) {
         controller.setCommand(cancelCommand, money, towerArray.getTower(x, y));
         controller.performAction();
     }
-    protected int updateEnemyNumber(){
+
+    protected int updateEnemyNumber() {
         enemynumberLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber()));
         return backgroundPanel.enemyTileManager.getObserverEnemy().getEnemyNumber();
     }
-    protected int updateCastleHP(){
+
+    protected int updateCastleHP() {
         castlehpLabel.setText(String.valueOf(backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP()));
         return backgroundPanel.enemyTileManager.getObserverCastleHP().getCastleHP();
     }
 
-    protected  void  Towerlvlup(int x,int y){
+    protected void Towerlvlup(int x, int y) {
         Adapter adapter = new Adapter();
         Tower t = new ArcherTowerFactory().createTower();
-        AdapterController adc = new AdapterController(adapter,money,towerArray.getTower(x, y));
+        AdapterController adc = new AdapterController(adapter, money, towerArray.getTower(x, y));
         adc.towerlvlup();
         money = adapter.getMoney();
         updateMoneyLabel();
     }
+
+    public boolean getIsRunning() {
+        return isRunning;
+    }
+
+    public void setState(State state) {
+        this.state = state;
+    }
+
 }

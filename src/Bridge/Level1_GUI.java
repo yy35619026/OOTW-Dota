@@ -1,5 +1,6 @@
 package Bridge;
 
+import GameScreen.SaveLevel;
 import Tower.*;
 import Command.*;
 import javax.swing.*;
@@ -8,6 +9,7 @@ public class Level1_GUI extends Level_GUI{
     final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
     final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
     public void getScreen() {
+        frame = new JFrame("關卡一");
         settings();
         buttons[0].addActionListener(e -> {
             SaveLevel saveLevel = new SaveLevel();
@@ -15,12 +17,6 @@ public class Level1_GUI extends Level_GUI{
             saveLevel.getScreen();
 
         });
-        //Command按鈕
-        TowerCommand tower;
-        Command upgradeCommand;
-        SellTowerCommand sellCommand;
-        Command cancelCommand;
-        TowerController controller;
         //+-號按鈕
         setButtonSelector(new CancelButton());
         JButton[] imageAddButton = buttonSelector.getButton("./res/button/Add.png");

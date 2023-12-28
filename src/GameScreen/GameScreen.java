@@ -1,4 +1,4 @@
-package Bridge;
+package GameScreen;
 
 import Backpaint.BackgroundPanel;
 

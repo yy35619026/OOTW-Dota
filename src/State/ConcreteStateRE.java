@@ -1,6 +1,6 @@
 package State;
 
-import Bridge.VersionScreen;
+import GameScreen.VersionScreen;
 
 import javax.swing.*;
 

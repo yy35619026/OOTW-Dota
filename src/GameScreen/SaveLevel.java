@@ -1,4 +1,7 @@
-package Bridge;
+package GameScreen;
+
+import Bridge.Level1_GUI;
+import Bridge.Level_GUI;
 
 import javax.swing.*;
 import java.awt.*;

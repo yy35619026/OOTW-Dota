@@ -2,13 +2,11 @@ package Bridge;
 
 import Backpaint.BackgroundPanel;
 import Enemy.Enemy;
+import GameScreen.VersionScreen;
 import Message.Failed;
 import Message.Success;
-import SaveVersions.Caretaker;
-import SaveVersions.Originator;
 import Strategy.*;
 import Tower.*;
-import Attackenemy.*;
 import Command.*;
 import Adapter.*;
 import State.*;
@@ -34,8 +32,8 @@ public abstract class Level_GUI extends JFrame implements Runnable {
     protected boolean shouldDrawCircle = false;
     protected int circleX, circleY;
     protected ArrayList<Enemy> enemy;
-    protected ArrayList<TowerPlacement> Towerlist;
-    protected volatile boolean isRunning = true;
+    public ArrayList<TowerPlacement> Towerlist;
+    public volatile boolean isRunning = true;
     protected final double FPS_SET = 120.0;
     protected final double UPS_SET = 60.0;
     protected Thread gameThread;
@@ -59,7 +57,6 @@ public abstract class Level_GUI extends JFrame implements Runnable {
 
     protected void settings() {
         // 視窗
-        frame = new JFrame("關卡一");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.setLocationRelativeTo(null);
@@ -113,6 +110,12 @@ public abstract class Level_GUI extends JFrame implements Runnable {
             setState(new ConcreteStateRE(buttons));
             state.ReGm();
         });
+        //Command按鈕
+        TowerCommand tower;
+        Command upgradeCommand;
+        SellTowerCommand sellCommand;
+        Command cancelCommand;
+        TowerController controller;
     }
 
     protected void start() {

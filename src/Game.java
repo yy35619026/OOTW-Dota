@@ -1,6 +1,5 @@
-import Bridge.GameScreen;
-import Bridge.InitScreen;
-import Bridge.VersionScreen;
+import GameScreen.GameScreen;
+import GameScreen.InitScreen;
 
 public class Game {
     public static void main(String[] args) {

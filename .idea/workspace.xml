@@ -6,17 +6,11 @@
   <component name="ChangeListManager">
     <list default="true" id="933d2879-5261-418a-b7cb-5672efcb7c2a" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/GameScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen/GameScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/InitScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen/InitScreen.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level1_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level2_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level2_GUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Bridge/Level_GUI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/SaveLevel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen/SaveLevel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bridge/VersionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen/VersionScreen.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Game.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Memento.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Memento.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SaveVersions/Originator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/SaveVersions/Originator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/State/ConcreteStateRE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/State/ConcreteStateRE.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GameScreen/VersionScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GameScreen/VersionScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Message/Success.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Message/Success.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,22 +47,22 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Downloaded.Files.Path.Enabled": "true",
-    "Repository.Attach.Annotations": "false",
-    "Repository.Attach.JavaDocs": "true",
-    "Repository.Attach.Sources": "true",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary": "JUnit5",
-    "com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5": "",
-    "create.test.in.the.same.root": "true",
-    "last_opened_file_path": "C:/Users/t0931/IdeaProjects/OOTW-Dota",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "reference.settingsdialog.IDE.editor.colors"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
+    &quot;Repository.Attach.JavaDocs&quot;: &quot;true&quot;,
+    &quot;Repository.Attach.Sources&quot;: &quot;true&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary&quot;: &quot;JUnit5&quot;,
+    &quot;com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit5&quot;: &quot;&quot;,
+    &quot;create.test.in.the.same.root&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/t0931/IdeaProjects/OOTW-Dota&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settingsdialog.IDE.editor.colors&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\t0931\IdeaProjects\OOTW-Dota\src" />
@@ -210,7 +204,14 @@
       <option name="project" value="LOCAL" />
       <updated>1703420728453</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="最後衝刺階段2">
+      <created>1703744198694</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1703744198694</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -250,7 +251,8 @@
     <MESSAGE value="Final Version3" />
     <MESSAGE value="Final Version4" />
     <MESSAGE value="最後衝刺階段1" />
-    <option name="LAST_COMMIT_MESSAGE" value="最後衝刺階段1" />
+    <MESSAGE value="最後衝刺階段2" />
+    <option name="LAST_COMMIT_MESSAGE" value="最後衝刺階段2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

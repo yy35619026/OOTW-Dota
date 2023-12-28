@@ -293,8 +293,8 @@ public class Level2_GUI extends Level_GUI{
         }
 
         frame.setVisible(true);
-        start();
-        enemy = backgroundPanel.enemyTileManager.getEnemies();
-        Towerlist = LightningTowerFactory.getTowerlist();
+//        start();
+//        enemy = backgroundPanel.enemyTileManager.getEnemies();
+//        Towerlist = LightningTowerFactory.getTowerlist();
     }
 }

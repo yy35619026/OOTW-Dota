@@ -54,9 +54,17 @@ public abstract class Level_GUI extends JFrame implements Runnable {
     }
 
     public abstract void getScreen();
-
+    public void MainExecute(){
+        frame = new JFrame();
+        settings();
+        getScreen();
+        start();
+        enemy = backgroundPanel.enemyTileManager.getEnemies();
+        Towerlist = LightningTowerFactory.getTowerlist();
+    }
     protected void settings() {
         // 視窗
+
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.setLocationRelativeTo(null);
@@ -212,7 +220,7 @@ public abstract class Level_GUI extends JFrame implements Runnable {
         updateCastleHP();
         if (updateEnemyNumber() == 0) {
             Success success = new Success();
-            success.win(new Level1_GUI());
+            success.win(new Level2_GUI());
             Towerlist.clear();
             isRunning = false;
         }

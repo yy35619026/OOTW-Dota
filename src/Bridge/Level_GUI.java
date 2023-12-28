@@ -54,7 +54,7 @@ public abstract class Level_GUI extends JFrame implements Runnable {
     }
 
     public abstract void getScreen();
-    public void MainExecute(){
+    public final void MainExecute(){
         frame = new JFrame();
         settings();
         getScreen();
@@ -64,7 +64,6 @@ public abstract class Level_GUI extends JFrame implements Runnable {
     }
     protected void settings() {
         // 視窗
-
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.setSize(1600, 900);
         frame.setLocationRelativeTo(null);
@@ -130,13 +129,6 @@ public abstract class Level_GUI extends JFrame implements Runnable {
         gameThread = new Thread(this);
         gameThread.start();
     }
-
-    // public void GoRunning(){
-    // isRunning = true;
-    // }
-    // public void stopRunning() {
-    // isRunning = false;
-    // }
     private JLabel createLabel(String text, int x, int y) {
         JLabel label = new JLabel(text);
         label.setBounds(x, y, 100, 50);

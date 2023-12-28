@@ -5,7 +5,11 @@ import javax.swing.*;
 public abstract class ButtonSelector{
     final int AddCancelButW = 50;
     final int AddCancelButH = 50;
-    final int[] Originalx = {300, 600, 900, 1200, 150, 450, 750, 1050};
-    final int[] Originaly = {280, 280, 280, 280, 520, 520, 520, 520};
+    protected int[] Originalx;
+    protected int[] Originaly;
+    public ButtonSelector(int[] Originalx, int[] Originaly){
+        this.Originalx = Originalx;
+        this.Originaly = Originaly;
+    }
     public abstract JButton[] getButton(String image);
 }

@@ -4,6 +4,9 @@ import javax.swing.*;
 import java.awt.*;
 
 public class CancelButton extends ButtonSelector{
+    public CancelButton(int[] Originalx, int[] Originaly){
+        super(Originalx, Originaly);
+    }
     @Override
     public JButton[] getButton(String image) {
         JButton[] buttons = new JButton[Originalx.length];

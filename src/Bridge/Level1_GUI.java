@@ -18,30 +18,30 @@ public class Level1_GUI extends Level_GUI{
 
         });
         //+-號按鈕
-        setButtonSelector(new CancelButton());
+        setButtonSelector(new CancelButton(Originalx, Originaly));
         JButton[] imageAddButton = buttonSelector.getButton("./res/button/Add.png");
         JButton[] imageCancelButton = buttonSelector.getButton("./res/button/Cancel.png");
 
         //箭塔選項(雷電塔、可樂塔)
-        setButtonSelector(new ChooseButton());
+        setButtonSelector(new ChooseButton(Originalx, Originaly));
         JButton[] imageArcherChooseButton = buttonSelector.getButton("./res/Tower/tower1.png");
         JButton[] imageLightningChooseButton = buttonSelector.getButton("./res/Tower/tower2.png");
         JButton[] imageColaChooseButton = buttonSelector.getButton("./res/Tower/tower3.png");
 
         //箭塔金額(雷電塔、可樂塔)
-        setButtonSelector(new DollarButton());
+        setButtonSelector(new DollarButton(Originalx, Originaly));
         JButton[] imageArcherGoldChooseButton = buttonSelector.getButton("./res/Button/20dollar.png");
         JButton[] imageLightningGoldChooseButton = buttonSelector.getButton("./res/Button/50dollar.png");
         JButton[] imageColaGoldChooseButton = buttonSelector.getButton("./res/Button/80dollar.png");
 
         //箭塔、雷電塔、可樂塔生成
-        setButtonSelector(new TowerButton());
+        setButtonSelector(new TowerButton(Originalx, Originaly));
         JButton[] imageArcherButton = buttonSelector.getButton("./res/Tower/tower1.png");
         JButton[] imageLightningButton = buttonSelector.getButton("./res/Tower/tower2.png");
         JButton[] imageColaButton = buttonSelector.getButton("./res/Tower/tower3.png");
 
         //賣出、取消、升級按鈕
-        setButtonSelector(new FunctionButton());
+        setButtonSelector(new FunctionButton(Originalx, Originaly));
         JButton[] imageSellButton = buttonSelector.getButton("./res/button/Gold.png");
         JButton[] imageEscapeButton = buttonSelector.getButton("./res/button/Escape.png");
         JButton[] imageUpgradeButton = buttonSelector.getButton("./res/button/Upgrade.png");
